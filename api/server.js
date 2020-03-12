@@ -18,7 +18,7 @@ api.use(express.static(path.join(__dirname, "pages")));
 
 /** CONNECT TO DATABASE */
 const mongoString =
-  "mongodb+srv://Virgile:mate@clusterdci-w6r9z.azure.mongodb.net/todolist?retryWrites=true&w=majority";
+  "mongodb+srv://Virgile:mate@clusterdci-w6r9z.azure.mongodb.net/finalproject?retryWrites=true&w=majority";
 
 mongoose
   .connect(mongoString, {
@@ -31,8 +31,10 @@ mongoose
 
 /** ROUTES */
 const middleware = require("./middleware");
+const read = require("./routes/read");
 
 api.use(middleware.cors);
+api.use(read);
 
 /** EXPORT PATH */
 module.exports = api;
