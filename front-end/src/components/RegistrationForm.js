@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Checkbox from "./Checkbox";
 
 const initialState = {
   name: "",
@@ -60,7 +61,10 @@ const RegistrationForm = props => {
   };
 
   const handleSubmit = e => {
+    console.log("ENTERED VALIDATION");
     const isValid = validateForm();
+
+    console.log(isValid);
     if (!isValid) {
       console.log(isValid);
       //to discard default behaviors onSubmit event den svinei ta stoixeia tis formas kathe fora pou ta ipovallei o xristi
@@ -81,7 +85,7 @@ const RegistrationForm = props => {
 
   return (
     <div style={{ fontFamily: "Montserrat" }} className="container">
-      <div className="Registration Form">
+      <div className="Registration-Form">
         <div className="registrationBox">
           <h1
             style={{
@@ -116,6 +120,7 @@ const RegistrationForm = props => {
               onChange={handleEvent}
             />
           </div>
+          <Checkbox />
           <div>
             <label htmlFor="phone">Phone:</label>
             <input
@@ -127,9 +132,9 @@ const RegistrationForm = props => {
             />
           </div>
           <div>
-            <label htmlFor="password">Password</label>
+            <label htmlFor="password">Password:</label>
             <input
-              type="text"
+              type="password"
               name="password"
               value={state.password}
               required
@@ -145,8 +150,11 @@ const RegistrationForm = props => {
             <input type="text" name="languages" value="" />
           </div>
           <div>
-            <label htmlFor="comment">Comment</label>
+            <label htmlFor="comment">Comment:</label>
             <input type="text" name="comment" value="" />
+          </div>
+          <div className="submitButton">
+            <button type="submit">Send</button>
           </div>
         </form>
       </div>

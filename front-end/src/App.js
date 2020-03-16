@@ -1,5 +1,6 @@
 import React from "react";
 import RegistrationForm from "./components/RegistrationForm";
+import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
 function App() {
