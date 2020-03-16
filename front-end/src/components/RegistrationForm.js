@@ -44,11 +44,11 @@ const RegistrationForm = props => {
       setState({
         ...state,
         passwordError:
-          "Password must contain at least 8 characters, an uppercase letter,and a special character "
+          "Password must contain at least 8 characters, an uppercase,and a special character "
       });
       return false;
     }
-    const reg = "^[0-9]+$";
+    const reg = "^+[0-9]+$";
     if (!state.phone.match(reg) || state.phone < 13) {
       setState({
         ...state,
@@ -59,9 +59,25 @@ const RegistrationForm = props => {
     return true;
   };
 
-  //to discard default behaviors onSubmit event den svinei ta stoixeia tis formas kathe fora pou ta ipovallei o xristi
-  // onSubmit = e => {
-  //   e.preventDefault(); onSubmit={onSubmit}
+  const handleSubmit = e => {
+    const isValid = validateForm();
+    if (!isValid) {
+      console.log(isValid);
+      //to discard default behaviors onSubmit event den svinei ta stoixeia tis formas kathe fora pou ta ipovallei o xristi
+      e.preventDefault();
+      return;
+    }
+    console.log(state);
+    //to clear the form
+    setState(initialState);
+  };
+
+  const handleEvent = e => {
+    setState({
+      ...state,
+      [e.target.name]: e.target.value
+    });
+  };
 
   return (
     <div style={{ fontFamily: "Montserrat" }} className="container">
@@ -80,18 +96,35 @@ const RegistrationForm = props => {
             Registration Form
           </h1>
         </div>
-        <form noValidate>
+        <form noValidate onSubmit={handleSubmit}>
           <div>
             <label htmlFor="Name">Name* </label>
-            <input type="text" name="Name " value={state.name} />
+            <input
+              type="text"
+              name="Name "
+              value={state.name}
+              required
+              onChange={handleEvent}
+            />
           </div>
           <div>
             <label htmlFor="email">Email:</label>
-            <input type="email" name="email" value={state.email} required />
+            <input
+              type="email"
+              name="email"
+              value={state.email}
+              onChange={handleEvent}
+            />
           </div>
           <div>
             <label htmlFor="phone">Phone:</label>
-            <input type="text" name="phone" value={state.phone} required />
+            <input
+              type="text"
+              name="phone"
+              value={state.phone}
+              required
+              onChange={handleEvent}
+            />
           </div>
           <div>
             <label htmlFor="password">Password</label>
@@ -100,6 +133,7 @@ const RegistrationForm = props => {
               name="password"
               value={state.password}
               required
+              onChange={handleEvent}
             />
           </div>
           <div>
