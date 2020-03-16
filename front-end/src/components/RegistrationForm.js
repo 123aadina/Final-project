@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Checkbox from "./Checkbox";
+import DropdownList from "./DropdownList";
 
 const initialState = {
   name: "",
@@ -143,7 +144,7 @@ const RegistrationForm = props => {
           </div>
           <div>
             <label htmlFor="issues">Issues* </label>
-            <input type="text" name="issues" value="" />
+            <DropdownList />
           </div>
           <div>
             <label htmlFor="languages">Languages* </label>
