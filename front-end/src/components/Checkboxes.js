@@ -8,7 +8,7 @@ const CheckBoxBase = props => {
       ...state,
       checked: e.target.checked
     });
-    console.log(e.target.checked);
+    props.onChange(e);
   };
 
   return (
@@ -25,23 +25,4 @@ const CheckBoxBase = props => {
   );
 };
 
-const Checkboxes = () => {
-  const [state, setState] = useState({ checked: false });
-
-  const handleCheckboxChange = e => {
-    setState({
-      ...state,
-      checked: e.target.checked
-    });
-    console.log(e.target.checked);
-  };
-
-  return (
-    <div className="checkBoxes">
-      <CheckBoxBase textValue="I agree"></CheckBoxBase>
-      <CheckBoxBase textValue="I disagree"></CheckBoxBase>
-    </div>
-  );
-};
-
-export { Checkboxes, CheckBoxBase };
+export { CheckBoxBase };

@@ -5,8 +5,10 @@ import DropdownList from "./DropdownList";
 const initialState = {
   name: "",
   email: "",
+  emailChecked: false,
   password: "",
   phone: "",
+  agreeChecked: false,
   nameError: "",
   emailError: "",
   passwordError: "",
@@ -16,6 +18,20 @@ const initialState = {
 const RegistrationForm = props => {
   const [state, setState] = useState(initialState);
 
+  const handleAgreeCheckbox = e => {
+    setState({
+      ...state,
+      agreeChecked: e.target.checked
+    });
+  };
+
+  const handleEmailCheckbox = e => {
+    setState({
+      ...state,
+      emailChecked: e.target.checked
+    });
+  };
+
   //form validators
   const validateForm = () => {
     setState({
@@ -23,7 +39,8 @@ const RegistrationForm = props => {
       nameError: "",
       emailError: "",
       passwordError: "",
-      phoneError: ""
+      phoneError: "",
+      acceptTermsError: ""
     });
     if (state.name.length < 2 || state.name.length > 15) {
       setState({
@@ -58,6 +75,14 @@ const RegistrationForm = props => {
       });
       return false;
     }
+
+    if (!state.agreeChecked) {
+      setState({
+        ...state,
+        agreeTermsError: "Please accept the terms and conditions."
+      });
+      return false;
+    }
     return true;
   };
 
@@ -85,7 +110,7 @@ const RegistrationForm = props => {
   };
 
   return (
-    <div style={{ fontFamily: "Montserrat" }} className="container">
+    <div className="container">
       <div className="Registration-Form">
         <div className="registrationBox">
           <h1
@@ -121,7 +146,10 @@ const RegistrationForm = props => {
               onChange={handleEvent}
             />
           </div>
-          <CheckBoxBase textValue="I don't have an email" />
+          <CheckBoxBase
+            textValue="I don't have an email"
+            onChange={handleEmailCheckbox}
+          />
           <div>
             <label htmlFor="phone">Phone:</label>
             <input
@@ -154,10 +182,10 @@ const RegistrationForm = props => {
             <label htmlFor="comment">Comment:</label>
             <input type="text" name="comment" value="" />
           </div>
-          <div className="informationText">
-            <p>We will use this information on your behalf to help you</p>
-          </div>
-          <Checkboxes />
+          <CheckBoxBase
+            textValue="I agree to the terms and conditions."
+            onChange={handleAgreeCheckbox}
+          />
           <div className="submitButton">
             <button type="submit">Send</button>
           </div>
