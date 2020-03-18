@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Checkboxes, CheckBoxBase } from "./Checkboxes";
+import CheckBoxBase from "./Checkboxes";
 import DropdownList from "./DropdownList";
 
 const initialState = {
@@ -8,6 +8,8 @@ const initialState = {
   emailChecked: false,
   password: "",
   phone: "",
+  languages: "",
+  comment: "",
   agreeChecked: false,
   nameError: "",
   emailError: "",
@@ -40,6 +42,8 @@ const RegistrationForm = props => {
       emailError: "",
       passwordError: "",
       phoneError: "",
+      languagesError: "",
+      commentError: "",
       acceptTermsError: ""
     });
     if (state.name.length < 2 || state.name.length > 15) {
@@ -49,13 +53,18 @@ const RegistrationForm = props => {
       });
       return false;
     }
-    if (!state.email.includes("@")) {
+
+    if (
+      !state.email.includes("@") ||
+      (state.email === "" && !state.emailChecked === true)
+    ) {
       setState({
         ...state,
         emailError: "Please provide a valid email"
       });
       return false;
     }
+
     const strongRegex = new RegExp(
       "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})"
     );
@@ -72,6 +81,22 @@ const RegistrationForm = props => {
       setState({
         ...state,
         phoneError: "Please fill in a correct phone number"
+      });
+      return false;
+    }
+    if (state.language.length < 2 || state.language.length > 30) {
+      setState({
+        ...state,
+        languagesError: "Please choose a language"
+      });
+      return false;
+    }
+
+    if (state.comment.length < 10 || state.comment.length > 100) {
+      setState({
+        ...state,
+        commentError:
+          "You can fill in some information to let us know how can we help you"
       });
       return false;
     }
@@ -131,11 +156,12 @@ const RegistrationForm = props => {
             <label htmlFor="Name">Name* </label>
             <input
               type="text"
-              name="Name "
+              name="name"
               value={state.name}
               required
               onChange={handleEvent}
             />
+            {state.nameError}
           </div>
           <div>
             <label htmlFor="email">Email:</label>
@@ -145,6 +171,7 @@ const RegistrationForm = props => {
               value={state.email}
               onChange={handleEvent}
             />
+            {state.emailError}
           </div>
           <CheckBoxBase
             textValue="I don't have an email"
@@ -159,6 +186,7 @@ const RegistrationForm = props => {
               required
               onChange={handleEvent}
             />
+            {state.phoneError}
           </div>
           <div>
             <label htmlFor="password">Password:</label>
@@ -169,6 +197,7 @@ const RegistrationForm = props => {
               required
               onChange={handleEvent}
             />
+            {state.passwordError}
           </div>
           <div>
             <label htmlFor="issues">Issues* </label>
@@ -176,16 +205,31 @@ const RegistrationForm = props => {
           </div>
           <div>
             <label htmlFor="languages">Languages* </label>
-            <input type="text" name="languages" value="" />
+            <input
+              type="text"
+              name="languages"
+              value={state.languages}
+              placeholder="Which languages do you speak ?"
+              onChange={handleEvent}
+            />
+            {state.languagesError}
           </div>
           <div>
             <label htmlFor="comment">Comment:</label>
-            <input type="text" name="comment" value="" />
+            <input
+              type="text"
+              name="comment"
+              value={state.comment}
+              placeholder="I would like to get help with..."
+              onChange={handleEvent}
+            />
+            {state.commentError}
           </div>
           <CheckBoxBase
             textValue="I agree to the terms and conditions."
             onChange={handleAgreeCheckbox}
           />
+          {state.acceptTermsError}
           <div className="submitButton">
             <button type="submit">Send</button>
           </div>

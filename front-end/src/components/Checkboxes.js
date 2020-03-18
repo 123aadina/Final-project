@@ -25,4 +25,4 @@ const CheckBoxBase = props => {
   );
 };
 
-export { CheckBoxBase };
+export default CheckBoxBase;
