@@ -18,6 +18,7 @@ const CheckBoxBase = props => {
           type="checkbox"
           checked={state.checked}
           onChange={handleCheckboxChange}
+          required
         />
         <span>{props.textValue}</span>
       </label>

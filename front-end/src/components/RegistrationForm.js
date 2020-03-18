@@ -9,7 +9,7 @@ const initErrorState = {
   phoneError: "",
   languagesError: "",
   commentError: "",
-  acceptTermsError: ""
+  agreeTermsError: ""
 };
 
 const initialState = {
@@ -51,7 +51,6 @@ const RegistrationForm = props => {
     if (state.name.length < 2 || state.name.length > 15) {
       setState({
         ...state,
-        ...initErrorState,
         nameError: "Name should be more than 2 characters long"
       });
       return false;
@@ -62,7 +61,6 @@ const RegistrationForm = props => {
     ) {
       setState({
         ...state,
-        ...initErrorState,
         emailError: "Please provide a valid email"
       });
       return false;
@@ -79,15 +77,17 @@ const RegistrationForm = props => {
       });
       return false;
     }
-    const reg = "^+[0-9]+$";
-    if (!state.phone.match(reg) || state.phone < 13) {
+
+    const reg = new RegExp("^([+]{0,1})([0-9]+)");
+    if (!state.phone.match(reg) || state.phone.length > 13) {
       setState({
         ...state,
         phoneError: "Please fill in a correct phone number"
       });
       return false;
     }
-    if (state.language.length > 30) {
+
+    if (state.languages.length > 30) {
       setState({
         ...state,
         languagesError: "Please choose a language"
@@ -111,6 +111,7 @@ const RegistrationForm = props => {
       });
       return false;
     }
+
     return true;
   };
 
@@ -123,6 +124,7 @@ const RegistrationForm = props => {
     } else {
       //to clear the form
       setState(initialState);
+      e.preventDefault();
     }
   };
 
@@ -228,9 +230,8 @@ const RegistrationForm = props => {
           <CheckBoxBase
             textValue="I agree to the terms and conditions."
             onChange={handleAgreeCheckbox}
-            required
           />
-          {state.acceptTermsError}
+          <div>{state.agreeTermsError}</div>
           <div className="submitButton">
             <button type="submit">Send</button>
           </div>
