@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Checkbox from "./Checkbox";
+import { Checkboxes, CheckBoxBase } from "./Checkboxes";
 import DropdownList from "./DropdownList";
 
 const initialState = {
@@ -121,7 +121,7 @@ const RegistrationForm = props => {
               onChange={handleEvent}
             />
           </div>
-          <Checkbox />
+          <CheckBoxBase textValue="I don't have an email" />
           <div>
             <label htmlFor="phone">Phone:</label>
             <input
@@ -154,6 +154,10 @@ const RegistrationForm = props => {
             <label htmlFor="comment">Comment:</label>
             <input type="text" name="comment" value="" />
           </div>
+          <div className="informationText">
+            <p>We will use this information on your behalf to help you</p>
+          </div>
+          <Checkboxes />
           <div className="submitButton">
             <button type="submit">Send</button>
           </div>
