@@ -1,6 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import CheckBoxBase from "./Checkboxes";
 import DropdownList from "./DropdownList";
+
+const initErrorState = {
+  nameError: "",
+  emailError: "",
+  passwordError: "",
+  phoneError: "",
+  languagesError: "",
+  commentError: "",
+  acceptTermsError: ""
+};
 
 const initialState = {
   name: "",
@@ -11,10 +21,7 @@ const initialState = {
   languages: "",
   comment: "",
   agreeChecked: false,
-  nameError: "",
-  emailError: "",
-  passwordError: "",
-  phoneError: ""
+  ...initErrorState
 };
 
 const RegistrationForm = props => {
@@ -38,28 +45,24 @@ const RegistrationForm = props => {
   const validateForm = () => {
     setState({
       ...state,
-      nameError: "",
-      emailError: "",
-      passwordError: "",
-      phoneError: "",
-      languagesError: "",
-      commentError: "",
-      acceptTermsError: ""
+      ...initErrorState
     });
+
     if (state.name.length < 2 || state.name.length > 15) {
       setState({
         ...state,
+        ...initErrorState,
         nameError: "Name should be more than 2 characters long"
       });
       return false;
     }
-
     if (
       !state.email.includes("@") ||
       (state.email === "" && !state.emailChecked === true)
     ) {
       setState({
         ...state,
+        ...initErrorState,
         emailError: "Please provide a valid email"
       });
       return false;
@@ -84,7 +87,7 @@ const RegistrationForm = props => {
       });
       return false;
     }
-    if (state.language.length < 2 || state.language.length > 30) {
+    if (state.language.length > 30) {
       setState({
         ...state,
         languagesError: "Please choose a language"
@@ -92,7 +95,7 @@ const RegistrationForm = props => {
       return false;
     }
 
-    if (state.comment.length < 10 || state.comment.length > 100) {
+    if (state.comment.length > 100) {
       setState({
         ...state,
         commentError:
@@ -112,24 +115,21 @@ const RegistrationForm = props => {
   };
 
   const handleSubmit = e => {
-    console.log("ENTERED VALIDATION");
     const isValid = validateForm();
 
-    console.log(isValid);
     if (!isValid) {
-      console.log(isValid);
       //to discard default behaviors onSubmit event den svinei ta stoixeia tis formas kathe fora pou ta ipovallei o xristi
       e.preventDefault();
-      return;
+    } else {
+      //to clear the form
+      setState(initialState);
     }
-    console.log(state);
-    //to clear the form
-    setState(initialState);
   };
 
   const handleEvent = e => {
     setState({
       ...state,
+      ...initErrorState,
       [e.target.name]: e.target.value
     });
   };
@@ -161,7 +161,7 @@ const RegistrationForm = props => {
               required
               onChange={handleEvent}
             />
-            {state.nameError}
+            <div>{state.nameError}</div>
           </div>
           <div>
             <label htmlFor="email">Email:</label>
@@ -228,6 +228,7 @@ const RegistrationForm = props => {
           <CheckBoxBase
             textValue="I agree to the terms and conditions."
             onChange={handleAgreeCheckbox}
+            required
           />
           {state.acceptTermsError}
           <div className="submitButton">
