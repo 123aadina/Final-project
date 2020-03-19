@@ -1,12 +1,12 @@
 const express = require("express");
-const { User } = require("./dbRegistration");
+const { User } = require("./dbRegistration.js");
 const { cors } = require("../middleware");
 const app = express();
 const bcrypt = require(bcrypt);
-const session = require(session);
+const session = require("express-session");
 
 //setting the middleware
-app.use(express.json);
+app.use(express.json)();
 app.use(session({ secret: "ssshhhhh" }));
 app.use(cors());
 
