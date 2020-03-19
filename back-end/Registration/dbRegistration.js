@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-// //setting the connection with Atlas
+// setting the connection with Atlas
 // const strMongoConnection = "";
 // mongoose
 //   .connect(strMongoConnection, {
@@ -19,7 +19,12 @@ const User = mongoose.model(
     name: { type: string, required: true },
     email: { type: string, required: true },
     password: { type: string, required: true },
-    phone: { type: string, required: true }
+    phone: { type: string, required: true },
+    issues: { type: string, required: true },
+    languages: { type: string, required: true },
+    comment: { type: string, required: true },
+    emailChecked: { type: string, required: true },
+    agreeChecked: { type: string, required: true }
   })
 );
 
