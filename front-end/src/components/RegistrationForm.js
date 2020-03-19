@@ -103,7 +103,12 @@ const RegistrationForm = props => {
       });
       return false;
     }
+    if (!validateAgreeTerms()) return false;
 
+    return true;
+  };
+
+  const validateAgreeTerms = () => {
     if (!state.agreeChecked) {
       setState({
         ...state,
@@ -111,7 +116,6 @@ const RegistrationForm = props => {
       });
       return false;
     }
-
     return true;
   };
 
@@ -173,7 +177,7 @@ const RegistrationForm = props => {
               value={state.email}
               onChange={handleEvent}
             />
-            {state.emailError}
+            <div>{state.emailError}</div>
           </div>
           <CheckBoxBase
             textValue="I don't have an email"
@@ -188,7 +192,7 @@ const RegistrationForm = props => {
               required
               onChange={handleEvent}
             />
-            {state.phoneError}
+            <div>{state.phoneError}</div>
           </div>
           <div>
             <label htmlFor="password">Password:</label>
@@ -199,7 +203,7 @@ const RegistrationForm = props => {
               required
               onChange={handleEvent}
             />
-            {state.passwordError}
+            <div>{state.passwordError}</div>
           </div>
           <div>
             <label htmlFor="issues">Issues* </label>
@@ -214,7 +218,7 @@ const RegistrationForm = props => {
               placeholder="Which languages do you speak ?"
               onChange={handleEvent}
             />
-            {state.languagesError}
+            <div>{state.languagesError}</div>
           </div>
           <div>
             <label htmlFor="comment">Comment:</label>
@@ -225,7 +229,7 @@ const RegistrationForm = props => {
               placeholder="I would like to get help with..."
               onChange={handleEvent}
             />
-            {state.commentError}
+            <div>{state.commentError}</div>
           </div>
           <CheckBoxBase
             textValue="I agree to the terms and conditions."
