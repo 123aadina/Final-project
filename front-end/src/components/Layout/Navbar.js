@@ -11,23 +11,68 @@ const Navbar = ({ icon, title }) => {
   };
 
   return (
-    <nav className="navbar bg-primary">
-      <h1>
+    <nav className="navbar navbar-expand-xs ">
+      <Link to="#">
+        {/* Placeholder for the futur icon  */}
         <i className={icon}></i>
-      </h1>
-      <button onClick={() => handleOnClick("en")}>English</button>
-      <button onClick={() => handleOnClick("de")}>Deutsch</button>
-      <button onClick={() => handleOnClick("fe")}>French</button>
-      <button onClick={() => handleOnClick("fr")}>Farsi</button>
-      <button onClick={() => handleOnClick("ar")}>Arabic</button>
-      <button onClick={() => handleOnClick("tu")}>Turkish</button>
+      </Link>
+      <ul className="navbar-nav">
+        <li>
+          <button
+            onClick={() => handleOnClick("ar")}
+            className="btn btn-light mx-2 "
+          >
+            Arabic
+          </button>
+        </li>
+        <li>
+          {" "}
+          <button
+            onClick={() => handleOnClick("de")}
+            className="nav-item btn btn-light mx-2"
+          >
+            Deutsch
+          </button>
+        </li>
+        <li>
+          {" "}
+          <button
+            onClick={() => handleOnClick("en")}
+            className="nav-item btn btn-light mx-2"
+          >
+            English
+          </button>
+        </li>
+
+        <li>
+          <button
+            onClick={() => handleOnClick("fe")}
+            className="nav-item btn btn-light mx-2"
+          >
+            French
+          </button>
+        </li>
+        <li>
+          <button
+            onClick={() => handleOnClick("fr")}
+            className="nav-item btn btn-light mx-2"
+          >
+            Farsi
+          </button>
+        </li>
+
+        <li>
+          <button
+            onClick={() => handleOnClick("tu")}
+            className="nav-item btn btn-light"
+          >
+            Turkish
+          </button>
+        </li>
+      </ul>
       <h1>
         <i className={title}></i>
       </h1>
-      <ul>
-        <li></li>
-        <li></li>
-      </ul>
     </nav>
   );
 };
