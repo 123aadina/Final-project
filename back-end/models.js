@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 
 //model for Users
+/*
 const User = mongoose.model(
   "Users",
   new mongoose.Schema(
@@ -14,7 +15,7 @@ const User = mongoose.model(
     },
     { versionKey: false }
   )
-);
+);*/
 
 
 //model for Translation
@@ -66,9 +67,9 @@ const Problem = mongoose.model(
 );
 
 
-module.exports = { User, Orgnation, Problem };
+module.exports = {Orgnation, Problem };
 
 /*
-, Translation,
+, Translation, User, 
  nav: { type: Object },
 org: { type: Object }, */
