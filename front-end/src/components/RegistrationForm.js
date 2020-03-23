@@ -137,22 +137,10 @@ const RegistrationForm = props => {
   };
 
   return (
-    <div className="container">
-      <div className="Registration-Form">
-        <div className="registrationBox">
-          <h1
-            style={{
-              fontSize: "14px",
-              fontWeight: "bold",
-              width: "200px",
-              backgroundColor: "#FFFFFF",
-              boxShadow: "0px 8px 8px rgba(0, 0, 0, 0.25)",
-              textAlign: "center"
-            }}
-          >
-            Registration Form
-          </h1>
-        </div>
+    <div className="registration_container">
+      <div className="registration_form">
+        <h1 className="m-3 border-bottom"> Registration Form </h1>
+
         <form noValidate onSubmit={handleSubmit}>
           <div>
             <label htmlFor="Name">Name* </label>
