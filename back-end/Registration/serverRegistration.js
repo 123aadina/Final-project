@@ -17,8 +17,19 @@ app.use(cors());
 //  })
 // }
 
-//User Authodication and Schema for email ,password and
-app.get("user/signup", (req, res) => {});
+// Login a specific user
+// app.get("/login", (req, res) => {});
+
+//Register user and Schema for email ,password, name, issues ...
+app.get("/registration", (req, res) => {
+  let registerFormFields = req.body;
+  console.log(registerFormFields);
+  // Match fields from the frontend to DB field names
+  // Convert password to hash
+  User.create(registerFormFields, err => {
+    res.send();
+  });
+});
 
 //server listening on 8000;
 let port = 8000;
