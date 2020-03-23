@@ -12,11 +12,11 @@ const Navbar = ({ icon, title }) => {
 
   return (
     <nav className="navbar navbar-expand-xs ">
-      <Link to="#">
+      <Link to="/">
         {/* Placeholder for the futur icon  */}
         <i className={icon}></i>
       </Link>
-      <ul className="navbar-nav">
+      <ul className="navbar-nav mt-2">
         <li>
           <button
             onClick={() => handleOnClick("ar")}
