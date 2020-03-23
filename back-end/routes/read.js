@@ -9,12 +9,12 @@ const Problem = models.Problem;
 const { check, validationResult } = require('express-validator');
 
 //Get all users
-
+/*
 router.get("/users", (req, res, next) => {
   User.find().then(users => {
     res.send(users);
   });
-});
+});*/
 
 
 //Get all translations
