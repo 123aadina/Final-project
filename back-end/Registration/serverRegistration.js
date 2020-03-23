@@ -2,11 +2,11 @@ const express = require("express");
 const { User } = require("./dbRegistration.js");
 const { cors } = require("../middleware");
 const app = express();
-const bcrypt = require(bcrypt);
+const bcrypt = require("bcrypt");
 const session = require("express-session");
 
 //setting the middleware
-app.use(express.json)();
+app.use(express.json);
 app.use(express.urlencoded({ extended: true }));
 app.use(session({ secret: "ssshhhhh" }));
 app.use(cors());
@@ -23,10 +23,6 @@ app.get("/registration", (req, res) => {
   let registerFormFields = req.body;
   console.log(registerFormFields);
   // Match fields from the frontend to DB field names
-  let match = req.body(registerFormFields);
-  if (match) {
-    return res.send();
-  }
 
   // Convert password to hash
   let hashedPassword = User.map(user => {
