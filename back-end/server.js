@@ -18,7 +18,7 @@ api.use(express.static(path.join(__dirname, "pages")));
 
 /** CONNECT TO DATABASE */
 const mongoString =
-  "mongodb+srv://Virgile:mate@clusterdci-w6r9z.azure.mongodb.net/finalproject?retryWrites=true&w=majority";
+  "mongodb+srv://hamida:hamida@cluster0-idevj.mongodb.net/final-project?retryWrites=true&w=majority";
 
 mongoose
   .connect(mongoString, {
