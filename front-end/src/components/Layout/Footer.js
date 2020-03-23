@@ -21,6 +21,9 @@ const Footer = () => {
           <li className="mx-2 pt-3 text-secondary">
             Women Voice 2020 @ All right reserved
           </li>
+          <li className="mx-2 pt-3 text-secondary">
+            <Link to="/registration"> Register </Link>
+          </li>
         </ul>
       </footer>
     </div>
