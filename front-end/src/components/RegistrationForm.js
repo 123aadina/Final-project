@@ -133,7 +133,7 @@ const RegistrationForm = props => {
       //to clear the form
       setState(initialState);
       e.preventDefault();
-      // fetch to send the form back to backend as jason/registration
+      // fetch to send the registration form back to backend as jason/
       fetch("http:/localhost:3000/registration", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
