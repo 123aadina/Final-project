@@ -5,6 +5,8 @@ const DropdownList = () => {
 
   const handleCategoryChange = e => {
     setCategory(category);
+    //passing the change of the state of the dropdown list from registration form
+    props.onChange(category);
   };
 
   return (

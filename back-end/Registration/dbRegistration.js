@@ -25,8 +25,8 @@ const User = mongoose.model(
     issues: { type: String, required: true },
     languages: { type: String, required: true },
     comment: { type: String, required: true },
-    emailChecked: { type: String, required: true },
-    agreeChecked: { type: String, required: true }
+    emailChecked: { type: Boolean, required: true },
+    agreeChecked: { type: Boolean, required: true }
   })
 );
 
