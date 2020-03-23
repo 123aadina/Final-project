@@ -7,14 +7,18 @@ const session = require("express-session");
 
 //setting the middleware
 app.use(express.json)();
+app.use(express.urlencoded({ extended: true }));
 app.use(session({ secret: "ssshhhhh" }));
 app.use(cors());
 
-app.get("/user/:id", (req, res) => {
- user.password = users.map(user =>{
-   return user;
- })
-}
+// app.get("/user/:id", (req, res) => {
+//  user.password = users.map(user =>{
+//    return user;
+//  })
+// }
+
+//User Authodication and Schema for email ,password and
+app.get("user/signup", (req, res) => {});
 
 //server listening on 8000;
 let port = 8000;

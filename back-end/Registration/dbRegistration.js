@@ -7,6 +7,8 @@ const strMongoConnection =
 mongoose
   .connect(strMongoConnection, {
     useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false,
     useUnifiedTopology: true
   })
   .then(() => console.log("Connection worked"))
