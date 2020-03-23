@@ -23,6 +23,10 @@ app.get("/registration", (req, res) => {
   let registerFormFields = req.body;
   console.log(registerFormFields);
   // Match fields from the frontend to DB field names
+  let match = req.body(registerFormFields);
+  if (match) {
+    return res.send();
+  }
 
   // Convert password to hash
   let hashedPassword = User.map(user => {
