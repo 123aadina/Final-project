@@ -1,3 +1,4 @@
+// Google font
 @import url("https://fonts.googleapis.com/css?family=Montserrat");
 
 * {
@@ -8,7 +9,7 @@
 
 body {
   font-family: "Montserrat", sans-serif;
-  background-color: #f0f8fa;
+  background-color: #ffffff;
 }
 
 .navbar {
@@ -23,4 +24,40 @@ li {
   justify-content: space-between;
   list-style-type: none;
   text-decoration: none;
+}
+
+.homepage_container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.button_homepage {
+  // background-color: #f0f5fa;
+  display: flex;
+  justify-content: space-between;
+  button a {
+    text-decoration: none;
+    color: black;
+  }
+}
+
+.footer_container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background-color: #f0f8fa;
+
+  ul {
+    display: flex;
+    flex-direction: row;
+  }
+
+  a {
+    text-decoration: none;
+  }
 }
