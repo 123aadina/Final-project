@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import CheckBoxBase from "./Checkboxes";
 import DropdownList from "./DropdownList";
+import "../App.css";
 
 const initErrorState = {
   nameError: "",
@@ -22,6 +23,11 @@ const initialState = {
   comment: "",
   agreeChecked: false,
   ...initErrorState
+};
+
+const errorTextStyle = {
+  color: "red",
+  fontSize: "12px"
 };
 
 const RegistrationForm = props => {
@@ -103,7 +109,10 @@ const RegistrationForm = props => {
       });
       return false;
     }
+    return true;
+  };
 
+  const validateAgreeTerms = () => {
     if (!state.agreeChecked) {
       setState({
         ...state,
@@ -111,7 +120,6 @@ const RegistrationForm = props => {
       });
       return false;
     }
-
     return true;
   };
 
@@ -163,7 +171,7 @@ const RegistrationForm = props => {
               required
               onChange={handleEvent}
             />
-            <div>{state.nameError}</div>
+            <div style={errorTextStyle}>{state.nameError}</div>
           </div>
           <div>
             <label htmlFor="email">Email:</label>
@@ -173,7 +181,7 @@ const RegistrationForm = props => {
               value={state.email}
               onChange={handleEvent}
             />
-            {state.emailError}
+            <div style={errorTextStyle}>{state.emailError}</div>
           </div>
           <CheckBoxBase
             textValue="I don't have an email"
@@ -188,7 +196,7 @@ const RegistrationForm = props => {
               required
               onChange={handleEvent}
             />
-            {state.phoneError}
+            <div style={errorTextStyle}>{state.phoneError}</div>
           </div>
           <div>
             <label htmlFor="password">Password:</label>
@@ -199,7 +207,7 @@ const RegistrationForm = props => {
               required
               onChange={handleEvent}
             />
-            {state.passwordError}
+            <div style={errorTextStyle}>{state.passwordError}</div>
           </div>
           <div>
             <label htmlFor="issues">Issues* </label>
@@ -214,7 +222,7 @@ const RegistrationForm = props => {
               placeholder="Which languages do you speak ?"
               onChange={handleEvent}
             />
-            {state.languagesError}
+            <div style={errorTextStyle}>{state.languagesError}</div>
           </div>
           <div>
             <label htmlFor="comment">Comment:</label>
@@ -225,13 +233,13 @@ const RegistrationForm = props => {
               placeholder="I would like to get help with..."
               onChange={handleEvent}
             />
-            {state.commentError}
+            <div style={errorTextStyle}>{state.commentError}</div>
           </div>
           <CheckBoxBase
             textValue="I agree to the terms and conditions."
             onChange={handleAgreeCheckbox}
           />
-          <div>{state.agreeTermsError}</div>
+          <div style={errorTextStyle}>{state.agreeTermsError}</div>
           <div className="submitButton">
             <button type="submit">Send</button>
           </div>
