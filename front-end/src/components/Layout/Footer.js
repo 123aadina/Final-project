@@ -18,11 +18,15 @@ const Footer = () => {
               Info{" "}
             </Link>
           </li>
+          <li className="mx-2 pt-3 ">
+            <Link to="/registration" className="text-secondary">
+              {" "}
+              Register{" "}
+            </Link>
+          </li>
+
           <li className="mx-2 pt-3 text-secondary">
             Women Voice 2020 @ All right reserved
-          </li>
-          <li className="mx-2 pt-3 text-secondary">
-            <Link to="/registration"> Register </Link>
           </li>
         </ul>
       </footer>
