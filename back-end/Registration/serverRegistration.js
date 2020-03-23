@@ -10,6 +10,12 @@ app.use(express.json)();
 app.use(session({ secret: "ssshhhhh" }));
 app.use(cors());
 
+app.get("/user/:id", (req, res) => {
+ user.password = users.map(user =>{
+   return user;
+ })
+}
+
 //server listening on 8000;
 let port = 8000;
 app.listen(port, () => {
