@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-
+//model for Users
 const User = mongoose.model(
   "Users",
   new mongoose.Schema(
@@ -8,12 +8,16 @@ const User = mongoose.model(
       name: { type: String },
       email: { type: String, unique: true },
       phone: {type: Number},
-      password: { type: String }
+      password: { type: String },
+      languages: Object,
+      comment: String
     },
     { versionKey: false }
   )
 );
 
+
+//model for Translation
 const Translation = mongoose.model(
   "Translations",
   new mongoose.Schema(
@@ -30,12 +34,12 @@ const Translation = mongoose.model(
   )
 );
 
-
+//model for Orgnations
 const Orgnation = mongoose.model(
   "Orgnations",
   new mongoose.Schema(
     {
-      name: String ,
+      name:{ type: String, required: true },
       description: String,
       category: String,
       link: { type: String, required: true }
@@ -44,11 +48,13 @@ const Orgnation = mongoose.model(
   )
 );
 
+
+//model for Problem
 const Problem = mongoose.model(
   "Problems",
   new mongoose.Schema(
     {
-      title: String ,
+      title: {type: String, required: true },
       orgnations : [
         {ref: "Orgnations",
          type:mongoose.Schema.Types.ObjectId,  }
