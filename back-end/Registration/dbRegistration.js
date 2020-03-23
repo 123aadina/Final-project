@@ -19,12 +19,12 @@ const User = mongoose.model(
   "User",
   new mongoose.Schema({
     name: { type: String, required: true },
-    email: { type: String, required: true },
+    email: { type: String, required: false },
     password: { type: String, required: true },
     phone: { type: String, required: true },
     issues: { type: String, required: true },
-    languages: { type: String, required: true },
-    comment: { type: String, required: true },
+    languages: { type: String, required: false },
+    comment: { type: String, required: false },
     emailChecked: { type: Boolean, required: true },
     agreeChecked: { type: Boolean, required: true }
   })

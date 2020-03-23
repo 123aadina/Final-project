@@ -270,6 +270,7 @@ const RegistrationForm = props => {
           </div>
           <CheckBoxBase
             textValue="I agree to the terms and conditions."
+            required
             onChange={handleAgreeCheckbox}
           />
           <div style={errorTextStyle}>{state.agreeTermsError}</div>
