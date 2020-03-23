@@ -135,7 +135,7 @@ const RegistrationForm = props => {
       e.preventDefault();
 
       // fetch to send the registration form back to backend as jason/
-      fetch("http:/localhost:3000/registration", {
+      fetch("http:/localhost:8000/registration", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
