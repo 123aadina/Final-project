@@ -9,6 +9,7 @@ const Problem = models.Problem;
 const { check, validationResult } = require('express-validator');
 
 //Get all users
+
 router.get("/users", (req, res, next) => {
   User.find().then(users => {
     res.send(users);
@@ -17,11 +18,12 @@ router.get("/users", (req, res, next) => {
 
 
 //Get all translations
+/*
 router.get("/translations", (req, res, next) => {
   Translation.find().then(translations => {
     res.send(translations);
   });
-});
+});*/
 
 
 //Get all orgnations

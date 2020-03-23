@@ -18,6 +18,7 @@ const User = mongoose.model(
 
 
 //model for Translation
+/*
 const Translation = mongoose.model(
   "Translations",
   new mongoose.Schema(
@@ -32,7 +33,7 @@ const Translation = mongoose.model(
     },
     { versionKey: false }
   )
-);
+);*/
 
 //model for Orgnations
 const Orgnation = mongoose.model(
@@ -65,7 +66,9 @@ const Problem = mongoose.model(
 );
 
 
-module.exports = { User, Translation, Orgnation, Problem };
+module.exports = { User, Orgnation, Problem };
 
-/* nav: { type: Object },
-      org: { type: Object }, */
+/*
+, Translation,
+ nav: { type: Object },
+org: { type: Object }, */
