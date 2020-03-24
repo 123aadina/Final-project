@@ -146,13 +146,16 @@ const RegistrationForm = props => {
 
   return (
     <div className="registration_container">
-      <div className="registration_form">
+      <div className="registration_form ">
         <h1 className="m-3 border-bottom"> Registration Form </h1>
 
+        {/* Form start here */}
         <form noValidate onSubmit={handleSubmit}>
-          <div>
-            <label htmlFor="Name">Name* </label>
+          {/* NAME */}
+          <div className="form-group">
+            <label htmlFor="Name"> Name: *</label>
             <input
+              className="form-control"
               type="text"
               name="name"
               value={state.name}
@@ -161,9 +164,12 @@ const RegistrationForm = props => {
             />
             <div style={errorTextStyle}>{state.nameError}</div>
           </div>
-          <div>
-            <label htmlFor="email">Email:</label>
+          {/* EMAIL */}
+          <div className="form-group">
+            <label htmlFor="email"> Email: </label>
             <input
+              className="form-control"
+              autoComplete="off"
               type="email"
               name="email"
               value={state.email}
@@ -171,13 +177,18 @@ const RegistrationForm = props => {
             />
             <div style={errorTextStyle}>{state.emailError}</div>
           </div>
-          <CheckBoxBase
-            textValue="I don't have an email"
-            onChange={handleEmailCheckbox}
-          />
-          <div>
-            <label htmlFor="phone">Phone:</label>
+          <div className="form-check checkbox_mail mt-2">
+            <CheckBoxBase
+              className="form-check-label"
+              textValue=" I don't have an email"
+              onChange={handleEmailCheckbox}
+            />
+          </div>
+          {/* PHONE NUMBER */}
+          <div className="form-group">
+            <label htmlFor="phone"> Phone: </label>
             <input
+              className="form-control"
               type="text"
               name="phone"
               value={state.phone}
@@ -186,9 +197,11 @@ const RegistrationForm = props => {
             />
             <div style={errorTextStyle}>{state.phoneError}</div>
           </div>
-          <div>
-            <label htmlFor="password">Password:</label>
+          {/* PASSWORD */}
+          <div className="form-group">
+            <label htmlFor="password"> Password: </label>
             <input
+              className="form-control"
               type="password"
               name="password"
               value={state.password}
@@ -197,13 +210,16 @@ const RegistrationForm = props => {
             />
             <div style={errorTextStyle}>{state.passwordError}</div>
           </div>
-          <div>
-            <label htmlFor="issues">Issues* </label>
+          {/* ISSUES */}
+          <div className="form-group ">
+            <label htmlFor="issues"> Issues: * </label>
             <DropdownList />
           </div>
-          <div>
-            <label htmlFor="languages">Languages* </label>
+          {/* LANGUAGES */}
+          <div className="form-group">
+            <label htmlFor="languages"> Languages: * </label>
             <input
+              className="form-control"
               type="text"
               name="languages"
               value={state.languages}
@@ -212,24 +228,37 @@ const RegistrationForm = props => {
             />
             <div style={errorTextStyle}>{state.languagesError}</div>
           </div>
-          <div>
-            <label htmlFor="comment">Comment:</label>
+
+          {/* COMMENT */}
+          <div className="form-group mt-2">
+            <label htmlFor="comment"> Comment: </label>
             <input
+              className="form-control"
               type="text"
               name="comment"
               value={state.comment}
-              placeholder="I would like to get help with..."
+              placeholder="Explain your issues here..."
               onChange={handleEvent}
             />
             <div style={errorTextStyle}>{state.commentError}</div>
           </div>
-          <CheckBoxBase
-            textValue="I agree to the terms and conditions."
-            onChange={handleAgreeCheckbox}
-          />
+          {/* CHECKBOX CONDITIONS AND TERMS */}
+          <div className="form-check checkbox_terms m-2">
+            <CheckBoxBase
+              className="form-check-label"
+              textValue=" I agree to the terms and conditions."
+              onChange={handleAgreeCheckbox}
+            />
+          </div>
+          {/* SUBMIT BUTTON */}
           <div style={errorTextStyle}>{state.agreeTermsError}</div>
-          <div className="submitButton">
-            <button type="submit">Send</button>
+          <div className="submitButton d-flex justify-content-center">
+            <button
+              type="submit"
+              className="btn btn-success font-weight-bolder border-bottom my-2 "
+            >
+              Submit
+            </button>
           </div>
         </form>
       </div>
