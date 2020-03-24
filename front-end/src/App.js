@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Navbar from './components/Layout/Navbar'
 import Home from './components/Pages/Home'
 import Info from './components/Pages/Info'
+import Dashhboard from './components/Dashboard'
 import RegistrationForm from "./components/RegistrationForm";
 import "./App.css";
 
@@ -13,6 +14,7 @@ function App() {
     <Router>
       <div className="App">
         <Navbar />
+        <Dashhboard />
         <header className="App-header">
         </header>
         <Switch>
