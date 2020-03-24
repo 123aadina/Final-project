@@ -31,7 +31,7 @@ const Home = () => {
           </Link>
         </button>
         <button className="btn btn-light border-bottom ">
-          <Link to="/" className="text-dark font-weight-bold ">
+          <Link to="/info" className="text-dark font-weight-bold ">
             {" "}
             Get more <br></br> informations{" "}
           </Link>
