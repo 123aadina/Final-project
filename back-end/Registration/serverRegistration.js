@@ -45,3 +45,7 @@ let port = 8000;
 app.listen(port, () => {
   console.log(`Server is now listening on port ${port}`);
 });
+
+//tha xreiastw middleware error handler?
+//authodication?
+//to token tha paei sto login
