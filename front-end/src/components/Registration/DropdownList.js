@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const DropdownList = () => {
+const DropdownList = props => {
   const [category, setCategory] = useState("");
 
   const handleCategoryChange = e => {

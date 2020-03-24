@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import CheckBoxBase from "./Checkboxes";
 import DropdownList from "./DropdownList";
-import "../App.css";
+import "../../App.css";
 
 const initErrorState = {
   nameError: "",
@@ -47,6 +47,7 @@ const RegistrationForm = props => {
       emailChecked: e.target.checked
     });
   };
+
   //to change the state of the dropdown menu on the form
   const handleIssueDropdown = category => {
     setState({

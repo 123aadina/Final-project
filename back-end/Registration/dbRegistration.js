@@ -22,10 +22,10 @@ const User = mongoose.model(
     email: { type: String, required: false },
     password: { type: String, required: true },
     phone: { type: String, required: true },
-    issues: { type: String, required: true },
+    issues: { type: Number, required: true },
     languages: { type: String, required: false },
     comment: { type: String, required: false },
-    emailChecked: { type: Boolean, required: true },
+    emailChecked: { type: Boolean, required: false },
     agreeChecked: { type: Boolean, required: true }
   })
 );

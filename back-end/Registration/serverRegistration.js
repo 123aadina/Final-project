@@ -4,6 +4,7 @@ const cors = require("cors");
 const app = express();
 const bcrypt = require("bcrypt");
 const session = require("express-session");
+const { validateForm } = require("./validationServer");
 
 //setting the middleware
 app.use(express.json());
