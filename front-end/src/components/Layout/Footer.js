@@ -3,20 +3,32 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <div className="pg-primary">
+    <div className="homepage_footer mt-5">
       <footer>
         <ul>
-          <li>
-            <Link to="/">Home</Link>
+          <li className="mx-2 pt-3 pl-3">
+            <Link to="/" className="text-secondary">
+              {" "}
+              Home{" "}
+            </Link>
           </li>
-          <li>
-            <Link to="/info">Info</Link>
+          <li className="mx-2 pt-3">
+            <Link to="/info" className="text-secondary">
+              {" "}
+              Info{" "}
+            </Link>
           </li>
-          <li>
-            <Link to="/registration">Register</Link>
+          <li className="mx-2 pt-3 ">
+            <Link to="/registration" className="text-secondary">
+              {" "}
+              Register{" "}
+            </Link>
+          </li>
+
+          <li className="mx-2 pt-3 text-secondary">
+            Women Voice 2020 @ All right reserved
           </li>
         </ul>
-        footer
       </footer>
     </div>
   );

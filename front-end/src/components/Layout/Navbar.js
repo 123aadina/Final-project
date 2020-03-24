@@ -1,53 +1,92 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import PropTypes from 'prop-types'
-import { useTranslation } from 'react-i18next';
-
+import React from "react";
+import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
+import { useTranslation } from "react-i18next";
 
 const Navbar = ({ icon, title }) => {
-    const { t, i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
 
-    const handleOnClick = (lang) => {
-        i18n.changeLanguage(lang)
-    }
+  const handleOnClick = lang => {
+    i18n.changeLanguage(lang);
+  };
 
-    return (
-        <nav className='navbar bg-primary'>
-            <h1>
-                <i className={icon}></i>
-            </h1>
-            <button onClick={() => handleOnClick('en')}>English</button>
-            <button onClick={() => handleOnClick('de')}>Deutch</button>
-            <button onClick={() => handleOnClick('fe')}>French</button>
-            <button onClick={() => handleOnClick('fr')}>Farsi</button>
-            <button onClick={() => handleOnClick('ar')}>Arbic</button>
-            <button onClick={() => handleOnClick('tu')}>Turkish</button>
-            <h1>
-                <i className={title}></i>
-            </h1>
-            <ul>
-                <li>
-                    
-                </li>
-                <li>
-                    
-                </li>
+  return (
+    <nav className="navbar navbar-expand-xs ">
+      <Link to="/">
+        {/* Placeholder for the futur icon  */}
+        <i className={icon}></i>
+      </Link>
+      <ul className="navbar-nav mt-2">
+        <li>
+          <button
+            onClick={() => handleOnClick("ar")}
+            className="btn btn-light mx-2 "
+          >
+            Arabic
+          </button>
+        </li>
+        <li>
+          {" "}
+          <button
+            onClick={() => handleOnClick("de")}
+            className="nav-item btn btn-light mx-2"
+          >
+            Deutsch
+          </button>
+        </li>
+        <li>
+          {" "}
+          <button
+            onClick={() => handleOnClick("en")}
+            className="nav-item btn btn-light mx-2"
+          >
+            English
+          </button>
+        </li>
 
-            </ul>
-        </nav>
-    )
-}
+        <li>
+          <button
+            onClick={() => handleOnClick("fe")}
+            className="nav-item btn btn-light mx-2"
+          >
+            French
+          </button>
+        </li>
+        <li>
+          <button
+            onClick={() => handleOnClick("fr")}
+            className="nav-item btn btn-light mx-2"
+          >
+            Farsi
+          </button>
+        </li>
+
+        <li>
+          <button
+            onClick={() => handleOnClick("tu")}
+            className="nav-item btn btn-light"
+          >
+            Turkish
+          </button>
+        </li>
+      </ul>
+      <h1>
+        <i className={title}></i>
+      </h1>
+    </nav>
+  );
+};
 
 Navbar.defaultProps = {
-    icon: 'fas fa-bars',
-    title: 'hello'
+  icon: "fas fa-bars",
+  title: "hello"
 };
 
 Navbar.propTypes = {
-    icon: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
+  icon: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired
 };
-export default Navbar
+export default Navbar;
 
 //<i class="fas fa-bars"></i>
 //<Link to='/'>Home</Link>

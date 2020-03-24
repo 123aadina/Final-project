@@ -1,0 +1,84 @@
+// Google font
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  background-color: #ffffff;
+}
+
+//Homepage Navbar
+.navbar {
+  display: flex;
+
+  ul {
+    display: flex;
+    flex-direction: row;
+  }
+  li {
+    justify-content: space-between;
+    list-style-type: none;
+    text-decoration: none;
+  }
+}
+
+// Main container
+.homepage_container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+//Button Get Help - Get more informations
+.homepage_buttons {
+  // background-color: #f0f5fa;
+  display: flex;
+  justify-content: space-between;
+  button a {
+    text-decoration: none;
+    color: black;
+  }
+}
+
+// Footer
+.homepage_footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background-color: #f0f8fa;
+
+  ul {
+    display: flex;
+    flex-direction: row;
+  }
+  li {
+    justify-content: space-between;
+    list-style-type: none;
+    text-decoration: none;
+  }
+
+  a {
+    text-decoration: none;
+  }
+}
+
+// Registration page styling
+
+.registration_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .registration_form {
+    justify-content: space-between;
+  }
+}
