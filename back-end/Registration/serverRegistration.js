@@ -29,6 +29,11 @@ app.post("/registration", (req, res) => {
   let hashedPassword = bcrypt.hashSync(registerFormFields.password, 10);
   console.log(hashedPassword);
 
+  if (validateForm(registerFormFields) === false) {
+    res.send(401);
+    return;
+  }
+
   registerFormFields.password = hashedPassword;
   User.create(registerFormFields, err => {
     if (err) {
