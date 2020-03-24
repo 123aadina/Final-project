@@ -18,7 +18,7 @@ api.use(express.static(path.join(__dirname, "pages")));
 
 /** CONNECT TO DATABASE */
 const mongoString =
-  "mongodb+srv://hamida:hamida@cluster0-idevj.mongodb.net/final-project?retryWrites=true&w=majority";
+  "mongodb+srv://hamida:hamida@cluster0-idevj.mongodb.net/final-projectn?retryWrites=true&w=majority";
 
 mongoose
   .connect(mongoString, {
