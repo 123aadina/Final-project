@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import CheckBoxBase from "./Checkboxes";
 import DropdownList from "./DropdownList";
+import Footer from "../components/Layout/Footer";
 import "../styles/App.scss";
 
 const initErrorState = {
@@ -255,13 +256,14 @@ const RegistrationForm = props => {
           <div className="submitButton d-flex justify-content-center">
             <button
               type="submit"
-              className="btn btn-success font-weight-bolder border-bottom my-2 "
+              className="btn btn-success font-weight-bolder border-bottom my-auto "
             >
               Submit
             </button>
           </div>
         </form>
       </div>
+      <Footer />
     </div>
   );
 };
