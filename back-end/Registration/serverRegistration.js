@@ -19,22 +19,30 @@ app.post("/registration", (req, res) => {
   console.log(registerFormFields);
   // Match fields from the frontend to DB field names
 
-  // Convert password to hash
-  let hashedPassword = bcrypt.hashSync(registerFormFields.password, 10);
-  console.log(hashedPassword);
-
   if (validateForm(registerFormFields) === false) {
     res.send(401);
     return;
   }
-
-  registerFormFields.password = hashedPassword;
-  User.create(registerFormFields, err => {
-    if (err) {
-      console.log(err);
+  //checking if the user exists in db
+  User.find({ name: registerFormFields.name }, (error, docs) => {
+    if (docs.length > 0) {
+      //user exists in db reject the request
+      console.log("User exists already");
       res.send(400);
     } else {
-      res.send(200);
+      //user does not exist so it is created
+      // Convert password to hash
+      let hashedPassword = bcrypt.hashSync(registerFormFields.password, 10);
+      console.log(hashedPassword);
+      registerFormFields.password = hashedPassword;
+      User.create(registerFormFields, err => {
+        if (err) {
+          console.log(err);
+          res.send(400);
+        } else {
+          res.send(200);
+        }
+      });
     }
   });
 });
