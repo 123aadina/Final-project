@@ -7,7 +7,7 @@ const Info = () => {
   return (
     <div>
       <Navbar />
-      <h1>Women rights in Germany</h1>
+      <h1> Women's rights in Germany </h1>
       <p>
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi
         doloribus, inventore ducimus molestias incidunt maiores obcaecati
