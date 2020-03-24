@@ -16,12 +16,14 @@ const Info = () => {
         </p>
       </div>
 
-      <button className="info_buttons ">
-        <Link to="/Info"> Get more Issues </Link>
-      </button>
-      <button>
-        <Link to="/register"> Get Help </Link>
-      </button>
+      <div className="info_buttons ">
+        <button className="btn btn-light mr-3 border-bottom">
+          <Link to="/Info"> Get more Issues </Link>
+        </button>
+        <button className="btn btn-light mr-3 border-bottom">
+          <Link to="/register"> Get Help </Link>
+        </button>
+      </div>
       <Footer />
     </div>
   );
