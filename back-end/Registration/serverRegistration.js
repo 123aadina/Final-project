@@ -12,13 +12,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(session({ secret: "ssshhhhh" }));
 app.use(cors());
 
-// app.get("/user/:id", (req, res) => {
-//  user.password = users.map(user =>{
-//    return user;
-//  })
-// }// Login a specific user
-// app.get("/login", (req, res) => {});
-
 //Register user and Schema for email ,password, name, issues ...
 app.post("/registration", (req, res) => {
   console.log("ENTERED");
@@ -55,3 +48,9 @@ app.listen(port, () => {
 //tha xreiastw middleware error handler?
 //authodication?
 //to token tha paei sto login
+// app.get("/user/:id", (req, res) => {
+//  user.password = users.map(user =>{
+//    return user;
+//  })
+// }// Login a specific user
+// app.get("/login", (req, res) => {});

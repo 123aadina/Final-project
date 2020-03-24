@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 // setting the connection with Atlas
 const strMongoConnection =
-  "mongodb+srv://Hamida:finalProject17@cluster0-bawxv.mongodb.net/test?retryWrites=true&w=majority";
+  "mongodb+srv://hamida:hamida-fwb17@cluster0-zuo82.mongodb.net/test?retryWrites=true&w=majority";
 mongoose
   .connect(strMongoConnection, {
     useNewUrlParser: true,
