@@ -18,10 +18,16 @@ const Info = () => {
 
       <div className="info_buttons ">
         <button className="btn btn-light mr-3 border-bottom">
-          <Link to="/Info"> Get more Issues </Link>
+          <Link to="/" className="text-dark font-weight-bold ">
+            {" "}
+            Homepage{" "}
+          </Link>
         </button>
         <button className="btn btn-light mr-3 border-bottom">
-          <Link to="/register"> Get Help </Link>
+          <Link to="/issue" className="text-dark font-weight-bold ">
+            {" "}
+            Move to <br></br>the Issues Topic{" "}
+          </Link>
         </button>
       </div>
       <Footer />
