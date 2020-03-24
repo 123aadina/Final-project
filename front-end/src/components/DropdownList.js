@@ -9,11 +9,11 @@ const DropdownList = () => {
 
   return (
     <div
-      className="dropdownList"
+      className=" dropdownList"
       value={category}
       onChange={handleCategoryChange}
     >
-      <select name="category">
+      <select className="form-control" name="category">
         <option id="0">Childcare</option>
         <option id="1">Domestic Violence</option>
         <option id="2">Employment</option>
