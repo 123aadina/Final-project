@@ -1,12 +1,12 @@
 const express = require("express");
 const router = express.Router();
 const models = require("../models");
-
-const User = models.User;
-const Translation = models.Translation;
 const Organisation = models.Organisation;
 const Problem = models.Problem;
-const { check, validationResult } = require('express-validator');
+
+/*const User = models.User;
+const Translation = models.Translation;*/
+
 
 //Get all users
 /*
