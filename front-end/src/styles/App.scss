@@ -77,8 +77,24 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+}
 
-  .registration_form {
-    justify-content: space-between;
+// Info page styling
+
+.info_container {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+
+  .info_buttons {
+    // background-color: #f0f5fa;
+    display: flex;
+
+    button a {
+      text-decoration: none;
+      color: black;
+    }
   }
 }
