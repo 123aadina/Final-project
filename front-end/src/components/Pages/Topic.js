@@ -1,6 +1,7 @@
 import React from "react";
+import Navbar from "../Layout/Navbar";
 import Footer from "../Layout/Footer";
-import "../styles/App.scss";
+import { Link } from "react-router-dom";
 
 export default function Topic() {
   return (
