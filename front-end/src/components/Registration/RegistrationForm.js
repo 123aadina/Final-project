@@ -260,15 +260,12 @@ const RegistrationForm = props => {
             />
             <div style={errorTextStyle}>{state.phoneError}</div>
           </div>
-<<<<<<< HEAD:front-end/src/components/Registration/RegistrationForm.js
-<<<<<<< HEAD:front-end/src/components/Registration/RegistrationForm.js
+
           <div>
             <label htmlFor="issues">Issues* </label>
             <DropdownList onChange={handleIssueDropdown} />
-=======
-=======
+          </div>
 
->>>>>>>  Password field moved after email field:front-end/src/components/RegistrationForm.js
           {/* ISSUES */}
           <div className="form-group ">
             <label htmlFor="issues" className="font-weight-bolder">
@@ -276,7 +273,6 @@ const RegistrationForm = props => {
               Issues *{" "}
             </label>
             <DropdownList />
->>>>>>> master:front-end/src/components/RegistrationForm.js
           </div>
           {/* LANGUAGES */}
           <div className="form-group">
@@ -311,13 +307,6 @@ const RegistrationForm = props => {
             />
             <div style={errorTextStyle}>{state.commentError}</div>
           </div>
-<<<<<<< HEAD:front-end/src/components/Registration/RegistrationForm.js
-          <CheckBoxBase
-            textValue="I agree to the terms and conditions."
-            required
-            onChange={handleAgreeCheckbox}
-          />
-=======
           {/* CHECKBOX CONDITIONS AND TERMS */}
           <div className="form-check checkbox_terms m-2">
             <CheckBoxBase
@@ -327,7 +316,6 @@ const RegistrationForm = props => {
             />
           </div>
           {/* SUBMIT BUTTON */}
->>>>>>> master:front-end/src/components/RegistrationForm.js
           <div style={errorTextStyle}>{state.agreeTermsError}</div>
           <div className="submitButton d-flex justify-content-center">
             <button
