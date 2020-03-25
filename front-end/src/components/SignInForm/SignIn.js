@@ -45,4 +45,14 @@ const SignIn = props => {
 
 export default SignIn;
 
+//xreiazetai to button submit?
 //Not to forget that we should have a route for that!!!!
+//tha xreiastw middleware error handler?
+//authodication?
+//to token tha paei sto login
+// app.get("/user/:id", (req, res) => {
+//  user.password = users.map(user =>{
+//    return user;
+//  })
+// }// Login a specific user
+// app.get("/login", (req, res) => {});
