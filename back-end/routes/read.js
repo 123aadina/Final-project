@@ -4,7 +4,7 @@ const models = require("../models");
 
 const User = models.User;
 const Translation = models.Translation;
-const Orgnation = models.Orgnation;
+const Organisation = models.Organisation;
 const Problem = models.Problem;
 const { check, validationResult } = require('express-validator');
 
@@ -27,20 +27,46 @@ router.get("/translations", (req, res, next) => {
 
 
 //Get all orgnations
-router.get("/orgnations", (req, res, next) => {
-  Orgnation.find().then(orgnations => {
-    res.send(orgnations);
+router.get("/organisation", (req, res) => {
+  Organisation.find().then(organisations => {
+    res.send(organisations);
   });
 });
-
 
 //Get all problems
-router.get("/problems", (req, res, next) => {
-  Problem.find().then(problems => {
-    res.send(problems);
+router.get("/problem/:id/organisations", (req, res) => {
+  const problemId = req.params.id
+  console.log(problemId)
+  Problem.findById(problemId).populate('organisations')
+
+  .catch(err => res.send(err))
+  .then(problem => {
+    res.send(problem.organisations);
   });
 });
 
+router.get("/problem", (req, res) => {
+  Problem.find()
+  //.catch(err => res.send(err))
+  .then(problem => {
+    res.send(problem);
+  });
+});
+
+
+/*const getFlat = async (req, res, next) => {
+  console.log("flat route")
+
+  let id = req.params.id
+  console.log(req.params.id)
+  try {
+      let objFlat = await flat.findById(id)
+      res.send(objFlat)
+  }
+  catch (err) {
+      next(err)
+  }
+}*/
 
 /*try {
   const problems = await Problem.find({ user:req.user.id }).sort({

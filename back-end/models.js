@@ -36,40 +36,33 @@ const Translation = mongoose.model(
   )
 );*/
 
-//model for Orgnations
-const Orgnation = mongoose.model(
-  "Orgnations",
+//model for Organisation
+const Organisation = mongoose.model(
+  "Organisation",
   new mongoose.Schema(
     {
       name:{ type: String, required: true },
       description: String,
-      category: String,
+      category: [String],
       link: { type: String, required: true }
     },
     { versionKey: false }
   )
 );
 
-
 //model for Problem
 const Problem = mongoose.model(
-  "Problems",
+  "Problem",
   new mongoose.Schema(
     {
       title: {type: String, required: true },
-      orgnations : [
-        {ref: "Orgnations",
+      organisations : [
+        {ref: "Organisation",
          type:mongoose.Schema.Types.ObjectId,  }
       ]
     },
     { versionKey: false }
   )
 );
+module.exports = {Organisation, Problem };
 
-
-module.exports = {Orgnation, Problem };
-
-/*
-, Translation, User, 
- nav: { type: Object },
-org: { type: Object }, */
