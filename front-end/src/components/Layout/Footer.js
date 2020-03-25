@@ -25,6 +25,12 @@ const Footer = () => {
             </Link>
           </li>
 
+          <li className="mx-2 pt-3 ">
+            <Link to="/topic" className="text-secondary">
+              {" "}
+              Topic{" "}
+            </Link>
+          </li>
           <li className="mx-2 pt-3 text-secondary">
             Women Voice 2020 @ All right reserved
           </li>
