@@ -36,9 +36,6 @@ const read = require("./routes/read");
 api.use(middleware.cors);
 api.use(read);
 
-//api.use('/api/users', require('./routes/users'))
-//api.use('/api/auth', require('./routes/auth'))
-//api.use('/api/problem', require('./routes/problem'))
 
 /** EXPORT PATH */
 module.exports = api;
