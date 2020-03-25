@@ -54,64 +54,10 @@ router.get("/problem", (req, res) => {
 });
 
 
-/*const getFlat = async (req, res, next) => {
-  console.log("flat route")
-
-  let id = req.params.id
-  console.log(req.params.id)
-  try {
-      let objFlat = await flat.findById(id)
-      res.send(objFlat)
-  }
-  catch (err) {
-      next(err)
-  }
-}*/
-
-/*try {
-  const problems = await Problem.find({ user:req.user.id }).sort({
-      date: -1
-  })
-  res.json(problems)
-} catch (err) {
-  console.error(err.message)
-  res.status(500).send("server error")
-}
-})*/
-
 /*
-router.post('/', [
-check('title', 'title is required').not().isEmpty()
-], async (req, res) => {
-const errors = validationResult(req)
-if(!errors.isEmpty()) {
-  return res.status(400).json({ errors: errors.array()})
-}
-
-
-try {
-const newProblem = new Problem({
-   title, 
-   type,
-   user: req.body.id
-})
-
-const problem = await newProblem.save()
-res.json(problem)
-  
-} catch (err) {
-  console.error(err.message)
-  return res.status(500).send('server error')
-  
-}
-
-})
-
-
 router.put('/:id', (req, res) => {
   res.send(' update problems')
 })
-
 
 router.delete('/:id', (req, res) => {
   res.send(' delete problems')
