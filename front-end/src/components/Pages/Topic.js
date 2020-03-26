@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 export default function Topic() {
   return (
     <div className="topic_container">
-      <h1>Topics</h1>
+      <h1 className="text-center">Topics</h1>
 
       <div className="topic_container_box ">
         <div className="row">
