@@ -36,7 +36,7 @@ const SignIn = props => {
             <input
               type="name"
               name="name"
-              value="text"
+              value={state.name}
               required
               onChange={handleEvent}
             />
@@ -46,7 +46,7 @@ const SignIn = props => {
             <input
               type="password"
               name="password"
-              value="text"
+              value={state.password}
               required
               onChange={handleEvent}
             />
