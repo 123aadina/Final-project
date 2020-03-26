@@ -183,7 +183,7 @@ const RegistrationForm = props => {
   return (
     <div className="registration_container">
       <div className="registration_form ">
-        <h1 className="m-3 border-bottom"> Registration Form </h1>
+        <h1 className="m-3 border-bottom text-center"> Registration Form </h1>
 
         {/* Form start here */}
         <form noValidate onSubmit={handleSubmit}>
