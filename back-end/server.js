@@ -11,7 +11,7 @@ api.use(express.json());
 api.use(express.urlencoded({ extended: false }));
 
 /** START SERVER*/
-api.listen(3200, () => console.log("Started on 3200"));
+api.listen(3000, () => console.log("Started on 3000"));
 
 /** STATIC FILES*/
 api.use(express.static(path.join(__dirname, "pages")));
@@ -35,6 +35,7 @@ const read = require("./routes/read");
 
 api.use(middleware.cors);
 api.use(read);
+
 
 /** EXPORT PATH */
 module.exports = api;

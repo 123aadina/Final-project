@@ -1,6 +1,38 @@
 const mongoose = require("mongoose");
 
+//model for Organisation
+const Organisation = mongoose.model(
+  "Organisation",
+  new mongoose.Schema(
+    {
+      name:{ type: String, required: true },
+      description: String,
+      category: [String],
+      link: { type: String, required: true }
+    },
+    { versionKey: false }
+  )
+);
 
+//model for Problem
+const Problem = mongoose.model(
+  "Problem",
+  new mongoose.Schema(
+    {
+      title: {type: String, required: true },
+      organisations : [
+        {ref: "Organisation",
+         type:mongoose.Schema.Types.ObjectId,  }
+      ]
+    },
+    { versionKey: false }
+  )
+);
+module.exports = {Organisation, Problem };
+
+
+//model for Users
+/*
 const User = mongoose.model(
   "Users",
   new mongoose.Schema(
@@ -8,12 +40,17 @@ const User = mongoose.model(
       name: { type: String },
       email: { type: String, unique: true },
       phone: {type: Number},
-      password: { type: String }
+      password: { type: String },
+      languages: Object,
+      comment: String
     },
     { versionKey: false }
   )
-);
+);*/
 
+
+//model for Translation
+/*
 const Translation = mongoose.model(
   "Translations",
   new mongoose.Schema(
@@ -28,38 +65,4 @@ const Translation = mongoose.model(
     },
     { versionKey: false }
   )
-);
-
-
-const Orgnation = mongoose.model(
-  "Orgnations",
-  new mongoose.Schema(
-    {
-      name: String ,
-      description: String,
-      category: String,
-      link: { type: String, required: true }
-    },
-    { versionKey: false }
-  )
-);
-
-const Problem = mongoose.model(
-  "Problems",
-  new mongoose.Schema(
-    {
-      title: String ,
-      orgnations : [
-        {ref: "Orgnations",
-         type:mongoose.Schema.Types.ObjectId,  }
-      ]
-    },
-    { versionKey: false }
-  )
-);
-
-
-module.exports = { User, Translation, Orgnation, Problem };
-
-/* nav: { type: Object },
-      org: { type: Object }, */
+);*/

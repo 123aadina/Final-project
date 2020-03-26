@@ -9,7 +9,7 @@ const Footer = () => {
           <li className="mx-2 pt-3 pl-3">
             <Link to="/" className="text-secondary">
               {" "}
-              Home{" "}
+              Homepage{" "}
             </Link>
           </li>
           <li className="mx-2 pt-3">
