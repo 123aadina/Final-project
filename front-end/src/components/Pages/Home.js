@@ -10,7 +10,7 @@ const Home = () => {
     //  Homepage_container -->  Main container
     <div className="homepage_container my-2">
       {/* Welcome message */}
-      <h1>{t("welcome.1")}</h1>
+      <h1 className="text-center">{t("welcome.1")}</h1>
       <p className="font-italic">
         " Women Voice help you to find usefull informations in order to solve
         the issues that you might have in Germany "
@@ -37,7 +37,6 @@ const Home = () => {
           </Link>
         </button>
       </div>
-
       <Footer />
     </div>
   );
