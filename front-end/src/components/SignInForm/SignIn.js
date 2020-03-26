@@ -14,6 +14,34 @@ const InitState = {
 const SignIn = props => {
   const [state, setState] = useState(InitState);
 
+  //Validating the form
+  const validateLogIn = () => {
+    setState({
+      ...state,
+      initErrorState
+    });
+
+    if (state.name === "" || state.name < 2 || state.name > 15) {
+      setState({
+        ...state,
+        nameError: "Please provide a valid email"
+      });
+      return false;
+    }
+
+    const strongRegex = new RegExp(
+      "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})"
+    );
+    if (!state.password.match(strongRegex) || state.password === "") {
+      setState({
+        ...state,
+        passwordError: "Password is not valid "
+      });
+      return false;
+    }
+    return true;
+  };
+
   //sending the data to Backend
   //const postRequestToBackend = () => {};
 
