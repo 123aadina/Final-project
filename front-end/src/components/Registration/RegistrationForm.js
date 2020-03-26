@@ -181,15 +181,18 @@ const RegistrationForm = props => {
   };
 
   return (
-    <div className="registration_container">
+    <div className=" registration_container">
       <div className="registration_form ">
-        <h1 className="m-3 border-bottom"> Registration Form </h1>
+        <h1 className="m-3 border-bottom text-center"> Registration Form </h1>
 
         {/* Form start here */}
         <form noValidate onSubmit={handleSubmit}>
           {/* NAME */}
-          <div className="form-group">
-            <label htmlFor="Name"> Name: *</label>
+          <div className="form-group col-xs">
+            <label htmlFor="Name" className="font-weight-bolder">
+              {" "}
+              Name *
+            </label>
             <input
               className="form-control"
               type="text"
@@ -201,8 +204,11 @@ const RegistrationForm = props => {
             <div style={errorTextStyle}>{state.nameError}</div>
           </div>
           {/* EMAIL */}
-          <div className="form-group">
-            <label htmlFor="email"> Email: </label>
+          <div className="form-group col-xs">
+            <label htmlFor="email" className="font-weight-bolder">
+              {" "}
+              Email{" "}
+            </label>
             <input
               className="form-control"
               autoComplete="off"
@@ -212,30 +218,22 @@ const RegistrationForm = props => {
               onChange={handleEvent}
             />
             <div style={errorTextStyle}>{state.emailError}</div>
+
+            <div className="form-check checkbox_mail mt-1">
+              <CheckBoxBase
+                className="form-check-label"
+                textValue=" I don't have an email"
+                onChange={handleEmailCheckbox}
+              />
+            </div>
           </div>
-          <div className="form-check checkbox_mail mt-2">
-            <CheckBoxBase
-              className="form-check-label"
-              textValue=" I don't have an email"
-              onChange={handleEmailCheckbox}
-            />
-          </div>
-          {/* PHONE NUMBER */}
-          <div className="form-group">
-            <label htmlFor="phone"> Phone: </label>
-            <input
-              className="form-control"
-              type="text"
-              name="phone"
-              value={state.phone}
-              required
-              onChange={handleEvent}
-            />
-            <div style={errorTextStyle}>{state.phoneError}</div>
-          </div>
+
           {/* PASSWORD */}
           <div className="form-group">
-            <label htmlFor="password"> Password: </label>
+            <label htmlFor="password" className="font-weight-bolder">
+              {" "}
+              Password{" "}
+            </label>
             <input
               className="form-control"
               type="password"
@@ -246,20 +244,42 @@ const RegistrationForm = props => {
             />
             <div style={errorTextStyle}>{state.passwordError}</div>
           </div>
-<<<<<<< HEAD:front-end/src/components/Registration/RegistrationForm.js
+          {/* PHONE NUMBER */}
+          <div className="form-group">
+            <label htmlFor="phone" className="font-weight-bolder">
+              {" "}
+              Phone{" "}
+            </label>
+            <input
+              className="form-control"
+              type="text"
+              name="phone"
+              value={state.phone}
+              required
+              onChange={handleEvent}
+            />
+            <div style={errorTextStyle}>{state.phoneError}</div>
+          </div>
+
           <div>
             <label htmlFor="issues">Issues* </label>
             <DropdownList onChange={handleIssueDropdown} />
-=======
+          </div>
+
           {/* ISSUES */}
           <div className="form-group ">
-            <label htmlFor="issues"> Issues: * </label>
+            <label htmlFor="issues" className="font-weight-bolder">
+              {" "}
+              Issues *{" "}
+            </label>
             <DropdownList />
->>>>>>> master:front-end/src/components/RegistrationForm.js
           </div>
           {/* LANGUAGES */}
           <div className="form-group">
-            <label htmlFor="languages"> Languages: * </label>
+            <label htmlFor="languages" className="font-weight-bolder">
+              {" "}
+              Languages *{" "}
+            </label>
             <input
               className="form-control"
               type="text"
@@ -273,8 +293,11 @@ const RegistrationForm = props => {
 
           {/* COMMENT */}
           <div className="form-group mt-2">
-            <label htmlFor="comment"> Comment: </label>
-            <input
+            <label htmlFor="comment" className="font-weight-bolder">
+              {" "}
+              Comment{" "}
+            </label>
+            <textarea
               className="form-control"
               type="text"
               name="comment"
@@ -284,13 +307,6 @@ const RegistrationForm = props => {
             />
             <div style={errorTextStyle}>{state.commentError}</div>
           </div>
-<<<<<<< HEAD:front-end/src/components/Registration/RegistrationForm.js
-          <CheckBoxBase
-            textValue="I agree to the terms and conditions."
-            required
-            onChange={handleAgreeCheckbox}
-          />
-=======
           {/* CHECKBOX CONDITIONS AND TERMS */}
           <div className="form-check checkbox_terms m-2">
             <CheckBoxBase
@@ -300,7 +316,6 @@ const RegistrationForm = props => {
             />
           </div>
           {/* SUBMIT BUTTON */}
->>>>>>> master:front-end/src/components/RegistrationForm.js
           <div style={errorTextStyle}>{state.agreeTermsError}</div>
           <div className="submitButton d-flex justify-content-center">
             <button
