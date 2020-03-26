@@ -15,28 +15,46 @@ const SignIn = props => {
   const [state, setState] = useState(InitState);
 
   //sending the data to Backend
-  const postRequestToBackend = () => {};
+  //const postRequestToBackend = () => {};
+
+  //handle Log In Button
+  const handleLogInButton = e => {
+    preventDefault();
+  };
+
+  const handleEvent = e => {
+    setState({ ...state, ...initErrorState, [e.target.name]: e.target.value });
+  };
 
   return (
     <div className="signInForm">
       <div className="signIn-container">
         <h1>Sign In</h1>
-        <form noValidate onSubmit={}>
-          <label htmlFor="name">
-            <input type="name" name="name" value="text" required onChange={} />
-          </label>
-          <label htmlFor="password">
+        <form noValidate onSubmit={handleLogInButton}>
+          <div>
+            <label htmlFor="name">Name</label>
+            <input
+              type="name"
+              name="name"
+              value="text"
+              required
+              onChange={handleEvent}
+            />
+          </div>
+          <div>
+            <label htmlFor="password">Password</label>
             <input
               type="password"
               name="password"
               value="text"
               required
-              onChange={}
+              onChange={handleEvent}
             />
-          </label>
-          <div className="loginButton">
-            <button type="login">LOGIN</button>
           </div>
+          <div className="loginButton">
+            <button type="submit">LOGIN</button>
+          </div>
+          <h2>Forgot your password?</h2>
         </form>
       </div>
     </div>
@@ -45,7 +63,8 @@ const SignIn = props => {
 
 export default SignIn;
 
-//xreiazetai to button submit?
+//xreiazetai to button submit handle event?
+//episis xreiazomaste kai ena forgot password to reset it!!!
 //Not to forget that we should have a route for that!!!!
 //tha xreiastw middleware error handler?
 //authodication?
