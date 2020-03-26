@@ -181,14 +181,14 @@ const RegistrationForm = props => {
   };
 
   return (
-    <div className="registration_container">
+    <div className=" registration_container">
       <div className="registration_form ">
         <h1 className="m-3 border-bottom text-center"> Registration Form </h1>
 
         {/* Form start here */}
         <form noValidate onSubmit={handleSubmit}>
           {/* NAME */}
-          <div className="form-group">
+          <div className="form-group col-xs">
             <label htmlFor="Name" className="font-weight-bolder">
               {" "}
               Name *
@@ -204,7 +204,7 @@ const RegistrationForm = props => {
             <div style={errorTextStyle}>{state.nameError}</div>
           </div>
           {/* EMAIL */}
-          <div className="form-group">
+          <div className="form-group col-xs">
             <label htmlFor="email" className="font-weight-bolder">
               {" "}
               Email{" "}
