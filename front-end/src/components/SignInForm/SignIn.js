@@ -19,7 +19,8 @@ const SignIn = props => {
 
   //handle Log In Button
   const handleLogInButton = e => {
-    preventDefault();
+    //clear the form
+    e.preventDefault();
   };
 
   const handleEvent = e => {
