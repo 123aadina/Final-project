@@ -227,22 +227,7 @@ const RegistrationForm = props => {
               />
             </div>
           </div>
-          {/* PHONE NUMBER */}
-          <div className="form-group">
-            <label htmlFor="phone" className="font-weight-bolder">
-              {" "}
-              Phone{" "}
-            </label>
-            <input
-              className="form-control"
-              type="text"
-              name="phone"
-              value={state.phone}
-              required
-              onChange={handleEvent}
-            />
-            <div style={errorTextStyle}>{state.phoneError}</div>
-          </div>
+
           {/* PASSWORD */}
           <div className="form-group">
             <label htmlFor="password" className="font-weight-bolder">
@@ -259,11 +244,31 @@ const RegistrationForm = props => {
             />
             <div style={errorTextStyle}>{state.passwordError}</div>
           </div>
+          {/* PHONE NUMBER */}
+          <div className="form-group">
+            <label htmlFor="phone" className="font-weight-bolder">
+              {" "}
+              Phone{" "}
+            </label>
+            <input
+              className="form-control"
+              type="text"
+              name="phone"
+              value={state.phone}
+              required
+              onChange={handleEvent}
+            />
+            <div style={errorTextStyle}>{state.phoneError}</div>
+          </div>
+<<<<<<< HEAD:front-end/src/components/Registration/RegistrationForm.js
 <<<<<<< HEAD:front-end/src/components/Registration/RegistrationForm.js
           <div>
             <label htmlFor="issues">Issues* </label>
             <DropdownList onChange={handleIssueDropdown} />
 =======
+=======
+
+>>>>>>>  Password field moved after email field:front-end/src/components/RegistrationForm.js
           {/* ISSUES */}
           <div className="form-group ">
             <label htmlFor="issues" className="font-weight-bolder">
