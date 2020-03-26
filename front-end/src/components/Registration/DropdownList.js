@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 
-const DropdownList = () => {
+const DropdownList = props => {
   const [category, setCategory] = useState("");
 
   const handleCategoryChange = e => {
     setCategory(category);
+    //passing the change of the state of the dropdown list from registration form
+    props.onChange(category);
   };
 
   return (

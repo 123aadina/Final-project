@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import CheckBoxBase from "./Checkboxes";
 import DropdownList from "./DropdownList";
-import Footer from "../components/Layout/Footer";
-import "../styles/App.scss";
+
+import Footer from "../../components/Layout/Footer";
+import "../../styles/App.scss";
 
 const initErrorState = {
   nameError: "",
@@ -19,6 +20,7 @@ const initialState = {
   email: "",
   emailChecked: false,
   password: "",
+  issues: 0,
   phone: "",
   languages: "",
   comment: "",
@@ -45,6 +47,14 @@ const RegistrationForm = props => {
     setState({
       ...state,
       emailChecked: e.target.checked
+    });
+  };
+
+  //to change the state of the dropdown menu on the form
+  const handleIssueDropdown = category => {
+    setState({
+      ...state,
+      issues: category
     });
   };
 
@@ -124,6 +134,30 @@ const RegistrationForm = props => {
     return true;
   };
 
+  const postRequestToBackend = () => {
+    let requestBody = JSON.stringify({
+      name: state.name,
+      email: state.email,
+      emailChecked: false,
+      password: state.password,
+      phone: state.phone,
+      issues: state.issues,
+      languages: state.languages,
+      comment: state.comment,
+      agreeChecked: false
+    });
+    console.log("Fetching " + requestBody);
+    // fetch to send the registration form back to backend as jason/
+    fetch("http://localhost:8000/registration", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: requestBody
+    }).then(resp => {
+      console.log("Response: ");
+      console.log(resp);
+    });
+  };
+
   const handleSubmit = e => {
     const isValid = validateForm();
 
@@ -131,6 +165,7 @@ const RegistrationForm = props => {
       //to discard default behaviors onSubmit event den svinei ta stoixeia tis formas kathe fora pou ta ipovallei o xristi
       e.preventDefault();
     } else {
+      postRequestToBackend();
       //to clear the form
       setState(initialState);
       e.preventDefault();
@@ -211,10 +246,16 @@ const RegistrationForm = props => {
             />
             <div style={errorTextStyle}>{state.passwordError}</div>
           </div>
+<<<<<<< HEAD:front-end/src/components/Registration/RegistrationForm.js
+          <div>
+            <label htmlFor="issues">Issues* </label>
+            <DropdownList onChange={handleIssueDropdown} />
+=======
           {/* ISSUES */}
           <div className="form-group ">
             <label htmlFor="issues"> Issues: * </label>
             <DropdownList />
+>>>>>>> master:front-end/src/components/RegistrationForm.js
           </div>
           {/* LANGUAGES */}
           <div className="form-group">
@@ -243,6 +284,13 @@ const RegistrationForm = props => {
             />
             <div style={errorTextStyle}>{state.commentError}</div>
           </div>
+<<<<<<< HEAD:front-end/src/components/Registration/RegistrationForm.js
+          <CheckBoxBase
+            textValue="I agree to the terms and conditions."
+            required
+            onChange={handleAgreeCheckbox}
+          />
+=======
           {/* CHECKBOX CONDITIONS AND TERMS */}
           <div className="form-check checkbox_terms m-2">
             <CheckBoxBase
@@ -252,6 +300,7 @@ const RegistrationForm = props => {
             />
           </div>
           {/* SUBMIT BUTTON */}
+>>>>>>> master:front-end/src/components/RegistrationForm.js
           <div style={errorTextStyle}>{state.agreeTermsError}</div>
           <div className="submitButton d-flex justify-content-center">
             <button

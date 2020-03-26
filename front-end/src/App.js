@@ -7,7 +7,8 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./components/Pages/Home";
 import Navbar from "./components/Layout/Navbar";
 import Info from "./components/Pages/Info";
-import RegistrationForm from "./components/RegistrationForm";
+import RegistrationForm from "./components/Registration/RegistrationForm";
+import SignIn from "./components/SignInForm/SignIn";
 
 function App() {
   return (
