@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import CheckBoxBase from "./Checkboxes";
 import DropdownList from "./DropdownList";
 import "../../styles/App.scss";
