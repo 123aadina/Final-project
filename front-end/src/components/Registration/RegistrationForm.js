@@ -37,6 +37,7 @@ const RegistrationForm = props => {
   const [state, setState] = useState(initialState);
 
   const handleAgreeCheckbox = e => {
+    console.log("Agree checkbx " + e.target.checked);
     setState({
       ...state,
       agreeChecked: e.target.checked
@@ -56,6 +57,7 @@ const RegistrationForm = props => {
       ...state,
       issues: e.target.selectedIndex
     });
+    console.log(category);
   };
 
   //form validators
@@ -263,10 +265,14 @@ const RegistrationForm = props => {
               {" "}
               Issues *{" "}
             </label>
+<<<<<<< HEAD
             <DropdownList
               currentValue={state.issues}
               onChange={handleIssueDropdown}
             />
+=======
+            <DropdownList onChange={handleIssueDropdown} />
+>>>>>>> issues index not typed changed value
           </div>
           {/* LANGUAGES */}
           <div className="form-group col">

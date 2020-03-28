@@ -12,11 +12,6 @@ const InitState = {
   ...initErrorState
 };
 
-const errorTextStyle = {
-  color: "red",
-  fontSize: "12px"
-};
-
 const LogIn = props => {
   const [state, setState] = useState(InitState);
 

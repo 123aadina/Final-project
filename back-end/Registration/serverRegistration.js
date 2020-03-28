@@ -35,6 +35,7 @@ app.post("/registration", (req, res) => {
       registerFormFields.password = hashedPassword;
       User.create(registerFormFields, err => {
         if (err) {
+          console.log(registerFormFields);
           console.log(err);
           res.send(400);
         } else {
