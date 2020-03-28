@@ -4,9 +4,9 @@ const DropdownList = props => {
   const [category, setCategory] = useState("");
 
   const handleCategoryChange = e => {
-    setCategory(category);
+    setCategory(e.target.selectedIndex);
     //passing the change of the state of the dropdown list from registration form
-    props.onChange(category);
+    props.onChange(e.target.selectedIndex);
   };
 
   return (

@@ -11,7 +11,7 @@ const InitState = {
   ...initErrorState
 };
 
-const SignIn = props => {
+const LogIn = props => {
   const [state, setState] = useState(InitState);
 
   //Validating the form
@@ -43,24 +43,27 @@ const SignIn = props => {
   };
 
   //Sending the data to Backend
-  //const postRequestToBackend = () => {
-  // let RequestLogInFormBody = JASON.stingify ({
-  // name:state.name,
-  // password:state.password
-  //       })
-  //       fetch (http://localhost:8000/signin){
-  // method:POST,
-  //     headers: { "Content-Type": "application/json" },
-  //       body: requestBody
-  //     }).then(resp => {
-  //       console.log("Response: ");
-  //       console.log(resp);
-  //     });
-  // //   };
+  const postRequestToBackend = () => {
+    let requestBody = JSON.stringify({
+      name: state.name,
+      password: state.password
+    });
+    console.log("Fetching ");
+    fetch("http://localhost:8000/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: requestBody
+    }).then(resp => {
+      console.log("Response: ");
+      console.log(resp);
+    });
+  };
 
   //handle Log In Button
   const handleLogInButton = e => {
     //clear the form
+    e.preventDefault();
+    postRequestToBackend();
     e.preventDefault();
   };
 
