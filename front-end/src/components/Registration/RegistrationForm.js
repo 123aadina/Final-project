@@ -166,7 +166,6 @@ const RegistrationForm = props => {
       postRequestToBackend();
       //to clear the form
       setState(initialState);
-      e.preventDefault();
     }
   };
 
