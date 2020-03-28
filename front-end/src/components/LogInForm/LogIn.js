@@ -21,10 +21,10 @@ const SignIn = props => {
       initErrorState
     });
 
-    if (state.name === "" || state.name < 2 || state.name > 15) {
+    if (state.name === "" || state.name < 2 || state.name > 70) {
       setState({
         ...state,
-        nameError: "Please provide a valid email"
+        nameError: "Name is not correct"
       });
       return false;
     }
@@ -42,8 +42,21 @@ const SignIn = props => {
     return true;
   };
 
-  //sending the data to Backend
-  //const postRequestToBackend = () => {};
+  //Sending the data to Backend
+  //const postRequestToBackend = () => {
+  // let RequestLogInFormBody = JASON.stingify ({
+  // name:state.name,
+  // password:state.password
+  //       })
+  //       fetch (http://localhost:8000/signin){
+  // method:POST,
+  //     headers: { "Content-Type": "application/json" },
+  //       body: requestBody
+  //     }).then(resp => {
+  //       console.log("Response: ");
+  //       console.log(resp);
+  //     });
+  // //   };
 
   //handle Log In Button
   const handleLogInButton = e => {
@@ -56,8 +69,8 @@ const SignIn = props => {
   };
 
   return (
-    <div className="signInForm">
-      <div className="signIn-container">
+    <div className="logInForm">
+      <div className="logIn-container">
         <h1>Sign In</h1>
         <form noValidate onSubmit={handleLogInButton}>
           <div>
@@ -90,9 +103,11 @@ const SignIn = props => {
   );
 };
 
-export default SignIn;
+export default LogIn;
 
 //xreiazetai to button submit handle event?
+//the name and the password has to match auto tha ginei sto backend
+
 //episis xreiazomaste kai ena forgot password to reset it!!!
 //Not to forget that we should have a route for that!!!!
 //tha xreiastw middleware error handler?
