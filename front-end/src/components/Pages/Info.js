@@ -2,11 +2,12 @@ import React from "react";
 import Navbar from "../Layout/Navbar";
 import Footer from "../Layout/Footer";
 import { Link } from "react-router-dom";
+import Topic from "./Topic";
 
 const Info = () => {
   return (
     <div className="info_container mt-3">
-      <h1> Women's rights in Germany </h1>
+      <h1 className="text-center"> Women's rights in Germany </h1>
       <div className="info_container_description ">
         <p>
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi
@@ -24,7 +25,7 @@ const Info = () => {
           </Link>
         </button>
         <button className="btn btn-light mr-3 border-bottom">
-          <Link to="/issue" className="text-dark font-weight-bold ">
+          <Link to="/topic" className="text-dark font-weight-bold ">
             {" "}
             Move to <br></br>the Issues Topic{" "}
           </Link>

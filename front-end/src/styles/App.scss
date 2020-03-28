@@ -60,6 +60,7 @@ body {
     display: flex;
     flex-direction: row;
   }
+
   li {
     justify-content: space-between;
     list-style-type: none;
@@ -77,8 +78,41 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+}
 
-  .registration_form {
-    justify-content: space-between;
+// Info page styling
+
+.info_container {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+
+  .info_buttons {
+    display: flex;
+
+    button a {
+      text-decoration: none;
+      color: black;
+    }
+  }
+
+  // TOPIC PAGE
+
+  .topic_container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-content: center;
+  }
+
+  .topic_container_box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  div a {
+    text-decoration: none;
   }
 }

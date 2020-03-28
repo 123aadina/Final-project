@@ -8,7 +8,7 @@ import Home from "./components/Pages/Home";
 import Navbar from "./components/Layout/Navbar";
 import Info from "./components/Pages/Info";
 import RegistrationForm from "./components/Registration/RegistrationForm";
-import SignIn from "./components/SignInForm/SignIn";
+import Topic from "./components/Pages/Topic";
 
 function App() {
   return (
@@ -21,6 +21,7 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route exact path="/info" component={Info} />
           <Route exact path="/registration" component={RegistrationForm} />
+          <Route exact path="/topic" component={Topic} />
         </Switch>
       </div>
     </Router>
