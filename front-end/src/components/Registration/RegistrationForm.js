@@ -37,7 +37,6 @@ const RegistrationForm = props => {
   const [state, setState] = useState(initialState);
 
   const handleAgreeCheckbox = e => {
-    console.log("Agree checkbx " + e.target.checked);
     setState({
       ...state,
       agreeChecked: e.target.checked
@@ -52,12 +51,11 @@ const RegistrationForm = props => {
   };
 
   //to change the state of the dropdown menu on the form
-  const handleIssueDropdown = category => {
+  const handleIssueDropdown = e => {
     setState({
       ...state,
-      issues: category
+      issues: e.target.selectedIndex
     });
-    console.log(category);
   };
 
   //form validators
@@ -153,8 +151,8 @@ const RegistrationForm = props => {
       headers: { "Content-Type": "application/json" },
       body: requestBody
     }).then(resp => {
-      console.log("Response: ");
-      console.log(resp);
+      console.log("Response: " + resp);
+      // TODO: Redirect to home page
     });
   };
 
@@ -221,6 +219,7 @@ const RegistrationForm = props => {
             <div className="form-check mt-1">
               <CheckBoxBase
                 textValue=" I don't have an email"
+                currentValue={state.emailChecked}
                 onChange={handleEmailCheckbox}
               />
             </div>
@@ -265,7 +264,10 @@ const RegistrationForm = props => {
               {" "}
               Issues *{" "}
             </label>
-            <DropdownList onChange={handleIssueDropdown} />
+            <DropdownList
+              currentValue={state.issues}
+              onChange={handleIssueDropdown}
+            />
           </div>
           {/* LANGUAGES */}
           <div className="form-group col">
@@ -305,6 +307,7 @@ const RegistrationForm = props => {
             <CheckBoxBase
               className="form-check-label"
               textValue=" I agree to the terms and conditions."
+              currentValue={state.agreeChecked}
               onChange={handleAgreeCheckbox}
             />
           </div>
