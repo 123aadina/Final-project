@@ -5,6 +5,7 @@ const app = express();
 const bcrypt = require("bcrypt");
 const session = require("express-session");
 const { validateForm } = require("./validationServer");
+const jtw = require("jsonwebtoken");
 
 //setting the middleware
 app.use(express.json());
@@ -69,7 +70,7 @@ app.post("/login", (req, res, next) => {
           secret,
           { expiresIn: "2h" }
         );
-        res.send({ token });
+        res.json({ jwtToken: token });
       });
     })
     .catch(error => next(err));

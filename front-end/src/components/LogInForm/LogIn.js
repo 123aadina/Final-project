@@ -11,6 +11,11 @@ const InitState = {
   ...initErrorState
 };
 
+const errorTextStyle = {
+  color: "red",
+  fontSize: "12px"
+};
+
 const LogIn = props => {
   const [state, setState] = useState(InitState);
 
@@ -43,7 +48,8 @@ const LogIn = props => {
   };
 
   //Sending the data to Backend
-  const postRequestToBackend = () => {
+  const postRequestToBackend = e => {
+    let successful = true;
     let requestBody = JSON.stringify({
       name: state.name,
       password: state.password
@@ -54,17 +60,27 @@ const LogIn = props => {
       headers: { "Content-Type": "application/json" },
       body: requestBody
     }).then(resp => {
-      console.log("Response: ");
-      console.log(resp);
+      if (resp.status != 200) {
+        setState({
+          ...state,
+          passwordError: "Password is not valid."
+        });
+      } else {
+        console.log(resp.json());
+        setState(InitState);
+      }
     });
   };
 
   //handle Log In Button
   const handleLogInButton = e => {
-    //clear the form
+    const isValid = validateLogIn();
     e.preventDefault();
-    postRequestToBackend();
-    e.preventDefault();
+
+    if (isValid) {
+      //to clear the loginForm
+      postRequestToBackend(e);
+    }
   };
 
   const handleEvent = e => {
@@ -86,6 +102,7 @@ const LogIn = props => {
               onChange={handleEvent}
             />
           </div>
+          <div style={errorTextStyle}>{state.nameError}</div>
           <div>
             <label htmlFor="password">Password</label>
             <input
@@ -96,6 +113,7 @@ const LogIn = props => {
               onChange={handleEvent}
             />
           </div>
+          <div style={errorTextStyle}>{state.passwordError}</div>
           <div className="loginButton">
             <button type="submit">LOGIN</button>
           </div>
