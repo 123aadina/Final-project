@@ -37,6 +37,7 @@ const RegistrationForm = props => {
   const [state, setState] = useState(initialState);
 
   const handleAgreeCheckbox = e => {
+    console.log("Agree checkbx " + e.target.checked);
     setState({
       ...state,
       agreeChecked: e.target.checked
@@ -56,6 +57,7 @@ const RegistrationForm = props => {
       ...state,
       issues: category
     });
+    console.log(category);
   };
 
   //form validators
@@ -120,10 +122,7 @@ const RegistrationForm = props => {
       });
       return false;
     }
-    return true;
-  };
 
-  const validateAgreeTerms = () => {
     if (!state.agreeChecked) {
       setState({
         ...state,
@@ -131,6 +130,7 @@ const RegistrationForm = props => {
       });
       return false;
     }
+
     return true;
   };
 
@@ -138,14 +138,15 @@ const RegistrationForm = props => {
     let requestBody = JSON.stringify({
       name: state.name,
       email: state.email,
-      emailChecked: false,
+      emailChecked: state.emailChecked,
       password: state.password,
       phone: state.phone,
       issues: state.issues,
       languages: state.languages,
       comment: state.comment,
-      agreeChecked: false
+      agreeChecked: state.agreeChecked
     });
+    console.log(requestBody);
     // fetch to send the registration form back to backend as jason/
     fetch("http://localhost:8000/registration", {
       method: "POST",

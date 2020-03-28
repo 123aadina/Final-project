@@ -19,7 +19,7 @@ const User = mongoose.model(
   "User",
   new mongoose.Schema({
     name: { type: String, required: true },
-    email: { type: String, required: false },
+    email: { type: String, required: false, unique: true },
     password: { type: String, required: true },
     phone: { type: String, required: true },
     issues: { type: Number, required: true },

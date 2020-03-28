@@ -8,6 +8,7 @@ import Home from "./components/Pages/Home";
 // import Navbar from "./components/Layout/Navbar";
 import Info from "./components/Pages/Info";
 import RegistrationForm from "./components/Registration/RegistrationForm";
+import LogIn from "./components/LogInForm/LogIn";
 import Topic from "./components/Pages/Topic";
 import LogIn from "./components/LogInForm/LogIn";
 
@@ -20,6 +21,7 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route exact path="/info" component={Info} />
           <Route exact path="/registration" component={RegistrationForm} />
+          <Route exact path="/login" component={LogIn} />
           <Route exact path="/topic" component={Topic} />
           <Route exact path="/login" component={LogIn} />
         </Switch>

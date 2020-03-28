@@ -43,9 +43,28 @@ const LogIn = props => {
     return true;
   };
 
+  //Sending the data to Backend
+  const postRequestToBackend = () => {
+    let requestBody = JSON.stringify({
+      name: state.name,
+      password: state.password
+    });
+    console.log("Fetching ");
+    fetch("http://localhost:8000/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: requestBody
+    }).then(resp => {
+      console.log("Response: ");
+      console.log(resp);
+    });
+  };
+
   //handle Log In Button
   const handleLogInButton = e => {
     //clear the form
+    e.preventDefault();
+    postRequestToBackend();
     e.preventDefault();
   };
 
