@@ -1,14 +1,6 @@
 import React from "react";
 
 const DropdownList = props => {
-  const [category, setCategory] = useState("");
-
-  const handleCategoryChange = e => {
-    setCategory(e.target.selectedIndex);
-    //passing the change of the state of the dropdown list from registration form
-    props.onChange(e.target.selectedIndex);
-  };
-
   return (
     <div
       className=" dropdownList"

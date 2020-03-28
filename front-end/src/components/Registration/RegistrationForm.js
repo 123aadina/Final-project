@@ -265,14 +265,11 @@ const RegistrationForm = props => {
               {" "}
               Issues *{" "}
             </label>
-<<<<<<< HEAD
+
             <DropdownList
               currentValue={state.issues}
               onChange={handleIssueDropdown}
             />
-=======
-            <DropdownList onChange={handleIssueDropdown} />
->>>>>>> issues index not typed changed value
           </div>
           {/* LANGUAGES */}
           <div className="form-group col">
