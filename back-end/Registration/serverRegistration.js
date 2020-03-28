@@ -25,7 +25,7 @@ app.post("/registration", (req, res) => {
   User.find({ name: registerFormFields.name }, (error, docs) => {
     if (docs.length > 0) {
       //user exists in db reject the request
-
+      console.log("User is already registered");
       res.send(400);
     } else {
       //user does not exist so it is created
@@ -34,7 +34,6 @@ app.post("/registration", (req, res) => {
       registerFormFields.password = hashedPassword;
       User.create(registerFormFields, err => {
         if (err) {
-          console.log(registerFormFields);
           console.log(err);
           res.send(400);
         } else {
