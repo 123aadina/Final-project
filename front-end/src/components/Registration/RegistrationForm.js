@@ -192,6 +192,7 @@ const RegistrationForm = props => {
               {" "}
               Name *
             </label>
+
             <input
               className="form-control"
               type="text"
