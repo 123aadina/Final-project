@@ -9,6 +9,7 @@ import Navbar from "./components/Layout/Navbar";
 import Info from "./components/Pages/Info";
 import RegistrationForm from "./components/Registration/RegistrationForm";
 import Topic from "./components/Pages/Topic";
+import LogIn from "./components/LogInForm/LogIn";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route exact path="/info" component={Info} />
           <Route exact path="/registration" component={RegistrationForm} />
           <Route exact path="/topic" component={Topic} />
+          <Route exact path="/login" component={LogIn} />
         </Switch>
       </div>
     </Router>
