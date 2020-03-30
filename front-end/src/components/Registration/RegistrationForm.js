@@ -65,7 +65,7 @@ const RegistrationForm = props => {
       ...initErrorState
     });
 
-    if (state.name.length < 2 || state.name.length > 15) {
+    if (state.name.length < 2 || state.name.length > 70) {
       setState({
         ...state,
         nameError: "Name should be more than 2 characters long"
@@ -146,7 +146,6 @@ const RegistrationForm = props => {
       comment: state.comment,
       agreeChecked: false
     });
-    console.log("Fetching " + requestBody);
     // fetch to send the registration form back to backend as jason/
     fetch("http://localhost:8000/registration", {
       method: "POST",
