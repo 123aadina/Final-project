@@ -9,35 +9,35 @@ export default function Topic() {
       <h1 className="text-center">Topics</h1>
 
       <div className="topic_container_box ">
-        <div className="row">
+        <div className="col">
           <div className="btn btn-light col-6">
             <Link>Childcare </Link>
           </div>
         </div>
-        <div className="row">
+        <div className="col">
           <div className="btn btn-light col-6">
             {" "}
             <Link>Employement</Link>{" "}
           </div>
         </div>
-        <div className="row">
+        <div className="col">
           <div className="btn btn-light col-6">
             {" "}
             <Link>Divorce</Link>{" "}
           </div>
         </div>
-        <div className="row">
+        <div className="col">
           <div className="btn btn-light col-6">
             <Link>Domestic Violence </Link>{" "}
           </div>
         </div>
-        <div className="row">
+        <div className="col">
           <div className="btn btn-light col-6">
             {" "}
             <Link>Healthcare</Link>{" "}
           </div>
         </div>
-        <div className="row">
+        <div className="col">
           <div className="btn btn-light col-6">
             {" "}
             <Link>Sexual Abuse</Link>{" "}
