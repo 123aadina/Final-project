@@ -8,7 +8,7 @@
 }
 
 body {
-  font-family: "Montserrat", sans-serif !important;
+  font-family: "Montserrat";
   background-color: #ffffff;
 }
 
@@ -102,16 +102,11 @@ body {
 
   .topic_container {
     display: flex;
+    align-items: center;
+    flex-direction: row;
     justify-content: center;
-    flex-wrap: wrap;
-    align-content: center;
   }
 
-  .topic_container_box {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
   div a {
     text-decoration: none;
   }
