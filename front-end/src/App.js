@@ -9,11 +9,7 @@ import Home from "./components/Pages/Home";
 import Info from "./components/Pages/Info";
 import RegistrationForm from "./components/Registration/RegistrationForm";
 import Topic from "./components/Pages/Topic";
-<<<<<<< HEAD
-// import LogIn from "./components/LogInForm/LogIn";
-=======
 import LogIn from "./components/LogInForm/LogIn";
->>>>>>> 273c64a9eedb960785fa4872e0dc1fae8f811cde
 
 function App() {
   return (
@@ -25,11 +21,7 @@ function App() {
           <Route exact path="/info" component={Info} />
           <Route exact path="/registration" component={RegistrationForm} />
           <Route exact path="/topic" component={Topic} />
-<<<<<<< HEAD
-          {/* <Route exact path="/login" component={LogIn} /> */}
-=======
           <Route exact path="/login" component={LogIn} />
->>>>>>> 273c64a9eedb960785fa4872e0dc1fae8f811cde
         </Switch>
       </div>
     </Router>
