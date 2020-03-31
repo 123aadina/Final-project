@@ -11,7 +11,7 @@ const InitState = {
   ...initErrorState
 };
 
-const SignIn = props => {
+const LogIn = props => {
   const [state, setState] = useState(InitState);
 
   //Validating the form
@@ -71,7 +71,7 @@ const SignIn = props => {
   return (
     <div className="logInForm">
       <div className="logIn-container">
-        <h1>Sign In</h1>
+        <h1 className="text-center">Sign In</h1>
         <form noValidate onSubmit={handleLogInButton}>
           <div>
             <label htmlFor="name">Name</label>
