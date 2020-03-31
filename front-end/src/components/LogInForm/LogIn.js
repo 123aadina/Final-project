@@ -69,12 +69,12 @@ const LogIn = props => {
   };
 
   return (
-    <div className="logInForm">
-      <div className="logIn-container">
-        <h1 className="text-center">Sign In</h1>
+    <div className="login_container ">
+      <div className="container d-flex flex-column justify-content-center ">
+        <h1 className="text-center"> Sign In </h1>
         <form noValidate onSubmit={handleLogInButton}>
           <div>
-            <label htmlFor="name">Name</label>
+            <label htmlFor="name"> Name </label>
             <input
               type="name"
               name="name"
@@ -84,7 +84,7 @@ const LogIn = props => {
             />
           </div>
           <div>
-            <label htmlFor="password">Password</label>
+            <label htmlFor="password"> Password </label>
             <input
               type="password"
               name="password"
@@ -94,9 +94,9 @@ const LogIn = props => {
             />
           </div>
           <div className="loginButton">
-            <button type="submit">LOGIN</button>
+            <button type="btn submit"> LOGIN </button>
           </div>
-          <h2>Forgot your password?</h2>
+          <h2> Forgot your password? </h2>
         </form>
       </div>
     </div>
