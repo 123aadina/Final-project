@@ -73,6 +73,7 @@ const LogIn = props => {
       <div className="container d-flex flex-column justify-content-center ">
         <h1 className="text-center"> Sign In </h1>
         <form noValidate onSubmit={handleLogInButton}>
+          {/* NAME FIELD */}
           <div>
             <label htmlFor="name"> Name </label>
             <input
@@ -83,6 +84,8 @@ const LogIn = props => {
               onChange={handleEvent}
             />
           </div>
+
+          {/* PASSWORD FIELD */}
           <div>
             <label htmlFor="password"> Password </label>
             <input
@@ -93,6 +96,8 @@ const LogIn = props => {
               onChange={handleEvent}
             />
           </div>
+
+          {/* BUTTON LOGIN */}
           <div className="loginButton">
             <button type="btn submit"> LOGIN </button>
           </div>
