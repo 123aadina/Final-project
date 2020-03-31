@@ -27,33 +27,20 @@ body {
   }
 }
 
-// Main container
-.homepage_container {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
-
-//Button Get Help - Get more informations
-.homepage_buttons {
-  // background-color: #f0f5fa;
-  display: flex;
-  justify-content: space-between;
+// HOMEPAGE - BUTTON GET HELP - GET INFO
+#homepage_button {
   button a {
     text-decoration: none;
     color: black;
   }
 }
 
-// Footer
+// HOMEPAGE - Footer
 .homepage_footer {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  width: 100%;
   background-color: #f0f8fa;
 
   ul {
@@ -72,16 +59,9 @@ body {
   }
 }
 
-// Registration page styling
+// REGISTRATION
 
-.registration_container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
-
-// Info page styling
+// INFO
 
 .info_container {
   display: flex;
@@ -98,7 +78,7 @@ body {
     }
   }
 
-  // TOPIC PAGE
+  // TOPIC
 
   .topic_container {
     display: flex;

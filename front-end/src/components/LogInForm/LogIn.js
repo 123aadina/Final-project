@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const initErrorState = {
   nameError: "",
@@ -11,7 +12,7 @@ const InitState = {
   ...initErrorState
 };
 
-const SignIn = props => {
+const LogIn = props => {
   const [state, setState] = useState(InitState);
 
   //Validating the form
@@ -42,22 +43,6 @@ const SignIn = props => {
     return true;
   };
 
-  //Sending the data to Backend
-  //const postRequestToBackend = () => {
-  // let RequestLogInFormBody = JASON.stingify ({
-  // name:state.name,
-  // password:state.password
-  //       })
-  //       fetch (http://localhost:8000/signin){
-  // method:POST,
-  //     headers: { "Content-Type": "application/json" },
-  //       body: requestBody
-  //     }).then(resp => {
-  //       console.log("Response: ");
-  //       console.log(resp);
-  //     });
-  // //   };
-
   //handle Log In Button
   const handleLogInButton = e => {
     //clear the form
@@ -69,13 +54,20 @@ const SignIn = props => {
   };
 
   return (
-    <div className="logInForm">
-      <div className="logIn-container">
-        <h1>Sign In</h1>
+    // MAIN CONTAINER
+    <div className="container d-flex flex-column justify-content-center my-2 p-5 rounded col ">
+      <h1 className="text-center"> Sign In </h1>
+      {/* CONTAINER FOR THE FIELD */}
+      <div className="container d-flex flex-column justify-content-center align-items-center p-5  bg bg-light border rounded col">
         <form noValidate onSubmit={handleLogInButton}>
-          <div>
-            <label htmlFor="name">Name</label>
+          {/* NAME FIELD */}
+          <div className="form-group">
+            <label htmlFor="name" className="font-weight-bolder">
+              {" "}
+              Name{" "}
+            </label>
             <input
+              className="form-control"
               type="name"
               name="name"
               value={state.name}
@@ -83,9 +75,15 @@ const SignIn = props => {
               onChange={handleEvent}
             />
           </div>
-          <div>
-            <label htmlFor="password">Password</label>
+
+          {/* PASSWORD FIELD */}
+          <div className="form-group">
+            <label htmlFor="password" className="font-weight-bolder ">
+              {" "}
+              Password{" "}
+            </label>
             <input
+              className="form-control"
               type="password"
               name="password"
               value={state.password}
@@ -93,10 +91,19 @@ const SignIn = props => {
               onChange={handleEvent}
             />
           </div>
-          <div className="loginButton">
-            <button type="submit">LOGIN</button>
+          <Link>
+            <h6> Forgot your password? </h6>
+          </Link>
+          {/* BUTTON LOGIN */}
+          <div className="loginButton text-center">
+            <button
+              type="submit"
+              className="btn btn-success font-weight-bolder m-1"
+            >
+              {" "}
+              Sign In{" "}
+            </button>
           </div>
-          <h2>Forgot your password?</h2>
         </form>
       </div>
     </div>
@@ -119,3 +126,19 @@ export default LogIn;
 //  })
 // }// Login a specific user
 // app.get("/login", (req, res) => {});
+
+//Sending the data to Backend
+//const postRequestToBackend = () => {
+// let RequestLogInFormBody = JASON.stingify ({
+// name:state.name,
+// password:state.password
+//       })
+//       fetch (http://localhost:8000/signin){
+// method:POST,
+//     headers: { "Content-Type": "application/json" },
+//       body: requestBody
+//     }).then(resp => {
+//       console.log("Response: ");
+//       console.log(resp);
+//     });
+// //   };
