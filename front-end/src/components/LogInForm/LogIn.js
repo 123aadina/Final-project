@@ -96,7 +96,7 @@ const LogIn = props => {
           <div className="loginButton">
             <button type="btn submit"> LOGIN </button>
           </div>
-          <h2> Forgot your password? </h2>
+          <h6> Forgot your password? </h6>
         </form>
       </div>
     </div>
