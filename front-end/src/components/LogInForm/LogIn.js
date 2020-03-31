@@ -75,7 +75,10 @@ const LogIn = props => {
         <form noValidate onSubmit={handleLogInButton}>
           {/* NAME FIELD */}
           <div>
-            <label htmlFor="name"> Name </label>
+            <label htmlFor="name" className="font-weight-bolder m-2">
+              {" "}
+              Name{" "}
+            </label>
             <input
               type="name"
               name="name"
@@ -87,7 +90,10 @@ const LogIn = props => {
 
           {/* PASSWORD FIELD */}
           <div>
-            <label htmlFor="password"> Password </label>
+            <label htmlFor="password" className="font-weight-bolder m-2">
+              {" "}
+              Password{" "}
+            </label>
             <input
               type="password"
               name="password"
