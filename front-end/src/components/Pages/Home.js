@@ -2,6 +2,7 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import Footer from "../Layout/Footer";
+import Navbar from "../Layout/Navbar";
 
 const Home = () => {
   const { t, i18n } = useTranslation();
@@ -9,6 +10,7 @@ const Home = () => {
   return (
     //  Homepage_container -->  Main container
     <div className="container d-flex flex-column justify-content-center align-items-center flex-wrap">
+      <Navbar />
       <div className="col m-auto">
         {/* Welcome message */}
         <h1 className="text-center my-3">{t("welcome.1")}</h1>
@@ -41,7 +43,7 @@ const Home = () => {
             </Link>
           </button>
         </div>
-        {/* <Footer /> */}
+        <Footer />
       </div>
     </div>
   );
