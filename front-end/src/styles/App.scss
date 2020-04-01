@@ -63,31 +63,24 @@ body {
 
 // INFO
 
-.info_container {
+#info_button {
   display: flex;
-  flex-wrap: wrap;
-  align-content: center;
-  justify-content: center;
 
-  .info_buttons {
-    display: flex;
-
-    button a {
-      text-decoration: none;
-      color: black;
-    }
-  }
-
-  // TOPIC
-
-  .topic_container {
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    justify-content: center;
-  }
-
-  div a {
+  button a {
     text-decoration: none;
+    color: black;
   }
+}
+
+// TOPIC
+
+.topic_container {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+}
+
+div a {
+  text-decoration: none;
 }
