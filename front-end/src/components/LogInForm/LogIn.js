@@ -56,7 +56,7 @@ const LogIn = props => {
       password: state.password
     });
     console.log("Fetching ");
-    fetch("http://localhost:8000/login", {
+    fetch("http://localhost:3000/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: requestBody
