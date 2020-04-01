@@ -32,10 +32,10 @@ mongoose
 /** ROUTES */
 const middleware = require("./middleware");
 const read = require("./routes/read");
+const registration = require("./Registration/serverRegistration");
 
 api.use(middleware.cors);
 api.use(read);
-
 
 /** EXPORT PATH */
 module.exports = api;
