@@ -1,20 +1,12 @@
 const express = require("express");
+const router = express.Router();
 const { User } = require("./dbRegistration.js");
-const cors = require("cors");
-const app = express();
 const bcrypt = require("bcrypt");
-const session = require("express-session");
 const { validateForm } = require("./validationServer");
 const jtw = require("jsonwebtoken");
 
-//setting the middleware
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(session({ secret: "ssshhhhh" }));
-app.use(cors());
-
 //Register user and Schema for email ,password, name, issues ...
-app.post("/registration", (req, res) => {
+router.post("/registration", (req, res) => {
   let registerFormFields = req.body;
   // Match fields from the frontend to DB field names
   console.log(registerFormFields);
@@ -47,7 +39,7 @@ app.post("/registration", (req, res) => {
 
 // Find User and create the token
 // Route for the login form
-app.post("/login", (req, res, next) => {
+router.post("/login", (req, res, next) => {
   User.findOne({ name: req.body.name })
     .then(user => {
       if (!user) {
@@ -76,8 +68,4 @@ app.post("/login", (req, res, next) => {
     .catch(error => next(err));
 });
 
-//server listening on 8000;
-const port = 8000;
-app.listen(port, () => {
-  console.log(`Server is now listening on port ${port}`);
-});
+module.exports = router;
