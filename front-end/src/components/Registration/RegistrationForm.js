@@ -179,7 +179,7 @@ const RegistrationForm = props => {
 
   return (
     <div className="container d-flex flex-column justify-content-center align-items-center flex-wrap col ">
-      <h1 className="m-3 border-bottom text-center"> Registration Form </h1>
+      <h1 className="m-2 text-center"> Registration Form </h1>
       <div className="row bg bg-light m-3 p-3">
         {/* Form start here */}
         <form noValidate onSubmit={handleSubmit}>
