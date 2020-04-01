@@ -12,6 +12,11 @@ const InitState = {
   ...initErrorState
 };
 
+const errorTextStyle = {
+  color: "red",
+  fontSize: "12px"
+};
+
 const LogIn = props => {
   const [state, setState] = useState(InitState);
 
@@ -43,10 +48,40 @@ const LogIn = props => {
     return true;
   };
 
+  //Sending the data to Backend
+  const postRequestToBackend = e => {
+    let successful = true;
+    let requestBody = JSON.stringify({
+      name: state.name,
+      password: state.password
+    });
+    console.log("Fetching ");
+    fetch("http://localhost:8000/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: requestBody
+    }).then(resp => {
+      if (resp.status != 200) {
+        setState({
+          ...state,
+          passwordError: "Password is not valid."
+        });
+      } else {
+        console.log(resp.json());
+        setState(InitState);
+      }
+    });
+  };
+
   //handle Log In Button
   const handleLogInButton = e => {
-    //clear the form
+    const isValid = validateLogIn();
     e.preventDefault();
+
+    if (isValid) {
+      //to clear the loginForm
+      postRequestToBackend(e);
+    }
   };
 
   const handleEvent = e => {
