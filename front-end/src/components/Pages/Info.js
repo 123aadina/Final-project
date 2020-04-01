@@ -15,7 +15,7 @@ const Info = () => {
         className="container d-flex justify-content-center align-items-center col mx-auto col-xs"
         id="info_container_description"
       >
-        <p className="justify-content-center">
+        <p className="justify-content-center bg bg-light text-center p-5">
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi
           doloribus, inventore ducimus molestias incidunt maiores obcaecati
           repellendus iste. Ratione soluta sint maiores explicabo tempore sunt
