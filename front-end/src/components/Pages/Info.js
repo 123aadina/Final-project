@@ -10,7 +10,8 @@ const Info = () => {
       className="container d-flex justify-content-center align-content-center flex-wrap flex-column mt-3 col-l"
       id="info_container"
     >
-      <h1 className="text-center"> Women's rights in Germany </h1>
+      <Navbar />
+      <h1 className="text-center "> Women's rights in Germany </h1>
       <div
         className="container d-flex justify-content-center align-items-center col mx-auto col-xs"
         id="info_container_description"
@@ -40,7 +41,7 @@ const Info = () => {
           </Link>
         </button>
       </div>
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 };
