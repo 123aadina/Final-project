@@ -15,15 +15,19 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex'
     },
     topicWindow: {
+        width:'30%'
 
     },
     chatWindow: {
+        width:'70%'
 
     },
     chatBox: {
+        width:'85%'
 
     },
     button: {
+        width:'15%'
 
     },
 
