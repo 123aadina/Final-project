@@ -1,12 +1,14 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
+// Components
 import Navbar from "../Layout/Navbar";
 import Footer from "../Layout/Footer";
-import { Link } from "react-router-dom";
 
 export default function Topic() {
   return (
     <div
-      className="container d-flex flex-column justify-content-center col my-5"
+      className="container d-flex flex-column justify-content-center col"
       id="topic_container"
     >
       <Navbar />
