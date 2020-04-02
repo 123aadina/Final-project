@@ -1,13 +1,15 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
+// Components
 import Navbar from "../Layout/Navbar";
 import Footer from "../Layout/Footer";
-import { Link } from "react-router-dom";
 import Topic from "./Topic";
 
 const Info = () => {
   return (
     <div
-      className="container d-flex justify-content-center align-content-center flex-wrap flex-column mt-3 col-l"
+      className="container d-flex justify-content-center align-content-center flex-wrap flex-column"
       id="info_container"
     >
       <Navbar />
