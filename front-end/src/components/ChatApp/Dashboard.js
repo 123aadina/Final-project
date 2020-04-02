@@ -48,6 +48,9 @@ const Dashboard = () => {
                   topic
                 </Typography>
                 <div className={classes.flex}>
+                  <div className={classes.topicsWindow}>
+
+                  </div>
 
                 </div>
                 <div className={classes.flex}>
