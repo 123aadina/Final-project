@@ -13,6 +13,9 @@ const useStyles = makeStyles((theme) => ({
     },
     flex: {
         display: 'flex'
+    },
+    topicWindow: {
+        
     }
   }));
 
