@@ -15,8 +15,12 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex'
     },
     topicWindow: {
-        
-    }
+
+    },
+    chatWindow: {
+
+    },
+
   }));
 
 const Dashboard = () => {
