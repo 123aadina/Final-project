@@ -9,6 +9,7 @@ export default function Topic() {
       className="container d-flex flex-column justify-content-center col my-5"
       id="topic_container"
     >
+      <Navbar />
       <h1 className="text-center"> Topics </h1>
 
       <div
