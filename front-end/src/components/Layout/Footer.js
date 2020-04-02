@@ -3,47 +3,45 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <div className="homepage_footer mt-5">
-      <footer>
-        <ul>
-          <li className="mx-2 pt-3 pl-3">
-            <Link to="/" className="text-secondary">
-              {" "}
-              Homepage{" "}
-            </Link>
-          </li>
-          <li className="mx-2 pt-3">
-            <Link to="/info" className="text-secondary">
-              {" "}
-              Info{" "}
-            </Link>
-          </li>
-          <li className="mx-2 pt-3 ">
-            <Link to="/registration" className="text-secondary">
-              {" "}
-              Register{" "}
-            </Link>
-          </li>
+    <footer className="container ">
+      <ul className="d-flex justify-content-center align-items-center flex-wrap">
+        <li className="mx-2 pt-3 pl-3">
+          <Link to="/" className="text-secondary">
+            {" "}
+            Homepage{" "}
+          </Link>
+        </li>
+        <li className="mx-2 pt-3">
+          <Link to="/info" className="text-secondary">
+            {" "}
+            Info{" "}
+          </Link>
+        </li>
+        <li className="mx-2 pt-3 ">
+          <Link to="/registration" className="text-secondary">
+            {" "}
+            Register{" "}
+          </Link>
+        </li>
 
-          <li className="mx-2 pt-3 ">
-            <Link to="/topic" className="text-secondary">
-              {" "}
-              Topics{" "}
-            </Link>
-          </li>
-          <li className="mx-2 pt-3 ">
-            <Link to="/login" className="text-secondary">
-              {" "}
-              Login{" "}
-            </Link>
-          </li>
+        <li className="mx-2 pt-3 ">
+          <Link to="/topic" className="text-secondary">
+            {" "}
+            Topics{" "}
+          </Link>
+        </li>
+        <li className="mx-2 pt-3 ">
+          <Link to="/login" className="text-secondary">
+            {" "}
+            Login{" "}
+          </Link>
+        </li>
 
-          <li className="mx-2 pt-3 text-secondary">
-            Women Voice 2020 @ All right reserved
-          </li>
-        </ul>
-      </footer>
-    </div>
+        <li className="mx-2 pt-3 text-secondary">
+          Women Voice 2020 @ All right reserved
+        </li>
+      </ul>
+    </footer>
   );
 };
 
