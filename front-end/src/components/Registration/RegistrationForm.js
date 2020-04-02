@@ -2,7 +2,11 @@ import React, { useState } from "react";
 import CheckBoxBase from "./Checkboxes";
 import DropdownList from "./DropdownList";
 
+// Components
+import Navbar from "../Layout/Navbar";
 import Footer from "../../components/Layout/Footer";
+
+// Styling
 import "../../styles/App.scss";
 
 const initErrorState = {
@@ -179,8 +183,9 @@ const RegistrationForm = props => {
 
   return (
     <div className="container d-flex flex-column justify-content-center align-items-center flex-wrap col ">
+      <Navbar />
       <h1 className="m-2 text-center"> Registration Form </h1>
-      <div className="row bg bg-light m-3 p-3">
+      <div className="row bg bg-light p-3">
         {/* Form start here */}
         <form noValidate onSubmit={handleSubmit}>
           {/* NAME */}
