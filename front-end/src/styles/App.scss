@@ -2,67 +2,17 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat");
 
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  font-family: "Montserrat";
-  background-color: #ffffff;
+  font-family: "Montserrat", sans-serif;
+  background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
 }
-
-//Homepage Navbar
-.navbar {
-  display: flex;
-
-  ul {
-    display: flex;
-    flex-direction: row;
-  }
-  li {
-    justify-content: space-between;
-    list-style-type: none;
-    text-decoration: none;
-  }
-}
-
-// HOMEPAGE - BUTTON GET HELP - GET INFO
-#homepage_button {
-  button a {
-    text-decoration: none;
-    color: black;
-  }
-}
-
-// HOMEPAGE - Footer
-.homepage_footer {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  background-color: #f0f8fa;
-
-  ul {
-    display: flex;
-    flex-direction: row;
-  }
-
-  li {
-    justify-content: space-between;
-    list-style-type: none;
-    text-decoration: none;
-  }
-
-  a {
-    text-decoration: none;
-  }
-}
-
-// REGISTRATION
 
 // INFO
-
 #info_button {
   display: flex;
 
@@ -71,5 +21,3 @@ body {
     color: black;
   }
 }
-
-// TOPIC
