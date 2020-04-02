@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <footer className="container ">
-      <ul className="d-flex justify-content-center align-items-center flex-wrap list-unstyled">
+      <ul className="d-flex justify-content-center align-items-center list-unstyled">
         <li className="mx-2 pt-3 pl-3">
           <Link to="/" className="text-secondary">
             {" "}
@@ -37,9 +37,7 @@ const Footer = () => {
           </Link>
         </li>
 
-        <li className="mx-2 pt-3 text-secondary">
-          Women Voice 2020 @ All right reserved
-        </li>
+        <li className="mx-2 pt-3 text-secondary"> Copyright @ Women Voice </li>
       </ul>
     </footer>
   );
