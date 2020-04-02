@@ -10,10 +10,11 @@ import Info from "./components/Pages/Info";
 import RegistrationForm from "./components/Registration/RegistrationForm";
 import Topic from "./components/Pages/Topic";
 
+
 function App() {
   return (
-    <Router>
-      <div className="App">
+     <Router>
+      <div className="App">  
         <header className="App-header">
           <Navbar />
         </header>
@@ -22,9 +23,11 @@ function App() {
           <Route exact path="/info" component={Info} />
           <Route exact path="/registration" component={RegistrationForm} />
           <Route exact path="/topic" component={Topic} />
-        </Switch>
+        </Switch> 
+        
+             
       </div>
-    </Router>
+     </Router> 
   );
 }
 
