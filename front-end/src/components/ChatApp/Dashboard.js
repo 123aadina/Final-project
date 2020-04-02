@@ -26,8 +26,12 @@ const Dashboard = () => {
                   topic
                 </Typography>
                 <div className={classes.flex}>
+
+                </div>
+                <div className={classes.flex}>
                     
                 </div>
+
             </Paper>
  
         </div>
