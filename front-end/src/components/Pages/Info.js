@@ -9,7 +9,7 @@ import Topic from "./Topic";
 const Info = () => {
   return (
     <div
-      className="container d-flex justify-content-center align-content-center flex-wrap flex-column"
+      className="container d-flex justify-content-center flex-wrap flex-column "
       id="info_container"
     >
       <Navbar />
