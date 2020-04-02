@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import Navbar from "../Layout/Navbar";
+import Footer from "../Layout/Footer";
 
 const initErrorState = {
   nameError: "",
@@ -91,6 +93,7 @@ const LogIn = props => {
   return (
     // MAIN CONTAINER
     <div className="container d-flex flex-column justify-content-center my-2 p-5 rounded col ">
+      <Navbar />
       <h1 className="text-center"> Sign In </h1>
       {/* CONTAINER FOR THE FIELD */}
       <div className="container d-flex flex-column justify-content-center align-items-center p-5  bg bg-light border rounded col">
@@ -141,6 +144,7 @@ const LogIn = props => {
           </div>
         </form>
       </div>
+      <Footer />
     </div>
   );
 };
