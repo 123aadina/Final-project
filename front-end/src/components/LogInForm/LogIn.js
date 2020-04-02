@@ -92,11 +92,11 @@ const LogIn = props => {
 
   return (
     // MAIN CONTAINER
-    <div className="container d-flex flex-column justify-content-center my-2 p-5 rounded col ">
+    <div className="container d-flex flex-column justify-content-center rounded col-6 ">
       <Navbar />
       <h1 className="text-center"> Sign In </h1>
       {/* CONTAINER FOR THE FIELD */}
-      <div className="container d-flex flex-column justify-content-center align-items-center p-5  bg bg-light border rounded col">
+      <div className="container d-flex flex-column justify-content-center align-items-center p-3 bg bg-light border rounded col">
         <form noValidate onSubmit={handleLogInButton}>
           {/* NAME FIELD */}
           <div className="form-group">
