@@ -56,7 +56,7 @@ const LogIn = props => {
       password: state.password
     });
     console.log("Fetching ");
-    fetch("http://localhost:8000/login", {
+    fetch("http://localhost:3000/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: requestBody
@@ -146,34 +146,3 @@ const LogIn = props => {
 };
 
 export default LogIn;
-
-//xreiazetai to button submit handle event?
-//the name and the password has to match auto tha ginei sto backend
-
-//episis xreiazomaste kai ena forgot password to reset it!!!
-//Not to forget that we should have a route for that!!!!
-//tha xreiastw middleware error handler?
-//authodication?
-//to token tha paei sto login
-// app.get("/user/:id", (req, res) => {
-//  user.password = users.map(user =>{
-//    return user;
-//  })
-// }// Login a specific user
-// app.get("/login", (req, res) => {});
-
-//Sending the data to Backend
-//const postRequestToBackend = () => {
-// let RequestLogInFormBody = JASON.stingify ({
-// name:state.name,
-// password:state.password
-//       })
-//       fetch (http://localhost:8000/signin){
-// method:POST,
-//     headers: { "Content-Type": "application/json" },
-//       body: requestBody
-//     }).then(resp => {
-//       console.log("Response: ");
-//       console.log(resp);
-//     });
-// //   };
