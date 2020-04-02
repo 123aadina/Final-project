@@ -9,9 +9,15 @@ import { makeStyles } from '@material-ui/core/styles';
 const Dashboard = () => {
     return (
         <div>
-            
-             
-            
+            <Paper className={classes.root}>
+                <Typography variant='h4' component='h4'>
+                    Chat App
+                </Typography>
+                <Typography variant='h5' component='h5'>
+                  topic
+                </Typography>
+            </Paper>
+ 
         </div>
     )
 }
