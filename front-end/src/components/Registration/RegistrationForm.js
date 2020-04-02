@@ -41,6 +41,7 @@ const RegistrationForm = props => {
   const [state, setState] = useState(initialState);
 
   const handleAgreeCheckbox = e => {
+    console.log("Agree checkbx " + e.target.checked);
     setState({
       ...state,
       agreeChecked: e.target.checked
@@ -60,6 +61,7 @@ const RegistrationForm = props => {
       ...state,
       issues: e.target.selectedIndex
     });
+    console.log(category);
   };
 
   //form validators
@@ -150,7 +152,7 @@ const RegistrationForm = props => {
     });
     console.log(requestBody);
     // fetch to send the registration form back to backend as jason/
-    fetch("http://localhost:8000/registration", {
+    fetch("http://localhost:3000/registration", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: requestBody
@@ -269,6 +271,7 @@ const RegistrationForm = props => {
               {" "}
               Issues *{" "}
             </label>
+
             <DropdownList
               currentValue={state.issues}
               onChange={handleIssueDropdown}
