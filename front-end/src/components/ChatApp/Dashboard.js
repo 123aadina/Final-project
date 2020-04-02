@@ -51,7 +51,7 @@ const Dashboard = () => {
                   <div className={classes.topicsWindow}>
                   <List>
                            {
-                               [].map(topic => (
+                               ['topic'].map(topic => (
                                    <ListItem  key={topic} button>
                                        <ListItemText primary={topic} />
                                    </ListItem>
