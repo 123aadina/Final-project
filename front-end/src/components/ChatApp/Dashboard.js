@@ -20,6 +20,9 @@ const useStyles = makeStyles((theme) => ({
     chatWindow: {
 
     },
+    chatBox: {
+
+    },
 
   }));
 
