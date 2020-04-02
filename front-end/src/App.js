@@ -10,7 +10,6 @@ import Info from "./components/Pages/Info";
 import RegistrationForm from "./components/Registration/RegistrationForm";
 import LogIn from "./components/LogInForm/LogIn";
 import Topic from "./components/Pages/Topic";
-import LogIn from "./components/LogInForm/LogIn";
 
 function App() {
   return (
