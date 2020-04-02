@@ -51,6 +51,9 @@ const Dashboard = () => {
                   <div className={classes.topicsWindow}>
 
                   </div>
+                  <div className={classes.chatWindow}>
+
+                  </div>
 
                 </div>
                 <div className={classes.flex}>
