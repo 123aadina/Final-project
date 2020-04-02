@@ -16,7 +16,8 @@ const useStyles = makeStyles((theme) => ({
     },
     topicWindow: {
         width:'30%',
-        height:'300px'
+        height:'300px',
+        borderRight:'1px solid gery'
 
     },
     chatWindow: {
