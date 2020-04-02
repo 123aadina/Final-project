@@ -11,6 +11,9 @@ const useStyles = makeStyles((theme) => ({
         margine:'50px',
         padding: theme.spacing(3, 2),
     },
+    flex: {
+        display: 'flex'
+    }
   }));
 
 const Dashboard = () => {
