@@ -14,26 +14,21 @@ const useStyles = makeStyles((theme) => ({
     flex: {
         display: 'flex'
     },
-    topicWindow: {
+    topicsWindow: {
         width:'30%',
         height:'300px',
         borderRight:'1px solid gery'
-
     },
     chatWindow: {
         width:'70%',
         height:'300px'
-
     },
     chatBox: {
         width:'85%'
-
     },
     button: {
         width:'15%'
-
     },
-
   }));
 
 const Dashboard = () => {
@@ -50,6 +45,15 @@ const Dashboard = () => {
                 </Typography>
                 <div className={classes.flex}>
                   <div className={classes.topicsWindow}>
+                  <List>
+                           {
+                               [].map(topic => (
+                                   <ListItem  key={topic} button>
+                                       <ListItemText primary={topic} />
+                                   </ListItem>
+                               ))
+                           }
+                       </List>
 
                   </div>
                   <div className={classes.chatWindow}>
@@ -60,9 +64,7 @@ const Dashboard = () => {
                 <div className={classes.flex}>
                     
                 </div>
-
             </Paper>
- 
         </div>
     )
 }
