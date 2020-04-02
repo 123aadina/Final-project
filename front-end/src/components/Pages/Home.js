@@ -1,8 +1,10 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import Footer from "../Layout/Footer";
+
+// Components
 import Navbar from "../Layout/Navbar";
+import Footer from "../Layout/Footer";
 
 const Home = () => {
   const { t, i18n } = useTranslation();
@@ -31,13 +33,19 @@ const Home = () => {
           id="homepage_button"
         >
           <button className="btn btn-light mr-3 border-bottom">
-            <Link to="/registration" className="text-dark font-weight-bold">
+            <Link
+              to="/registration"
+              className="text-dark font-weight-bold text-decoration-none"
+            >
               {" "}
               Get Help{" "}
             </Link>
           </button>
           <button className="btn btn-light border-bottom ">
-            <Link to="/info" className="text-dark font-weight-bold ">
+            <Link
+              to="/info"
+              className="text-dark font-weight-bold text-decoration-none"
+            >
               {" "}
               Get more <br></br> informations{" "}
             </Link>
