@@ -11,13 +11,13 @@ const Navbar = ({ icon, title }) => {
   };
 
   return (
-    <nav className="navbar navbar-expand-xs ">
-      <Link to="/">
-        {/* Placeholder for the futur icon  */}
+    <nav className="navbar navbar-expand-xs col justify-content-center d-flex flex-row ">
+      {/* <Link to="/">
+        
         <i className={icon}></i>
-      </Link>
-      <ul className="navbar-nav mt-2">
-        <li>
+      </Link> */}
+      <ul className="navbar-nav mt-2 row text-center d-flex flex-row justify-content-center">
+        <li className=" col ">
           <button
             onClick={() => handleOnClick("ar")}
             className="btn btn-light mx-2 "
@@ -25,7 +25,7 @@ const Navbar = ({ icon, title }) => {
             Arabic
           </button>
         </li>
-        <li>
+        <li className="col">
           {" "}
           <button
             onClick={() => handleOnClick("de")}
@@ -34,7 +34,7 @@ const Navbar = ({ icon, title }) => {
             Deutsch
           </button>
         </li>
-        <li>
+        <li className="col">
           {" "}
           <button
             onClick={() => handleOnClick("en")}
@@ -44,7 +44,7 @@ const Navbar = ({ icon, title }) => {
           </button>
         </li>
 
-        <li>
+        <li className="col">
           <button
             onClick={() => handleOnClick("fe")}
             className="nav-item btn btn-light mx-2"
@@ -52,7 +52,7 @@ const Navbar = ({ icon, title }) => {
             French
           </button>
         </li>
-        <li>
+        <li className="col">
           <button
             onClick={() => handleOnClick("fr")}
             className="nav-item btn btn-light mx-2"
@@ -61,7 +61,7 @@ const Navbar = ({ icon, title }) => {
           </button>
         </li>
 
-        <li>
+        <li className="col">
           <button
             onClick={() => handleOnClick("tu")}
             className="nav-item btn btn-light"
