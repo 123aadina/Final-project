@@ -61,7 +61,6 @@ const RegistrationForm = props => {
       ...state,
       issues: e.target.selectedIndex
     });
-    console.log(category);
   };
 
   //form validators
