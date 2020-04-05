@@ -10,6 +10,7 @@ import Info from "./components/Pages/Info";
 import RegistrationForm from "./components/Registration/RegistrationForm";
 import LogIn from "./components/LogInForm/LogIn";
 import Topic from "./components/Pages/Topic";
+import Association from "./components/Pages/Association";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route exact path="/login" component={LogIn} />
           <Route exact path="/topic" component={Topic} />
           <Route exact path="/login" component={LogIn} />
+          <Route exact path="/association" component={Association} />
         </Switch>
       </div>
     </Router>
