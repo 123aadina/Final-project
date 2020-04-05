@@ -37,6 +37,13 @@ const Footer = () => {
           </Link>
         </li>
 
+        <li className="mx-2 pt-3 ">
+          <Link to="/association" className="text-secondary">
+            {" "}
+            Association{" "}
+          </Link>
+        </li>
+
         <li className="mx-2 pt-3 text-secondary"> Copyright @ Women Voice </li>
       </ul>
     </footer>
