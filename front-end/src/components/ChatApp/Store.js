@@ -2,7 +2,7 @@ import React from 'react'
 
 export const CTX = React.createContext()
 
-const Store = () => {
+const Store = props => {
     const reducrHook = React.useReducer(reducer, initialState)
     return (
         <CTX.Provider value={}>
