@@ -34,7 +34,7 @@ const useStyles = makeStyles(theme => ({
     chatBox: {
         width: '85%'
     },
-    button: {
+    buttun: {
         width: '15%'
     },
 }));
