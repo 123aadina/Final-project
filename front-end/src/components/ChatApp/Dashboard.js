@@ -21,7 +21,7 @@ const useStyles = makeStyles(theme => ({
     topicWindow: {
         width: '30%',
         height: '300px',
-        borderRight: '1px solid gery'
+        borderRight: '1px solid red'
     },
     chatWindow: {
         width: '70%',
@@ -63,9 +63,18 @@ const Dashboard = () => {
 
                     </div>
                     <div className={classes.chatWindow}>
+                    {
+                            [{ from: 'user', msg: 'hallo' }].map((chat, i) => (
+                                <div className={classes.flex} key={i}>
+                                    <Chip label={chat.from} className={classes.chip} />
+                                    <Typography variant='p'>
+                                        {chat.msg}
+                                      </Typography>
+                                </div>
+                            ))
+                        }
 
                     </div>
-
                 </div>
                 <div className={classes.flex}>
 
