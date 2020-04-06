@@ -69,13 +69,13 @@ const Dashboard = () => {
 
                     </div>
                     <div className={classes.chatWindow}>
-                    {
+                        {
                             [{ from: 'user', msg: 'hallo' }].map((chat, i) => (
                                 <div className={classes.flex} key={i}>
                                     <Chip label={chat.from} className={classes.chip} />
                                     <Typography variant='p'>
                                         {chat.msg}
-                                      </Typography>
+                                    </Typography>
                                 </div>
                             ))
                         }
@@ -83,6 +83,9 @@ const Dashboard = () => {
                     </div>
                 </div>
                 <div className={classes.flex}>
+                    <Button variant="contained" color="primary">
+                        send
+                     </Button>
 
                 </div>
             </Paper>
