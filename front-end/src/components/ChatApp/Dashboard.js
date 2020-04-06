@@ -11,6 +11,8 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 //@material-ui/Chip
 import Chip from '@material-ui/core/Chip';
+//@material-ui/Button
+import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -34,7 +36,7 @@ const useStyles = makeStyles(theme => ({
     chatBox: {
         width: '85%'
     },
-    buttun: {
+    button: {
         width: '15%'
     },
 }));
