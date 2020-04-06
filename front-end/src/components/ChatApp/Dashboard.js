@@ -52,7 +52,8 @@ const Dashboard = () => {
     console.log(allchats)
 
     const topics = Object.keys(allchats)
-
+    //local state
+    const [activeTopic, changeActiveTopic]= React.useState(topics[0])
     const [textValue, changeTextValue] = React.useState('')
     const classes = useStyles()
 
