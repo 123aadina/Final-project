@@ -44,6 +44,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const Dashboard = () => {
+    const [textValue, changeTextValue] =useContext('')
 
     const classes = useStyles()
 
@@ -88,6 +89,8 @@ const Dashboard = () => {
                     <TextField
                         label="send a chat"
                         className={classes.chatBox}
+                        value={textValue}
+                        onChange={changeTextValue('name')}
                     
                     />
                     <Button variant="contained" color="primary">
