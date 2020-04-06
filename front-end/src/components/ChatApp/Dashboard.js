@@ -78,7 +78,7 @@ const Dashboard = () => {
                             [{ from: 'user', msg: 'hallo' }].map((chat, i) => (
                                 <div className={classes.flex} key={i}>
                                     <Chip label={chat.from} className={classes.chip} />
-                                    <Typography variant='p'>
+                                    <Typography variant="body1" gutterBottom>
                                         {chat.msg}
                                     </Typography>
                                 </div>
