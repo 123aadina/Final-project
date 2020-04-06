@@ -10,6 +10,7 @@ import Info from "./components/Pages/Info";
 import RegistrationForm from "./components/Registration/RegistrationForm";
 import Topic from "./components/Pages/Topic";
 import Dashboard from "./components/ChatApp/Dashboard";
+import Store from "./components/ChatApp/Store";
 
 
 function App() {
@@ -25,8 +26,9 @@ function App() {
           <Route exact path="/registration" component={RegistrationForm} />
           <Route exact path="/topic" component={Topic} />
         </Switch> 
+        <Store>
         <Dashboard />
-             
+        </Store>  
       </div>
      </Router> 
   );
