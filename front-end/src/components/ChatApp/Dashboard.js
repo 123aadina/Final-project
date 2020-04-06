@@ -44,7 +44,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const Dashboard = () => {
-    const [textValue, changeTextValue] =useContext('')
+    const [textValue, changeTextValue] = React.useState('')
 
     const classes = useStyles()
 
@@ -90,7 +90,7 @@ const Dashboard = () => {
                         label="send a chat"
                         className={classes.chatBox}
                         value={textValue}
-                        onChange={changeTextValue('name')}
+                        onChange={e => changeTextValue(e.target.value)}
                     
                     />
                     <Button variant="contained" color="primary">
