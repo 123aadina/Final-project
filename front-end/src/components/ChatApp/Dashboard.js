@@ -46,6 +46,9 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const Dashboard = () => {
+    //CTX store
+    const [allchats] = React.useContext(CTX)
+    console.log(allchats)
     const [textValue, changeTextValue] = React.useState('')
     const classes = useStyles()
 
