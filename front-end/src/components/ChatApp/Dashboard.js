@@ -10,34 +10,36 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
     root: {
-        margine:'50px',
-        padding: theme.spacing(3, 2),
+        margin: '50px',
+        padding: theme.spacing(3, 2)
     },
     flex: {
         display: 'flex'
     },
-    topicsWindow: {
-        width:'30%',
-        height:'300px',
-        borderRight:'1px solid gery'
+    topicWindow: {
+        width: '30%',
+        height: '300px',
+        borderRight: '1px solid gery'
     },
     chatWindow: {
-        width:'70%',
-        height:'300px'
+        width: '70%',
+        height: '300px'
     },
     chatBox: {
-        width:'85%'
+        width: '85%'
     },
     button: {
-        width:'15%'
+        width: '15%'
     },
-  }));
+}));
 
 const Dashboard = () => {
 
     const classes = useStyles()
+
+
     return (
         <div>
             <Paper className={classes.root}>
@@ -45,28 +47,28 @@ const Dashboard = () => {
                     Chat App
                 </Typography>
                 <Typography variant='h5' component='h5'>
-                  topic
+                    topic
                 </Typography>
                 <div className={classes.flex}>
-                  <div className={classes.topicsWindow}>
-                  <List>
-                           {
-                               ['topic'].map(topic => (
-                                   <ListItem  key={topic} button>
-                                       <ListItemText primary={topic} />
-                                   </ListItem>
-                               ))
-                           }
-                       </List>
+                    <div className={classes.topicWindow}>
+                        <List>
+                            {
+                                ['topic'].map(topic => (
+                                    <ListItem key={topic} button>
+                                        <ListItemText primary={topic} />
+                                    </ListItem>
+                                ))
+                            }
+                        </List>
 
-                  </div>
-                  <div className={classes.chatWindow}>
+                    </div>
+                    <div className={classes.chatWindow}>
 
-                  </div>
+                    </div>
 
                 </div>
                 <div className={classes.flex}>
-                    
+
                 </div>
             </Paper>
         </div>
