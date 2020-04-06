@@ -5,9 +5,10 @@ export const CTX = React.createContext()
 const Store = () => {
 
     return (
-        <div>
-            
-        </div>
+        <CTX.Provider value={}>
+            {props.children}
+
+        </CTX.Provider>
     )
 }
 
