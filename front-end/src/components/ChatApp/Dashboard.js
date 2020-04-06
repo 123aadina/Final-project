@@ -27,7 +27,7 @@ const useStyles = makeStyles(theme => ({
         display: 'flex',
         alignItems: 'center'
     },
-    topicWindow: {
+    topicsWindow: {
         width: '30%',
         height: '300px',
         borderRight: '1px solid red'
@@ -48,7 +48,11 @@ const useStyles = makeStyles(theme => ({
 const Dashboard = () => {
     //CTX store
     const [allchats] = React.useContext(CTX)
+
     console.log(allchats)
+
+    const topics = Object.keys(allchats)
+
     const [textValue, changeTextValue] = React.useState('')
     const classes = useStyles()
 
@@ -62,7 +66,7 @@ const Dashboard = () => {
                     topic
                 </Typography>
                 <div className={classes.flex}>
-                    <div className={classes.topicWindow}>
+                    <div className={classes.topicsWindow}>
                         <List>
                             {
                                 ['topic'].map(topic => (
