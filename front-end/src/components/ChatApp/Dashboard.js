@@ -9,6 +9,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
+//@material-ui/Chip
+import Chip from '@material-ui/core/Chip';
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -16,7 +18,8 @@ const useStyles = makeStyles(theme => ({
         padding: theme.spacing(3, 2)
     },
     flex: {
-        display: 'flex'
+        display: 'flex',
+        alignItems: 'center'
     },
     topicWindow: {
         width: '30%',
