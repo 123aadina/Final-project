@@ -34,7 +34,7 @@ function reducer(state, action) {
 const Store = props => {
     const reducrHook = React.useReducer(reducer, initialState)
     return (
-        <CTX.Provider value={}>
+        <CTX.Provider value={reducrHook}>
             {props.children}
 
         </CTX.Provider>
