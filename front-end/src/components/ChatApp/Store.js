@@ -9,9 +9,9 @@ const initialState = {
         { from: 'Maria', msg: 'hello' }
     ],
     topic: [
-        { from: 'hamida', msg: 'hello' },
-        { from: 'Christophe', msg: 'hello' },
-        { from: 'Maria', msg: 'hello' }
+        { from: 'adina', msg: 'hello' },
+        { from: 'Lis', msg: 'hello' },
+        { from: 'Mojghan', msg: 'hello' }
     ]
 }
 
