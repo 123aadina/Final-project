@@ -64,7 +64,7 @@ const Dashboard = () => {
                     Chat App
                 </Typography>
                 <Typography variant='h5' component='h5'>
-                    topic
+                    {activeTopic}
                 </Typography>
                 <div className={classes.flex}>
                     <div className={classes.topicsWindow}>
