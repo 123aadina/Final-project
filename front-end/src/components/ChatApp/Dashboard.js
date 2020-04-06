@@ -79,8 +79,9 @@ const Dashboard = () => {
                         </List>
                     </div>
                     <div className={classes.chatWindow}>
+                        {/*according to the topic the chat changed*/}
                         {
-                            [{ from: 'user', msg: 'hallo' }].map((chat, i) => (
+                            allchats[activeTopic].map((chat, i) => (
                                 <div className={classes.flex} key={i}>
                                     <Chip label={chat.from} className={classes.chip} />
                                     <Typography variant="body1" gutterBottom>
