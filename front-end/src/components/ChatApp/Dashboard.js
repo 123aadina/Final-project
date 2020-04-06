@@ -45,9 +45,7 @@ const useStyles = makeStyles(theme => ({
 
 const Dashboard = () => {
     const [textValue, changeTextValue] = React.useState('')
-
     const classes = useStyles()
-
 
     return (
         <div>
@@ -69,7 +67,6 @@ const Dashboard = () => {
                                 ))
                             }
                         </List>
-
                     </div>
                     <div className={classes.chatWindow}>
                         {
@@ -82,7 +79,6 @@ const Dashboard = () => {
                                 </div>
                             ))
                         }
-
                     </div>
                 </div>
                 <div className={classes.flex}>
@@ -91,12 +87,10 @@ const Dashboard = () => {
                         className={classes.chatBox}
                         value={textValue}
                         onChange={e => changeTextValue(e.target.value)}
-                    
                     />
                     <Button variant="contained" color="primary">
                         send
                      </Button>
-
                 </div>
             </Paper>
         </div>
