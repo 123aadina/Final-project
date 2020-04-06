@@ -13,6 +13,8 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Chip from '@material-ui/core/Chip';
 //@material-ui/Button
 import Button from '@material-ui/core/Button';
+//@material-ui/core/TextField
+import TextField from '@material-ui/core/TextField';
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -83,6 +85,11 @@ const Dashboard = () => {
                     </div>
                 </div>
                 <div className={classes.flex}>
+                    <TextField
+                        label="send a chat"
+                        className={classes.chatBox}
+                    
+                    />
                     <Button variant="contained" color="primary">
                         send
                      </Button>
