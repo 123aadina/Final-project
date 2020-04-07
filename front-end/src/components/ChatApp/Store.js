@@ -45,6 +45,9 @@ const Store = props => {
    
 if(!socket) {
     socket = io(':3000')
+    socket.on('chat message', function(msg){
+    console.log({msg})
+    });
 }
 
 const user = 'hamid' + Math.random(100).toFixed(2)
