@@ -10,23 +10,29 @@ import Info from "./components/Pages/Info";
 import RegistrationForm from "./components/Registration/RegistrationForm";
 import LogIn from "./components/LogInForm/LogIn";
 import Topic from "./components/Pages/Topic";
-import LogIn from "./components/LogInForm/LogIn";
+import Dashboard from "./components/ChatApp/Dashboard";
+import Store from "./components/ChatApp/Store";
+
 
 function App() {
   return (
-    <Router>
-      <div className="App">
-        <header className="App-header">{/* <Navbar /> */}</header>
+     <Router>
+      <div className="App">  
+        <header className="App-header">
+          <Navbar />
+        </header>
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/info" component={Info} />
           <Route exact path="/registration" component={RegistrationForm} />
           <Route exact path="/login" component={LogIn} />
           <Route exact path="/topic" component={Topic} />
-          <Route exact path="/login" component={LogIn} />
-        </Switch>
+        </Switch> 
+        <Store>
+        <Dashboard />
+        </Store>  
       </div>
-    </Router>
+     </Router> 
   );
 }
 
