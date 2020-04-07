@@ -6,8 +6,7 @@ export const CTX = React.createContext()
 const initialState = {
     generol: [
         { from: 'hamida', msg: 'hello' },
-        { from: 'Christophe', msg: 'hello' },
-        { from: 'Maria', msg: 'hello' }
+        
     ],
     topic: [
         { from: 'adina', msg: 'hello' },
