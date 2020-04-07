@@ -100,7 +100,7 @@ const Dashboard = () => {
                     <Button 
                     variant="contained"
                     color="primary"
-                    onClick={()=> {sendChatAction({from:'', msg:textValue})}}
+                    onClick={()=> {sendChatAction({from: user, msg: textValue, topic: activeTopic})}}
                     >
                         send
                      </Button>
