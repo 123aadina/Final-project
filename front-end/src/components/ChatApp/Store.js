@@ -47,7 +47,7 @@ if(!socket) {
    
     const [allChats, dispatch] = React.useReducer(reducer, initialState)
     return (
-        <CTX.Provider value={{allChats}}>
+        <CTX.Provider value={{allChats, sendChatAction}}>
             {props.children}
 
         </CTX.Provider>
