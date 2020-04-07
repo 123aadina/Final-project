@@ -1,5 +1,6 @@
 import React from 'react'
 
+
 export const CTX = React.createContext()
 
 const initialState = {
@@ -31,7 +32,10 @@ function reducer(state, action) {
     }
 }
 
+
+
 const Store = props => {
+   
     const reducrHook = React.useReducer(reducer, initialState)
     return (
         <CTX.Provider value={reducrHook}>
