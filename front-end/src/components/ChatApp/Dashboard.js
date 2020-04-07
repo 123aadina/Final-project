@@ -97,7 +97,11 @@ const Dashboard = () => {
                         value={textValue}
                         onChange={e => changeTextValue(e.target.value)}
                     />
-                    <Button variant="contained" color="primary">
+                    <Button 
+                    variant="contained"
+                    color="primary"
+                    onClick={()=> {sendChatAction(textValue)}}
+                    >
                         send
                      </Button>
                 </div>

@@ -31,19 +31,23 @@ function reducer(state, action) {
             return state
     }
 }
+
+
+let socket;
+
 //dispatch just for client liestner 
 const sendChatAction = ((socket, value)=> {
     socket.emit('chat message', value);
 
 })
 
-let socket;
-
 const Store = props => {
    
 if(!socket) {
     socket = io(':3000')
 }
+
+const user = 'hamid' + Math.random(100).toFixed(2)
    
     const [allChats, dispatch] = React.useReducer(reducer, initialState)
     return (
