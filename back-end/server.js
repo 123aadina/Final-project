@@ -11,7 +11,11 @@ api.use(express.json());
 api.use(express.urlencoded({ extended: false }));
 
 /** START SERVER*/
-api.listen(3000, () => console.log("Started on 3000"));
+const server = api.listen(3000, () => console.log("Started on 3000"));
+
+api.get("/", (req, res, next) => {
+  res.send(`Hello world`);
+});
 
 /** STATIC FILES*/
 api.use(express.static(path.join(__dirname, "pages")));
@@ -29,13 +33,16 @@ mongoose
     console.log(err);
   });
 
-/** ROUTES */
 const middleware = require("./middleware");
-const read = require("./routes/read");
-
 api.use(middleware.cors);
-api.use(read);
 
+/** ROUTES */
+const read = require("./routes/read");
+const serverRegistration = require("./Registration/serverRegistration");
+const chatBoxServer = require("./ChatBox/chatBoxServer")(server);
+
+api.use(read);
+api.use(serverRegistration);
 
 /** EXPORT PATH */
 module.exports = api;

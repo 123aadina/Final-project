@@ -12,37 +12,36 @@ export default function Topic() {
 
       <div className="topic_container_box ">
         <div className="row">
-          <div className="btn btn-light col-6">
+          <div className="btn btn-light col-6 mx-auto">
             <Link>Childcare </Link>
           </div>
-        </div>
-        <div className="row">
-          <div className="btn btn-light col-6">
+
+          <div className="btn btn-light col-6 mx-auto">
             {" "}
-            <Link>Employement</Link>{" "}
+            <Link to="/">Employement</Link>{" "}
           </div>
         </div>
         <div className="row">
-          <div className="btn btn-light col-6">
+          <div className="btn btn-light col">
             {" "}
-            <Link>Divorce</Link>{" "}
+            <Link to="/">Divorce</Link>{" "}
           </div>
         </div>
         <div className="row">
-          <div className="btn btn-light col-6">
-            <Link>Domestic Violence </Link>{" "}
+          <div className="btn btn-light col">
+            <Link to="/">Domestic Violence </Link>{" "}
           </div>
         </div>
         <div className="row">
-          <div className="btn btn-light col-6">
+          <div className="btn btn-light col">
             {" "}
-            <Link>Healthcare</Link>{" "}
+            <Link to="/">Healthcare</Link>{" "}
           </div>
         </div>
         <div className="row">
-          <div className="btn btn-light col-6">
+          <div className="btn btn-light col">
             {" "}
-            <Link>Sexual Abuse</Link>{" "}
+            <Link to="/">Sexual Abuse</Link>{" "}
           </div>
         </div>
       </div>

@@ -1,22 +1,15 @@
 const express = require("express");
+const router = express.Router();
 const { User } = require("./dbRegistration.js");
-const cors = require("cors");
-const app = express();
 const bcrypt = require("bcrypt");
-const session = require("express-session");
 const { validateForm } = require("./validationServer");
-
-//setting the middleware
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(session({ secret: "ssshhhhh" }));
-app.use(cors());
+const jtw = require("jsonwebtoken");
 
 //Register user and Schema for email ,password, name, issues ...
-app.post("/registration", (req, res) => {
+router.post("/registration", (req, res) => {
   let registerFormFields = req.body;
   // Match fields from the frontend to DB field names
-
+  console.log(registerFormFields);
   if (validateForm(registerFormFields) === false) {
     res.send(401);
     return;
@@ -25,14 +18,14 @@ app.post("/registration", (req, res) => {
   User.find({ name: registerFormFields.name }, (error, docs) => {
     if (docs.length > 0) {
       //user exists in db reject the request
-
+      console.log("User is already registered");
       res.send(400);
     } else {
       //user does not exist so it is created
       // Convert password to hash
       let hashedPassword = bcrypt.hashSync(registerFormFields.password, 10);
       registerFormFields.password = hashedPassword;
-      User.create(registerFormFields, err => {
+      User.create(registerFormFields, (err) => {
         if (err) {
           console.log(err);
           res.send(400);
@@ -44,8 +37,39 @@ app.post("/registration", (req, res) => {
   });
 });
 
-//server listening on 8000;
-let port = 8000;
-app.listen(port, () => {
-  console.log(`Server is now listening on port ${port}`);
+// Find User and create the token
+// Route for the login form
+router.post("/login", (req, res, next) => {
+  User.findOne({ name: req.body.name })
+    .then((user) => {
+      if (!user) {
+        console.log(`User ${req.body.name} not found.`);
+        res.send(401);
+        return;
+      }
+
+      //we have to compare if the password with the registration form matches
+      bcrypt.compare(req.body.password, user.password).then((success) => {
+        if (!success) {
+          console.log(`Password for user ${req.body.name} not matched.`);
+          res.send(401);
+          return;
+        }
+        //if authentication is successful a token is created with the data we require
+        const secret = "jtw-master-secret";
+        const token = jtw.sign(
+          {
+            id: user.id,
+            password: user.password,
+            isAdministrator: user.isAdministrator,
+          },
+          secret,
+          { expiresIn: "2h" }
+        );
+        res.json({ jwtToken: token });
+      });
+    })
+    .catch((error) => next(err));
 });
+
+module.exports = router;

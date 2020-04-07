@@ -31,6 +31,12 @@ const Footer = () => {
               Topics{" "}
             </Link>
           </li>
+          <li className="mx-2 pt-3 ">
+            <Link to="/login" className="text-secondary">
+              {" "}
+              Login{" "}
+            </Link>
+          </li>
 
           <li className="mx-2 pt-3 text-secondary">
             Women Voice 2020 @ All right reserved
