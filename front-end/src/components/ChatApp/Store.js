@@ -41,9 +41,9 @@ if(!socket) {
     socket = io(':3000')
 }
    
-    const reducrHook = React.useReducer(reducer, initialState)
+    const allchats = React.useReducer(reducer, initialState)
     return (
-        <CTX.Provider value={reducrHook}>
+        <CTX.Provider value={allchats}>
             {props.children}
 
         </CTX.Provider>
