@@ -37,6 +37,7 @@ const RegistrationForm = props => {
   const [state, setState] = useState(initialState);
 
   const handleAgreeCheckbox = e => {
+    console.log("Agree checkbx " + e.target.checked);
     setState({
       ...state,
       agreeChecked: e.target.checked
@@ -51,11 +52,12 @@ const RegistrationForm = props => {
   };
 
   //to change the state of the dropdown menu on the form
-  const handleIssueDropdown = category => {
+  const handleIssueDropdown = e => {
     setState({
       ...state,
-      issues: category
+      issues: e.target.selectedIndex
     });
+    console.log(category);
   };
 
   //form validators
@@ -65,7 +67,7 @@ const RegistrationForm = props => {
       ...initErrorState
     });
 
-    if (state.name.length < 2 || state.name.length > 15) {
+    if (state.name.length < 2 || state.name.length > 70) {
       setState({
         ...state,
         nameError: "Name should be more than 2 characters long"
@@ -120,10 +122,7 @@ const RegistrationForm = props => {
       });
       return false;
     }
-    return true;
-  };
 
-  const validateAgreeTerms = () => {
     if (!state.agreeChecked) {
       setState({
         ...state,
@@ -131,6 +130,7 @@ const RegistrationForm = props => {
       });
       return false;
     }
+
     return true;
   };
 
@@ -138,23 +138,23 @@ const RegistrationForm = props => {
     let requestBody = JSON.stringify({
       name: state.name,
       email: state.email,
-      emailChecked: false,
+      emailChecked: state.emailChecked,
       password: state.password,
       phone: state.phone,
       issues: state.issues,
       languages: state.languages,
       comment: state.comment,
-      agreeChecked: false
+      agreeChecked: state.agreeChecked
     });
-    console.log("Fetching " + requestBody);
+    console.log(requestBody);
     // fetch to send the registration form back to backend as jason/
-    fetch("http://localhost:8000/registration", {
+    fetch("http://localhost:3000/registration", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: requestBody
     }).then(resp => {
-      console.log("Response: ");
-      console.log(resp);
+      console.log("Response: " + resp);
+      // TODO: Redirect to home page
     });
   };
 
@@ -168,7 +168,6 @@ const RegistrationForm = props => {
       postRequestToBackend();
       //to clear the form
       setState(initialState);
-      e.preventDefault();
     }
   };
 
@@ -181,14 +180,13 @@ const RegistrationForm = props => {
   };
 
   return (
-    <div className=" registration_container">
-      <div className="registration_form ">
-        <h1 className="m-3 border-bottom text-center"> Registration Form </h1>
-
+    <div className="container d-flex flex-column justify-content-center align-items-center flex-wrap col ">
+      <h1 className="m-3 border-bottom text-center"> Registration Form </h1>
+      <div className="row bg bg-light m-3 p-3">
         {/* Form start here */}
         <form noValidate onSubmit={handleSubmit}>
           {/* NAME */}
-          <div className="form-group col-xs">
+          <div className="form-group col">
             <label htmlFor="Name" className="font-weight-bolder">
               {" "}
               Name *
@@ -204,7 +202,7 @@ const RegistrationForm = props => {
             <div style={errorTextStyle}>{state.nameError}</div>
           </div>
           {/* EMAIL */}
-          <div className="form-group col-xs">
+          <div className="form-group col">
             <label htmlFor="email" className="font-weight-bolder">
               {" "}
               Email{" "}
@@ -219,17 +217,17 @@ const RegistrationForm = props => {
             />
             <div style={errorTextStyle}>{state.emailError}</div>
 
-            <div className="form-check checkbox_mail mt-1">
+            <div className="form-check mt-1">
               <CheckBoxBase
-                className="form-check-label"
                 textValue=" I don't have an email"
+                currentValue={state.emailChecked}
                 onChange={handleEmailCheckbox}
               />
             </div>
           </div>
 
           {/* PASSWORD */}
-          <div className="form-group">
+          <div className="form-group col">
             <label htmlFor="password" className="font-weight-bolder">
               {" "}
               Password{" "}
@@ -245,7 +243,7 @@ const RegistrationForm = props => {
             <div style={errorTextStyle}>{state.passwordError}</div>
           </div>
           {/* PHONE NUMBER */}
-          <div className="form-group">
+          <div className="form-group col">
             <label htmlFor="phone" className="font-weight-bolder">
               {" "}
               Phone{" "}
@@ -261,21 +259,20 @@ const RegistrationForm = props => {
             <div style={errorTextStyle}>{state.phoneError}</div>
           </div>
 
-          <div>
-            <label htmlFor="issues">Issues* </label>
-            <DropdownList onChange={handleIssueDropdown} />
-          </div>
-
           {/* ISSUES */}
-          <div className="form-group ">
+          <div className="form-group col ">
             <label htmlFor="issues" className="font-weight-bolder">
               {" "}
               Issues *{" "}
             </label>
-            <DropdownList />
+
+            <DropdownList
+              currentValue={state.issues}
+              onChange={handleIssueDropdown}
+            />
           </div>
           {/* LANGUAGES */}
-          <div className="form-group">
+          <div className="form-group col">
             <label htmlFor="languages" className="font-weight-bolder">
               {" "}
               Languages *{" "}
@@ -292,7 +289,7 @@ const RegistrationForm = props => {
           </div>
 
           {/* COMMENT */}
-          <div className="form-group mt-2">
+          <div className="form-group mt-2 col">
             <label htmlFor="comment" className="font-weight-bolder">
               {" "}
               Comment{" "}
@@ -308,10 +305,11 @@ const RegistrationForm = props => {
             <div style={errorTextStyle}>{state.commentError}</div>
           </div>
           {/* CHECKBOX CONDITIONS AND TERMS */}
-          <div className="form-check checkbox_terms m-2">
+          <div className="form-check checkbox_terms text-center">
             <CheckBoxBase
               className="form-check-label"
               textValue=" I agree to the terms and conditions."
+              currentValue={state.agreeChecked}
               onChange={handleAgreeCheckbox}
             />
           </div>
