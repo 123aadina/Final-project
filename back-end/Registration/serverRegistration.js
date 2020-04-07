@@ -25,7 +25,7 @@ router.post("/registration", (req, res) => {
       // Convert password to hash
       let hashedPassword = bcrypt.hashSync(registerFormFields.password, 10);
       registerFormFields.password = hashedPassword;
-      User.create(registerFormFields, err => {
+      User.create(registerFormFields, (err) => {
         if (err) {
           console.log(err);
           res.send(400);
@@ -41,7 +41,7 @@ router.post("/registration", (req, res) => {
 // Route for the login form
 router.post("/login", (req, res, next) => {
   User.findOne({ name: req.body.name })
-    .then(user => {
+    .then((user) => {
       if (!user) {
         console.log(`User ${req.body.name} not found.`);
         res.send(401);
@@ -49,7 +49,7 @@ router.post("/login", (req, res, next) => {
       }
 
       //we have to compare if the password with the registration form matches
-      bcrypt.compare(req.body.password, user.password).then(success => {
+      bcrypt.compare(req.body.password, user.password).then((success) => {
         if (!success) {
           console.log(`Password for user ${req.body.name} not matched.`);
           res.send(401);
@@ -58,14 +58,18 @@ router.post("/login", (req, res, next) => {
         //if authentication is successful a token is created with the data we require
         const secret = "jtw-master-secret";
         const token = jtw.sign(
-          { id: user.id, password: user.password },
+          {
+            id: user.id,
+            password: user.password,
+            isAdministrator: user.isAdministrator,
+          },
           secret,
           { expiresIn: "2h" }
         );
         res.json({ jwtToken: token });
       });
     })
-    .catch(error => next(err));
+    .catch((error) => next(err));
 });
 
 module.exports = router;
