@@ -47,7 +47,7 @@ const useStyles = makeStyles(theme => ({
 
 const Dashboard = () => {
     //CTX store
-    const {allChats, sendChatAction} = React.useContext(CTX)
+    const {allChats, sendChatAction, user} = React.useContext(CTX)
     const topics = Object.keys(allChats)
 
     //local state
