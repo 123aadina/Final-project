@@ -32,6 +32,7 @@ function reducer(state, action) {
     }
 }
 
+
 let socket;
 
 const Store = props => {
@@ -40,7 +41,7 @@ if(!socket) {
     socket = io(':3000')
 }
    
-    const [allChats] = React.useReducer(reducer, initialState)
+    const [allChats, dispatch] = React.useReducer(reducer, initialState)
     return (
         <CTX.Provider value={{allChats}}>
             {props.children}
