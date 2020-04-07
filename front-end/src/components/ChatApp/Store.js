@@ -1,7 +1,6 @@
 import React from 'react'
 import io from 'socket.io-client';
 
-
 export const CTX = React.createContext()
 
 const initialState = {
@@ -41,9 +40,9 @@ if(!socket) {
     socket = io(':3000')
 }
    
-    const allchats = React.useReducer(reducer, initialState)
+    const [allChats] = React.useReducer(reducer, initialState)
     return (
-        <CTX.Provider value={allchats}>
+        <CTX.Provider value={{allChats}}>
             {props.children}
 
         </CTX.Provider>

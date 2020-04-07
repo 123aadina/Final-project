@@ -47,11 +47,9 @@ const useStyles = makeStyles(theme => ({
 
 const Dashboard = () => {
     //CTX store
-    const [allchats] = React.useContext(CTX)
-
-    console.log(allchats)
-
-    const topics = Object.keys(allchats)
+    const {allChats} = React.useContext(CTX)
+    const topics = Object.keys(allChats)
+    
     //local state
     const [activeTopic, changeActiveTopic]= React.useState(topics[0])
     const [textValue, changeTextValue] = React.useState('')
@@ -78,10 +76,10 @@ const Dashboard = () => {
                             }
                         </List>
                     </div>
-                    <div className={classes.chatWindow}>
-                        {/*according to the topic the chat changed*/}
+                    {/*according to the topic the chat changed*/}
+                    <div className={classes.chatWindow}>                    
                         {
-                            allchats[activeTopic].map((chat, i) => (
+                            allChats[activeTopic].map((chat, i) => (
                                 <div className={classes.flex} key={i}>
                                     <Chip label={chat.from} className={classes.chip} />
                                     <Typography variant="body1" gutterBottom>
