@@ -32,6 +32,9 @@ function reducer(state, action) {
     }
 }
 
+const sendChatAction = ((dispatch, socket)=> {
+
+})
 
 let socket;
 
