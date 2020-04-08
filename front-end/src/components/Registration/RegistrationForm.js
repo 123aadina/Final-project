@@ -2,7 +2,11 @@ import React, { useState } from "react";
 import CheckBoxBase from "./Checkboxes";
 import DropdownList from "./DropdownList";
 
+// Components
+import Navbar from "../Layout/Navbar";
 import Footer from "../../components/Layout/Footer";
+
+// Styling
 import "../../styles/App.scss";
 
 const initErrorState = {
@@ -57,7 +61,6 @@ const RegistrationForm = props => {
       ...state,
       issues: e.target.selectedIndex
     });
-    console.log(category);
   };
 
   //form validators
@@ -181,8 +184,9 @@ const RegistrationForm = props => {
 
   return (
     <div className="container d-flex flex-column justify-content-center align-items-center flex-wrap col ">
-      <h1 className="m-3 border-bottom text-center"> Registration Form </h1>
-      <div className="row bg bg-light m-3 p-3">
+      <Navbar className="navbar navbar-expand-xs col justify-content-center " />
+      <h1 className=" text-center"> Registration Form </h1>
+      <div className="row bg bg-light p-3">
         {/* Form start here */}
         <form noValidate onSubmit={handleSubmit}>
           {/* NAME */}
@@ -191,6 +195,7 @@ const RegistrationForm = props => {
               {" "}
               Name *
             </label>
+
             <input
               className="form-control"
               type="text"

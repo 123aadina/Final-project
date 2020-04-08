@@ -13,6 +13,7 @@ import Topic from "./components/Pages/Topic";
 import Dashboard from "./components/ChatApp/Dashboard";
 import Store from "./components/ChatApp/Store";
 
+import Association from "./components/Pages/Association";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route exact path="/registration" component={RegistrationForm} />
           <Route exact path="/login" component={LogIn} />
           <Route exact path="/topic" component={Topic} />
+          <Route exact path="/association" component={Association} />
         </Switch>
         <Store>
           <Dashboard />

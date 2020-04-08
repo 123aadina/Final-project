@@ -1,47 +1,59 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
+// Components
 import Navbar from "../Layout/Navbar";
 import Footer from "../Layout/Footer";
-//import Dashboard from "../ChatApp/Dashboard";
-import { Link } from "react-router-dom";
 
 export default function Topic() {
   return (
-    <div className="topic_container">
-      
-      <h1 className="text-center">Topics</h1>
+    <div
+      className="container d-flex flex-column justify-content-center col"
+      id="topic_container"
+    >
+      <Navbar />
+      <h1 className="text-center"> Topics </h1>
 
-      <div className="topic_container_box ">
+      <div
+        className=" container d-flex flex-column justify-content-center col my-5"
+        id="topic_container_box"
+      >
         <div className="row">
-          <div className="btn btn-light col-6 mx-auto">
-            <Link>Childcare </Link>
+          <div className="card col-4   mx-auto mb-3 justify-content-center text-center p-3 text-uppercase shadow p-3 bg-white rounded">
+            <Link className="text-decoration-none text-dark "> Childcare </Link>
           </div>
 
-          <div className="btn btn-light col-6 mx-auto">
+          <div className="card col-4   mx-auto mb-3 justify-content-center text-center p-3 text-uppercase shadow p-3 bg-white rounded">
             {" "}
-            <Link to="/">Employement</Link>{" "}
+            <Link to="/" className="text-decoration-none text-dark">
+              {" "}
+              Employement{" "}
+            </Link>{" "}
           </div>
         </div>
         <div className="row">
-          <div className="btn btn-light col">
+          <div className="card col-4   mx-auto mb-3 justify-content-center text-center p-3 text-uppercase shadow p-3 bg-white rounded">
+            <Link className="text-decoration-none text-dark"> Divorce </Link>
+          </div>
+
+          <div className="card col-4   mx-auto mb-3 justify-content-center text-center p-3 text-uppercase shadow p-3 bg-white rounded">
             {" "}
-            <Link to="/">Divorce</Link>{" "}
+            <Link to="/" className="text-decoration-none text-dark">
+              {" "}
+              Domestic Violence{" "}
+            </Link>{" "}
           </div>
         </div>
         <div className="row">
-          <div className="btn btn-light col">
-            <Link to="/">Domestic Violence </Link>{" "}
+          <div className="card col-4   mx-auto mb-3 justify-content-center text-center p-3 text-uppercase shadow p-3 bg-white rounded">
+            <Link className="text-decoration-none text-dark">Healthcare </Link>
           </div>
-        </div>
-        <div className="row">
-          <div className="btn btn-light col">
+
+          <div className="card col-4   mx-auto mb-3 justify-content-center text-center p-3 text-uppercase shadow p-3 bg-white rounded">
             {" "}
-            <Link to="/">Healthcare</Link>{" "}
-          </div>
-        </div>
-        <div className="row">
-          <div className="btn btn-light col">
-            {" "}
-            <Link to="/">Sexual Abuse</Link>{" "}
+            <Link to="/" className="text-decoration-none text-dark ">
+              Sexual Abuse{" "}
+            </Link>{" "}
           </div>
         </div>
       </div>
