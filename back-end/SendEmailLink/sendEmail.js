@@ -1,22 +1,23 @@
 const nodemailer = require("nodemailer");
 
-const sendEmail = (toEmail, subject, body) => {
+const sendEmailLink = (toEmail, subject, body) => {
   // create transporter(the mail server) to send and deliver the messages
   const transporter = nodemailer.createTransport({
-    service: "gmail",
+    service: "mailgun",
     secure: false,
     auth: {
-      user: "womenorganization17@gmail.com",
-      pass: "hmc17@2020",
+      api_key: "aa4b0867-2cab9a2c",
+      domain: "sandbox3ebc2b3f524a48b39151f522f5439abe.mailgun.org	",
     },
   });
 
+  //configuring our email details
   const emailMessage = {
-    from: "sender@server.com",
+    from: "womenorganization17@gmail.com",
     to: toEmail,
     subject: subject,
     text: body,
-    html: "<p>HTML version of the message</p>",
+    html: "<p></p>",
   };
   console.log("Message was sent:%");
 
