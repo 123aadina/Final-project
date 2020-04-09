@@ -1,14 +1,15 @@
 //form validators in backend too
 
-const validateForm = formData => {
+const validateForm = (formData) => {
   if (formData.name.length < 2 || formData.name.length > 15) {
     console.log("Name validation failed.");
     return false;
   }
 
   if (
-    !formData.email.includes("@") ||
-    (formData.email === "" && !formData.emailChecked === true)
+    formData.email &&
+    (!formData.email.includes("@") ||
+      (formData.email === "" && !formData.emailChecked === true))
   ) {
     console.log("Email validation failed.");
     return false;
@@ -28,17 +29,17 @@ const validateForm = formData => {
   }
 
   const reg = new RegExp("^([+]{0,1})([0-9]+)");
-  if (!formData.phone.match(reg) || formData.phone.length > 13) {
+  if (!formData.phone.match(reg) || formData.phone.length >= 13) {
     console.log("Phone validation failed.");
     return false;
   }
 
-  if (formData.languages.length > 30) {
+  if (formData.languages && formData.languages.length > 30) {
     console.log("Language validation failed.");
     return false;
   }
 
-  if (formData.comment.length > 100) {
+  if (formData.comment && formData.comment.length > 100) {
     console.log("Comment validation failed.");
     return false;
   }
