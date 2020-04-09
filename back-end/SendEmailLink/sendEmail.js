@@ -1,33 +1,21 @@
 const nodemailer = require("nodemailer");
+const MailgunTransport = require("mailgun-nodemailer-transport");
 
 const sendEmailLink = (toEmail, subject, body) => {
   // create transporter(the mail server) to send and deliver the messages
   const transporter = nodemailer.createTransport({
-    service: "mailgun",
-    secure: false,
+    service: "Mailgun",
     auth: {
       api_key: "aa4b0867-2cab9a2c",
       domain: "sandbox3ebc2b3f524a48b39151f522f5439abe.mailgun.org	",
     },
   });
 
-  //configuring our email details
-  const emailMessage = {
+  transporter.sendMail({
     from: "womenorganization17@gmail.com",
-    to: toEmail,
+    to: "toEmail",
     subject: subject,
-    text: body,
     html: "<p></p>",
-  };
-  console.log("Message was sent:%");
-
-  // and since now we have the transporter send emails
-  transporter.sendMail(emailMessage, (err, data) => {
-    if (err) {
-      res.json({ msg: "fail" });
-    } else {
-      res.json({ msg: "send" });
-    }
   });
 };
 
