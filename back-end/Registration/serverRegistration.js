@@ -8,6 +8,7 @@ const jtw = require("jsonwebtoken");
 //Register user and Schema for email ,password, name, issues ...
 router.post("/registration", (req, res) => {
   let registerFormFields = req.body;
+
   // Match fields from the frontend to DB field names
   console.log(registerFormFields);
   if (validateForm(registerFormFields) === false) {
