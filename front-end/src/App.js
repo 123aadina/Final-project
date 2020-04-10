@@ -29,9 +29,7 @@ function App() {
           <Route exact path="/topic" component={Topic} />
           <Route exact path="/association" component={Association} />
            {/*<Store> <Route exact path='/chat' component={Dashboard}/></Store>*/}
-           <Store>
-            <Dashboard />
-          </Store>
+          
         </Switch>
       </div>
     </Router>
