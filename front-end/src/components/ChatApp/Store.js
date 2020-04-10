@@ -55,6 +55,7 @@ const Store = props => {
 
 
     return (
+        
         <CTX.Provider value={{ allChats, sendChatAction, user }}>
             {props.children}
 
@@ -63,4 +64,32 @@ const Store = props => {
 }
 
 export default Store
+
+/*
+var socket = io.connect('http://localhost:3000');
+  let room = ""
+  let username = ""
+  function joinRoom(e) {
+    e.preventDefault()
+    // fetch username & room
+    room = document.querySelector("#room").value
+    username = document.querySelector("#username").value
+    // join the room
+    socket.emit("joinRoom", { room, username })
+  }
+  function sendMsg(e) {
+    e.preventDefault();
+    // console.log(socket.id)
+    let username = document.querySelector("#username").value
+    let room = document.querySelector("#room").value
+    let msg = document.querySelector("#msg").value
+    // send message
+    socket.emit("message", { room, msg })
+    return false
+  }
+  // THIS WILL RECEIVE just (!) MESSAGES
+  // sent directly to my socket
+  socket.on("message", (msg) => {
+    console.log("Received: ", msg)
+  }) */
 
