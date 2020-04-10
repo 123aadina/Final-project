@@ -5,15 +5,13 @@ import "./styles/App.scss";
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./components/Pages/Home";
- import Navbar from "./components/Layout/Navbar";
+ //import Navbar from "./components/Layout/Navbar";
 import Info from "./components/Pages/Info";
 import RegistrationForm from "./components/Registration/RegistrationForm";
 import LogIn from "./components/LogInForm/LogIn";
 import Topic from "./components/Pages/Topic";
 import Dashboard from "./components/ChatApp/Dashboard";
 import Store from "./components/ChatApp/Store";
-
-
 import Association from "./components/Pages/Association";
 
 function App() {
@@ -21,7 +19,7 @@ function App() {
     <Router>
       <div className="App">
         <header className="App-header">
-          <Navbar />
+       { /*  <Navbar />*/}
         </header>
         <Switch>
           <Route exact path="/" component={Home} />
@@ -30,7 +28,10 @@ function App() {
           <Route exact path="/login" component={LogIn} />
           <Route exact path="/topic" component={Topic} />
           <Route exact path="/association" component={Association} />
-           <Store> <Route exact path='/chat' component={Dashboard}></Route></Store>
+           {/*<Store> <Route exact path='/chat' component={Dashboard}/></Store>*/}
+           <Store>
+            <Dashboard />
+          </Store>
         </Switch>
       </div>
     </Router>

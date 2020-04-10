@@ -15,8 +15,9 @@ import Chip from '@material-ui/core/Chip';
 import Button from '@material-ui/core/Button';
 //@material-ui/core/TextField
 import TextField from '@material-ui/core/TextField';
-import {CTX} from "./Store";
 //CTX
+import { CTX } from "./Store";
+
 
 
 const useStyles = makeStyles(theme => ({
@@ -48,11 +49,11 @@ const useStyles = makeStyles(theme => ({
 
 const Dashboard = () => {
     //CTX store
-    const {allChats, sendChatAction, user} = React.useContext(CTX)
+    const { allChats, sendChatAction, user } = React.useContext(CTX)
     const topics = Object.keys(allChats)
 
     //local state
-    const [activeTopic, changeActiveTopic]= React.useState(topics[0])
+    const [activeTopic, changeActiveTopic] = React.useState(topics[0])
     const [textValue, changeTextValue] = React.useState('')
     const classes = useStyles()
 
@@ -78,7 +79,7 @@ const Dashboard = () => {
                         </List>
                     </div>
                     {/*according to the topic the chat changed*/}
-                    <div className={classes.chatWindow}>                    
+                    <div className={classes.chatWindow}>
                         {
                             allChats[activeTopic].map((chat, i) => (
                                 <div className={classes.flex} key={i}>
@@ -98,16 +99,16 @@ const Dashboard = () => {
                         value={textValue}
                         onChange={e => changeTextValue(e.target.value)}
                     />
-                    <Button 
-                    variant="contained"
-                    color="primary"
-                    onClick={()=> {sendChatAction({from: user, msg: textValue, topic: activeTopic})}}
+                    <Button
+                        variant="contained"
+                        color="primary"
+                        onClick={() => { sendChatAction({ from: user, msg: textValue, topic: activeTopic }) }}
                     >
                         send
                      </Button>
                 </div>
             </Paper>
-            </div>
+        </div>
     )
 }
 
