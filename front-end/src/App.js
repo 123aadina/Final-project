@@ -10,8 +10,8 @@ import Info from "./components/Pages/Info";
 import RegistrationForm from "./components/Registration/RegistrationForm";
 import LogIn from "./components/LogInForm/LogIn";
 import Topic from "./components/Pages/Topic";
-import Dashboard from "./components/ChatApp/Dashboard";
-import Store from "./components/ChatApp/Store";
+//import Dashboard from "./components/ChatApp/Dashboard";
+//import Store from "./components/ChatApp/Store";
 import Association from "./components/Pages/Association";
 
 function App() {
