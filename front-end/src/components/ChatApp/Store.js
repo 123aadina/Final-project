@@ -33,10 +33,10 @@ function reducer(state, action) {
 }
 
 
-let socket;
+const socket = io(':3000')
 
 //dispatch just for client liestner 
-const sendChatAction = ((socket, value) => {
+const sendChatAction = ((value) => {
     socket.emit('chat message', value);
 
 })
