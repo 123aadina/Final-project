@@ -19,5 +19,6 @@ const sendEmailLink = (toEmail, subject, body) => {
   });
 };
 
-//Key ID: aa4b0867-2cab9a2c(Mailgun)
+//From Mailgun
+//Key ID: aa4b0867-2cab9a2c
 //Description: API Key
