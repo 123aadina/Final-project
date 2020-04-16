@@ -107,27 +107,7 @@ const Dashboard = () => {
     }, [ rooms, activeRoom ]
     );
     
-    //old one
-    /*useEffect(() => {
-        console.log('useEffect called')
-        socket.on("message", ({ username, msg }) =>{
-            addMessageToHistory({msg:msg, user:username })
-            console.log(username, msg)
-            //console.log(rooms ,'rooms')   
-        })
-        socket.on('rooms', users => {
-            console.log(users)
-            let newRooms = users.map(user => {
-                user.history = []
-                return user
-            })
-            console.log(newRooms)
-            setRooms(newRooms)
-        })
-        socket.emit('rooms', userValue)
-    }, [])*/
-
-
+    
     const sendChatAction = (e) => {
         e.preventDefault();
         if(activeRoom) {
@@ -138,10 +118,6 @@ const Dashboard = () => {
         }
 	};
 
-    /*const sendChatAction = (e) => {
-        e.preventDefault()
-        socket.emit("message", { room:activeRoom.name, msg: textValue , username:userValue}) 
-    }*/
 
     const addMessageToHistory = ({ msg, user}) => {
         let room = activeRoom.name
