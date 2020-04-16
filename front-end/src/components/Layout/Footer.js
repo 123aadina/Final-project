@@ -11,6 +11,12 @@ const Footer = () => {
             Homepage{" "}
           </Link>
         </li>
+        <li className="mx-2 pt-3 ">
+          <Link to="/login" className="text-secondary">
+            {" "}
+            Login{" "}
+          </Link>
+        </li>
         <li className="mx-2 pt-3">
           <Link to="/info" className="text-secondary">
             {" "}
@@ -28,12 +34,6 @@ const Footer = () => {
           <Link to="/topic" className="text-secondary">
             {" "}
             Topics{" "}
-          </Link>
-        </li>
-        <li className="mx-2 pt-3 ">
-          <Link to="/login" className="text-secondary">
-            {" "}
-            Login{" "}
           </Link>
         </li>
 
