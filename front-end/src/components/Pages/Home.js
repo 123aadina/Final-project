@@ -1,12 +1,11 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-
 // Components
 import Navbar from "../Layout/Navbar";
 import Footer from "../Layout/Footer";
 import Dashboard from "../ChatApp/Dashboard";
-//import Store from "../ChatApp/Store";
+
 
 const Home = () => {
   const { t, i18n } = useTranslation();
@@ -54,9 +53,7 @@ const Home = () => {
           </button>
         </div>
         <Footer />
-     
             <Dashboard />
-          
       </div>
     </div>
   );
