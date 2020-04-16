@@ -15,16 +15,12 @@ import Chip from '@material-ui/core/Chip';
 import Button from '@material-ui/core/Button';
 //@material-ui/core/TextField
 import TextField from '@material-ui/core/TextField';
-
+//socket.io-client 
 import io from 'socket.io-client';
 
-
 const socket = io(':3000')
-//CTX
-//import { CTX } from "./Store";
 
 //const user = 'hamida' + Math.random(100).toFixed(2)
-
 //const user = 'christophe'
 
 
@@ -81,28 +77,24 @@ const Dashboard = () => {
     const classes = useStyles()
 
 
-
     const switchRoom = room => {
         console.log(room, 'switchroom')
         changeActiveRoom(room)
         socket.emit('joinRoom', { username: userValue, room: room.name })
     }
 
-   
     useEffect(() => {
         console.log('useEffect called')
         socket.on("message", ({ username, msg }) =>{
             addMessageToHistory({msg:msg, user:username })
             console.log(username, msg)
-            //console.log(rooms ,'rooms')
-            
+            //console.log(rooms ,'rooms')   
         })
         socket.on('rooms', users => {
             console.log(users)
             let newRooms = users.map(user => {
                 user.history = []
                 return user
-
             })
             console.log(newRooms)
             setRooms(newRooms)
@@ -111,8 +103,6 @@ const Dashboard = () => {
     }, [])
 
 
-    //dispatch just for client liestner 
-    
     const sendChatAction = (e) => {
         e.preventDefault()
         socket.emit("message", { room:activeRoom.name, msg: textValue , username:userValue}) 
@@ -136,8 +126,6 @@ const Dashboard = () => {
           setRooms(roomsCopy);
         }
       };
-
-      
 
     return (
         <div>

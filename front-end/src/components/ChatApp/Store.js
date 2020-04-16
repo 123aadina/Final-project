@@ -1,4 +1,4 @@
-import React from 'react'
+/*import React from 'react'
 import io from 'socket.io-client';
 
 export const CTX = React.createContext()
@@ -63,7 +63,7 @@ const Store = props => {
     )
 }
 
-export default Store
+export default Store*/
 
 /*
 var socket = io.connect('http://localhost:3000');
