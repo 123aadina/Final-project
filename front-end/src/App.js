@@ -11,7 +11,6 @@ import RegistrationForm from "./components/Registration/RegistrationForm";
 import LogIn from "./components/LogInForm/LogIn";
 import Topic from "./components/Pages/Topic";
 //import Dashboard from "./components/ChatApp/Dashboard";
-//import Store from "./components/ChatApp/Store";
 import Association from "./components/Pages/Association";
 
 function App() {
@@ -28,8 +27,7 @@ function App() {
           <Route exact path="/login" component={LogIn} />
           <Route exact path="/topic" component={Topic} />
           <Route exact path="/association" component={Association} />
-           {/*<Store> <Route exact path='/chat' component={Dashboard}/></Store>*/}
-          
+           {/*<Route exact path='/chat' component={Dashboard}/>*/}
         </Switch>
       </div>
     </Router>
