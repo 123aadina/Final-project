@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import Navbar from "../Layout/Navbar";
 import Footer from "../Layout/Footer";
 import Dashboard from "../ChatApp/Dashboard";
-import Store from "../ChatApp/Store";
+//import Store from "../ChatApp/Store";
 
 const Home = () => {
   const { t, i18n } = useTranslation();
@@ -54,9 +54,9 @@ const Home = () => {
           </button>
         </div>
         <Footer />
-        <Store>
+     
             <Dashboard />
-          </Store>
+          
       </div>
     </div>
   );
