@@ -1,12 +1,15 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 // COMPONENT
 import Navbar from "../Layout/Navbar";
 import Footer from "../Layout/Footer";
+import Card from "../Pages/Card";
 
 export default function Association(props) {
   let problem = props.location.state ? props.location.state.problem : {};
+
+  const [cards, setCards] = useState([]);
 
   useEffect(() => {
     if (!props.location.state) {
@@ -14,9 +17,10 @@ export default function Association(props) {
     }
     fetch(`http://localhost:3000/problem/${problem._id}/organisations`)
       .then((res) => res.json())
-      .then((data) => console.log(data))
+      .then((data) => setCards(data))
       .catch((error) => console.log(error));
-  });
+  }, []);
+  console.log(cards);
 
   return (
     <div className="container d-flex justify-content-center flex-wrap flex-column">
@@ -36,21 +40,15 @@ export default function Association(props) {
 
         <div className="container ">
           <div className="row">
-            {" "}
-            <div className="card p-2 m-2 col-3-xs">
-              <div className="card-body text-center">
-                <h5 className="card-title text-center"> Association Name</h5>
-                <p className="card-text">
-                  {" "}
-                  Here is the place where the description will be.
-                </p>
-                <button className="btn btn-default btn-primary text-center">
-                  <Link to="/" className="text-light text-decoration-none">
-                    Visit the page
-                  </Link>
-                </button>
-              </div>
-            </div>
+            {cards.map((card) => {
+              return (
+                <Card
+                  name={card.name}
+                  description={card.description}
+                  link={card.link}
+                />
+              );
+            })}
           </div>
           <div className="row">
             <div className="col text-center">
