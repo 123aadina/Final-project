@@ -27,9 +27,9 @@ const mongoString =
 mongoose
   .connect(mongoString, {
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
   })
-  .catch(err => {
+  .catch((err) => {
     console.log(err);
   });
 
