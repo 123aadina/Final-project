@@ -78,7 +78,37 @@ const Dashboard = () => {
         socket.emit('joinRoom', { username: userValue, room: room.name })
     }
 
-    useEffect(() => {
+    // this useEffect updates the room list
+        // normal users will receive "themselves"
+        // admin users will receive a list of all users
+	useEffect(() => {
+		socket.on('rooms', (users) => {
+			console.log(users);
+			let newRooms = users.map((user) => {
+				user.history = [];
+				return user;
+			});
+			console.log(newRooms);
+			setRooms(newRooms);
+		});
+		socket.emit('rooms', userValue);
+	}, []);
+    // listen for incoming messages
+	useEffect(() => {
+        console.log('Rooms reset: ', rooms);
+        // redeclare the message listeners each time the rooms were updated
+        if (socket.hasListeners('message')) {
+            socket.removeEventListener('message');
+        }
+        socket.on('message', ({ username, msg }) => {
+            console.log("Received message: ", username, msg)
+            addMessageToHistory({ msg, user: username });
+        });
+    }, [ rooms, activeRoom ]
+    );
+    
+    //old one
+    /*useEffect(() => {
         console.log('useEffect called')
         socket.on("message", ({ username, msg }) =>{
             addMessageToHistory({msg:msg, user:username })
@@ -95,15 +125,25 @@ const Dashboard = () => {
             setRooms(newRooms)
         })
         socket.emit('rooms', userValue)
-    }, [])
+    }, [])*/
 
 
     const sendChatAction = (e) => {
+        e.preventDefault();
+        if(activeRoom) {
+            socket.emit('message', { room: activeRoom.name, msg: textValue, username: userValue });
+        }
+        else {
+            console.log("[ERROR] Please choose a room before sending a message!")
+        }
+	};
+
+    /*const sendChatAction = (e) => {
         e.preventDefault()
         socket.emit("message", { room:activeRoom.name, msg: textValue , username:userValue}) 
-    }
+    }*/
 
-    const addMessageToHistory = ({ msg, user }) => {
+    const addMessageToHistory = ({ msg, user}) => {
         let room = activeRoom.name
         console.log('Attaching message to room: ', room);
         console.log(rooms, 'rooms')
@@ -111,7 +151,7 @@ const Dashboard = () => {
     
         // update chat history by creating a copy of state, updating it & re-assign it
         let roomsCopy = [ ...rooms ];
-    
+
         // find room
         let roomFound = roomsCopy.find((currentRoom) => currentRoom.name == room);
     
@@ -119,6 +159,7 @@ const Dashboard = () => {
         if (roomFound) {
           roomFound.history.push({ msg, user, room });
           setRooms(roomsCopy);
+          //setRooms(roomsCopy);
         }
       };
 

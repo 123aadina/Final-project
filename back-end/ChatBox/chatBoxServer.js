@@ -8,7 +8,7 @@ module.exports = (server) => {
 
     socket.on("joinRoom", ({ username, room }) => {
       socket.join(room);
-      console.log(`${username}  ${room}join the chat`)
+      console.log(`${username} join the chat ${room}`)
       User.findOneAndUpdate({ name: username }, { chatRoom: room }).catch(
         (error) => {
           console.log(error);
