@@ -23,8 +23,6 @@ const socket = io(':3000')
 //const user = 'hamida' + Math.random(100).toFixed(2)
 //const user = 'christophe'
 
-
-
 const useStyles = makeStyles(theme => ({
     root: {
         margin: '50px',
@@ -53,8 +51,6 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const Dashboard = () => {
-
-
     //local state
     let [rooms, setRooms] = useState([
         {
@@ -69,7 +65,6 @@ const Dashboard = () => {
         }
     ]);
 
-    
     const [activeRoom, changeActiveRoom] = useState()
     const [error, setError] = useState('');
     const [textValue, changeTextValue] = useState('')
@@ -190,8 +185,3 @@ const Dashboard = () => {
 }
 
 export default Dashboard
-
-
-//CTX store
-    //const { allChats, sendChatAction, user } = React.useContext(CTX)
-    //const rooms = Object.keys(allChats)
