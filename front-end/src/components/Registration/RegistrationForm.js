@@ -331,7 +331,7 @@ const RegistrationForm = (props) => {
           </div>
         </form>
       </div>
-      <BallonBox />
+      <BallonBox title="You can register and talk with us!" />
       <Footer />
     </div>
   );
