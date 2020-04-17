@@ -31,13 +31,13 @@ body {
   text-align: center;
   line-height: 100px;
   background-color: #fff;
-  border: 2px solid #34495e;
+  border: 2px solid #f8f9fa;
   -webkit-border-radius: 30px;
   -moz-border-radius: 30px;
   border-radius: 30px;
-  -webkit-box-shadow: 2px 2px 4px #888;
-  -moz-box-shadow: 2px 2px 4px #888;
-  box-shadow: 2px 2px 4px #888;
+  -webkit-box-shadow: 4px 4px 4px #888;
+  -moz-box-shadow: 5px 5px 5px #888;
+  box-shadow: 5px 5px 5px #888;
 }
 
 .ballonBox-input:before {
@@ -48,7 +48,7 @@ body {
   left: 30px;
   top: 100px;
   border: 25px solid;
-  border-color: #666 transparent transparent #666;
+  border-color: #e8e8f1 transparent transparent #e8e8f1;
 }
 
 .ballonBox-input:after {
