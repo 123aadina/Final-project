@@ -24,12 +24,14 @@ body {
 
 .ballonBox {
   position: relative;
+  left: 530px;
+  bottom: 100px;
   width: 200px;
   height: 100px;
   text-align: center;
   line-height: 100px;
   background-color: #fff;
-  border: 8px solid #666;
+  border: 2px solid #34495e;
   -webkit-border-radius: 30px;
   -moz-border-radius: 30px;
   border-radius: 30px;
