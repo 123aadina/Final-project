@@ -168,7 +168,6 @@ const RegistrationForm = (props) => {
       body: requestBody,
     }).then((resp) => {
       if (resp.status !== 200) {
-        console.log(resp.status);
         setState({ ...state, formSubmitError: "Registration not succeeded." });
         return;
       }
