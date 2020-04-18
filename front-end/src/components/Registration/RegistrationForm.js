@@ -18,7 +18,6 @@ const initErrorState = {
   languagesError: "",
   commentError: "",
   agreeTermsError: "",
-  chatBoxError: "",
 };
 
 const initialState = {
@@ -144,14 +143,6 @@ const RegistrationForm = (props) => {
       return false;
     }
 
-    if (state.chatBoxChecked === "" && !state.chatBoxChecked === false) {
-      setState({
-        ...state,
-        chatBoxError: "Please check the box if you want to chat with us",
-      });
-      return false;
-    }
-
     return true;
   };
 
@@ -176,7 +167,8 @@ const RegistrationForm = (props) => {
       body: requestBody,
     }).then((resp) => {
       console.log("Response: " + resp);
-      // TODO: Redirect to home page
+      //redirecting to homepage
+      props.history.push("/home");
     });
   };
 
