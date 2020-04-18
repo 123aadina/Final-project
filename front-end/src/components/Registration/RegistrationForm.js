@@ -18,6 +18,7 @@ const initErrorState = {
   languagesError: "",
   commentError: "",
   agreeTermsError: "",
+  chatBoxError: "",
 };
 
 const initialState = {
@@ -30,6 +31,7 @@ const initialState = {
   languages: "",
   comment: "",
   agreeChecked: false,
+  chatBoxChecked: false,
   ...initErrorState,
 };
 
@@ -42,7 +44,7 @@ const RegistrationForm = (props) => {
   const [state, setState] = useState(initialState);
 
   const handleAgreeCheckbox = (e) => {
-    console.log("Agree checkbx " + e.target.checked);
+    console.log("Agree checkbox " + e.target.checked);
     setState({
       ...state,
       agreeChecked: e.target.checked,
@@ -53,6 +55,13 @@ const RegistrationForm = (props) => {
     setState({
       ...state,
       emailChecked: e.target.checked,
+    });
+  };
+
+  const handleChatCheckbox = (e) => {
+    setState({
+      ...state,
+      chatBoxChecked: e.target.checked,
     });
   };
 
@@ -135,6 +144,14 @@ const RegistrationForm = (props) => {
       return false;
     }
 
+    if (state.chatBoxChecked === "" && !state.chatBoxChecked === false) {
+      setState({
+        ...state,
+        chatBoxError: "Please check the box if you want to chat with us",
+      });
+      return false;
+    }
+
     return true;
   };
 
@@ -149,6 +166,7 @@ const RegistrationForm = (props) => {
       languages: state.languages,
       comment: state.comment,
       agreeChecked: state.agreeChecked,
+      chatBoxChecked: state.chatBoxChecked,
     });
     console.log(requestBody);
     // fetch to send the registration form back to backend as jason/
@@ -309,6 +327,15 @@ const RegistrationForm = (props) => {
               onChange={handleEvent}
             />
             <div style={errorTextStyle}>{state.commentError}</div>
+          </div>
+          {/*CHECKBOX FOR THE CHAT*/}
+          <div className="form-check checkbox_chat text-center">
+            <BallonBox
+              className="form-check-label"
+              textValue="Please check the box if you want to chat with us"
+              currentValue={state.chatBoxChecked}
+              onChange={handleChatCheckbox}
+            />
           </div>
           {/* CHECKBOX CONDITIONS AND TERMS */}
           <div className="form-check checkbox_terms text-center">
