@@ -18,6 +18,7 @@ const initErrorState = {
   languagesError: "",
   commentError: "",
   agreeTermsError: "",
+  formSubmitError: "",
 };
 
 const initialState = {
@@ -110,7 +111,7 @@ const RegistrationForm = (props) => {
     }
 
     const reg = new RegExp("^([+]{0,1})([0-9]+)");
-    if (!state.phone.match(reg) || state.phone.length > 13) {
+    if (!state.phone.match(reg) || state.phone.length > 14) {
       setState({
         ...state,
         phoneError: "Please fill in a correct phone number",
@@ -146,7 +147,7 @@ const RegistrationForm = (props) => {
     return true;
   };
 
-  const postRequestToBackend = () => {
+  const postRequestToBackend = (e) => {
     let requestBody = JSON.stringify({
       name: state.name,
       email: state.email,
@@ -166,9 +167,17 @@ const RegistrationForm = (props) => {
       headers: { "Content-Type": "application/json" },
       body: requestBody,
     }).then((resp) => {
-      console.log("Response: " + resp);
+      if (resp.status !== 200) {
+        console.log(resp.status);
+        setState({ ...state, formSubmitError: "Registration not succeeded." });
+        return;
+      }
+      console.log("Success");
+      //to clear the form
+      setState(initialState);
+
       //redirecting to chat page if chatBoxChecked is clicked
-      if (chatBoxChecked === true) {
+      if (state.chatBoxChecked === true) {
         //TODO00000
         return props.history.push("/problem");
       } else {
@@ -178,15 +187,14 @@ const RegistrationForm = (props) => {
   };
 
   const handleSubmit = (e) => {
+    e.preventDefault();
     const isValid = validateForm();
 
     if (!isValid) {
       //to discard default behaviors onSubmit event den svinei ta stoixeia tis formas kathe fora pou ta ipovallei o xristi
       e.preventDefault();
     } else {
-      postRequestToBackend();
-      //to clear the form
-      setState(initialState);
+      postRequestToBackend(e);
     }
   };
 
@@ -343,6 +351,7 @@ const RegistrationForm = (props) => {
               onChange={handleAgreeCheckbox}
             />
           </div>
+          <div style={errorTextStyle}>{state.formSubmitError}</div>
           {/* SUBMIT BUTTON */}
           <div style={errorTextStyle}>{state.agreeTermsError}</div>
           <div className="submitButton d-flex justify-content-center">
