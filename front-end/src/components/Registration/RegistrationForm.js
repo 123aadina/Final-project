@@ -321,10 +321,10 @@ const RegistrationForm = (props) => {
             <div style={errorTextStyle}>{state.commentError}</div>
           </div>
           {/*CHECKBOX FOR THE CHAT*/}
-          <div className="form-check checkbox_chat text-center">
-            <BallonBox
+          <div className="form-check checkbox_chat">
+            <CheckBoxBase
               className="form-check-label"
-              textValue="Please check the box if you want to chat with us"
+              textValue="Chat with us"
               currentValue={state.chatBoxChecked}
               onChange={handleChatCheckbox}
             />
