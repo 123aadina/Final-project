@@ -167,8 +167,13 @@ const RegistrationForm = (props) => {
       body: requestBody,
     }).then((resp) => {
       console.log("Response: " + resp);
-      //redirecting to homepage
-      props.history.push("/home");
+      //redirecting to chat page if chatBoxChecked is clicked
+      if (chatBoxChecked === true) {
+        //TODO00000
+        return props.history.push("/problem");
+      } else {
+        props.history.push("/");
+      }
     });
   };
 
