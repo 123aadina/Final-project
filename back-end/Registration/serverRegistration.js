@@ -28,25 +28,29 @@ router.post("/registration", (req, res) => {
       // Convert password to hash
       let hashedPassword = bcrypt.hashSync(registerFormFields.password, 10);
       registerFormFields.password = hashedPassword;
-      User.create(registerFormFields, (err) => {
-        if (err) {
-          console.log(err);
-          res.send(400);
-        } else {
-          if (registerFormFields.email !== null) {
-            sendEmailLink(registerFormFields.email);
+      crypto.randomBytes(20, function (err, buf) {
+        //activation code
+        registerFormFields.activeToken = buf.toString("hex");
+        //expiration date for the activation code
+        registerFormFields.activeExpires = Date.now() + 24 * 3600 * 1000;
+
+        User.create(registerFormFields, (err, docs) => {
+          if (err) {
+            console.log(err);
+            res.send(400);
+          } else {
+            if (registerFormFields.email !== null) {
+              sendEmailLink(registerFormFields.email);
+            }
+            res.send(200);
           }
-          res.send(200);
-        }
+        });
       });
     }
   });
 
-  //after registration save the new user
-  router.post("/confirm/:token", (req, res) => {
-    //create the link
-    //generate the link
-  });
+  //after registration confirm the new user
+  router.post("/confirm/:token", (req, res) => {});
 });
 
 // Find User and create the token
