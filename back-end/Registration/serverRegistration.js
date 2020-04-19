@@ -5,6 +5,7 @@ const bcrypt = require("bcrypt");
 const { validateForm } = require("./validationServer");
 const { sendEmailLink } = require("../SendEmailLink/sendEmail");
 const jtw = require("jsonwebtoken");
+const crypto = require("crypto");
 
 //Register user and Schema for email ,password, name, issues ...
 router.post("/registration", (req, res) => {
@@ -39,6 +40,12 @@ router.post("/registration", (req, res) => {
         }
       });
     }
+  });
+
+  //after registration save the new user
+  router.post("/confirm/:token", (req, res) => {
+    //create the link
+    //generate the link
   });
 });
 
