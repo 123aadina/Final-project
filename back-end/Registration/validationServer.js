@@ -32,7 +32,7 @@ const validateForm = (formData) => {
   }
 
   const reg = new RegExp("^([+]{0,1})([0-9]+)");
-  if (!formData.phone.match(reg) || formData.phone.length >= 13) {
+  if (!formData.phone.match(reg) || formData.phone.length > 14) {
     console.log("Phone validation failed.");
     return false;
   }
