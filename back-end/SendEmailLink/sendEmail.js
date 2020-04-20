@@ -15,7 +15,7 @@ const sendEmailLink = (toEmail, subject, body) => {
     from: "womenorganization17@gmail.com",
     to: "toEmail",
     subject: subject,
-    html: "<p></p>",
+    html: "<p>Welcome to our organization for women. Click this link to activate your account http://localhost:3000/confirm/"TOKEN"  </p>",
   });
 };
 
