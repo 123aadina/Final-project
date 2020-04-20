@@ -16,8 +16,8 @@ router.post("/registration", (req, res) => {
     res.send(401);
     return;
   }
-  //checking if the user exists in db
-  User.find({ name: registerFormFields.name }, (error, docs) => {
+  //checking by email if the user exists in db
+  User.find({ email: registerFormFields.email }, (error, docs) => {
     if (docs.length > 0) {
       //user exists in db reject the request
       console.log("User is already registered");
@@ -45,10 +45,10 @@ router.post("/registration", (req, res) => {
 // Find User and create the token
 // Route for the login form
 router.post("/login", (req, res, next) => {
-  User.findOne({ name: req.body.name })
+  User.findOne({ email: req.body.email })
     .then((user) => {
       if (!user) {
-        console.log(`User ${req.body.name} not found.`);
+        console.log(`User ${req.body.email} not found.`);
         res.send(401);
         return;
       }
@@ -56,7 +56,7 @@ router.post("/login", (req, res, next) => {
       //we have to compare if the password with the registration form matches
       bcrypt.compare(req.body.password, user.password).then((success) => {
         if (!success) {
-          console.log(`Password for user ${req.body.name} not matched.`);
+          console.log(`Password for user ${req.body.email} not matched.`);
           res.send(401);
           return;
         }
