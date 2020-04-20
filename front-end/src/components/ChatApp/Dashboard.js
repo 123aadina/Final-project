@@ -51,6 +51,8 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const Dashboard = () => {
+    // i did it
+    //const {username} = useContext(ChatContext)
     //local state
     let [rooms, setRooms] = useState([
         {
@@ -68,7 +70,7 @@ const Dashboard = () => {
     const [activeRoom, changeActiveRoom] = useState()
     const [error, setError] = useState('');
     const [textValue, changeTextValue] = useState('')
-    const [userValue, changeUserValue] = useState('Rob')
+    const [userValue, changeUserValue] = useState('hamida')// must be comment. instead context userName
     const classes = useStyles()
 
 

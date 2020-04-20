@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../Layout/Navbar";
 import Footer from "../Layout/Footer";
+
 
 const initErrorState = {
   nameError: "",
@@ -65,7 +66,7 @@ const LogIn = props => {
     }).then(resp => {
       if (resp.status != 200) {
         setState({
-          ...state,
+          ...state,//res.json({ jwtToken: token, username: user.name })
           passwordError: "Password is not valid."
         });
       } else {
