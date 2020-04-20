@@ -19,6 +19,9 @@ const User = mongoose.model(
     isAdministrator: { type: Boolean, required: true, default: false },
     chatRoom: { type: String, required: false },
     chat: { type: Boolean, default: false, required: true },
+    active: { type: Boolean, default: false, required: true },
+    activeToken: { type: String },
+    activeExpires: { Date },
   })
 );
 
