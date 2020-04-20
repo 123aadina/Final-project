@@ -10,9 +10,10 @@ const validateForm = (formData) => {
   }
 
   if (
-    formData.email &&
-    (!formData.email.includes("@") ||
-      (formData.email === "" && !formData.emailChecked === true))
+    !formData.email.includes("@") ||
+    formData.email === ""
+    //removing from here too emailChecked field
+    //  && !formData.emailChecked === true))
   ) {
     console.log("Email validation failed.");
     return false;
