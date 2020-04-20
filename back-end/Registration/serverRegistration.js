@@ -3,6 +3,7 @@ const router = express.Router();
 const { User } = require("./dbRegistration.js");
 const bcrypt = require("bcrypt");
 const { validateForm } = require("./validationServer");
+const { sendEmailLink } = require("../SendEmailLink/sendEmail");
 const jtw = require("jsonwebtoken");
 
 //Register user and Schema for email ,password, name, issues ...
@@ -31,6 +32,9 @@ router.post("/registration", (req, res) => {
           console.log(err);
           res.send(400);
         } else {
+          if (registerFormFields.email !== null) {
+            sendEmailLink(registerFormFields.email);
+          }
           res.send(200);
         }
       });
