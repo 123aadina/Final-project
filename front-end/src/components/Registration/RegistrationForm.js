@@ -71,7 +71,10 @@ const RegistrationForm = (props) => {
       ...initErrorState,
     });
 
-    if (state.name.length < 2 || state.name.length > 70) {
+    if (
+      state.name.length < 2 ||
+      (state.name.length > 70 && state.name === "")
+    ) {
       setState({
         ...state,
         nameError: "Name should be more than 2 characters long",
