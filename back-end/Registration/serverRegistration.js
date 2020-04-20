@@ -67,6 +67,7 @@ router.post("/login", (req, res, next) => {
             id: user.id,
             password: user.password,
             isAdministrator: user.isAdministrator,
+            email: user.email,
           },
           secret,
           { expiresIn: "2h" }
