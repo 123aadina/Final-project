@@ -43,21 +43,20 @@ router.post("/registration", (req, res) => {
 });
 
 //after registration confirm the new user
-//   router.post("/confirm/:token", (req, res, next) => {
-//     user.findOne({
-//       activeToken: req.body.activeToken,
-//       activeExpires: { $gt: Date.now() },
-//       function(err, user) {
-//         if (err) {
-//           return next(err);
-//         }
-//         if (!user) {
-//           res.send();
-//         }
-//       },
-//     });
-//   });
-// });
+router.post("/confirm/:token", (req, res, next) => {
+  user.findOne({
+    activeToken: req.body.activeToken,
+    activeExpires: { $gt: Date.now() },
+    function(err, user) {
+      if (err) {
+        return next(err);
+      }
+      if (!user) {
+        res.send();
+      }
+    },
+  });
+});
 
 // Find User and create the token
 // Route for the login form
