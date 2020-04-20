@@ -18,6 +18,7 @@ const initErrorState = {
   languagesError: "",
   commentError: "",
   agreeTermsError: "",
+  formSubmitError: "",
 };
 
 const initialState = {
@@ -30,6 +31,7 @@ const initialState = {
   languages: "",
   comment: "",
   agreeChecked: false,
+  chatBoxChecked: false,
   ...initErrorState,
 };
 
@@ -42,7 +44,7 @@ const RegistrationForm = (props) => {
   const [state, setState] = useState(initialState);
 
   const handleAgreeCheckbox = (e) => {
-    console.log("Agree checkbx " + e.target.checked);
+    console.log("Agree checkbox " + e.target.checked);
     setState({
       ...state,
       agreeChecked: e.target.checked,
@@ -53,6 +55,13 @@ const RegistrationForm = (props) => {
     setState({
       ...state,
       emailChecked: e.target.checked,
+    });
+  };
+
+  const handleChatCheckbox = (e) => {
+    setState({
+      ...state,
+      chatBoxChecked: e.target.checked,
     });
   };
 
@@ -102,7 +111,7 @@ const RegistrationForm = (props) => {
     }
 
     const reg = new RegExp("^([+]{0,1})([0-9]+)");
-    if (!state.phone.match(reg) || state.phone.length > 13) {
+    if (!state.phone.match(reg) || state.phone.length > 14) {
       setState({
         ...state,
         phoneError: "Please fill in a correct phone number",
@@ -138,7 +147,7 @@ const RegistrationForm = (props) => {
     return true;
   };
 
-  const postRequestToBackend = () => {
+  const postRequestToBackend = (e) => {
     let requestBody = JSON.stringify({
       name: state.name,
       email: state.email,
@@ -149,6 +158,7 @@ const RegistrationForm = (props) => {
       languages: state.languages,
       comment: state.comment,
       agreeChecked: state.agreeChecked,
+      chatBoxChecked: state.chatBoxChecked,
     });
     console.log(requestBody);
     // fetch to send the registration form back to backend as jason/
@@ -157,21 +167,33 @@ const RegistrationForm = (props) => {
       headers: { "Content-Type": "application/json" },
       body: requestBody,
     }).then((resp) => {
-      console.log("Response: " + resp);
-      // TODO: Redirect to home page
+      if (resp.status !== 200) {
+        setState({ ...state, formSubmitError: "Registration not succeeded." });
+        return;
+      }
+      console.log("Success");
+      //to clear the form
+      setState(initialState);
+
+      //redirecting to chat page if chatBoxChecked is clicked
+      if (state.chatBoxChecked === true) {
+        //TODO00000 This has to change to chat page
+        return props.history.push("/problem");
+      } else {
+        props.history.push("/");
+      }
     });
   };
 
   const handleSubmit = (e) => {
+    e.preventDefault();
     const isValid = validateForm();
 
     if (!isValid) {
       //to discard default behaviors onSubmit event den svinei ta stoixeia tis formas kathe fora pou ta ipovallei o xristi
       e.preventDefault();
     } else {
-      postRequestToBackend();
-      //to clear the form
-      setState(initialState);
+      postRequestToBackend(e);
     }
   };
 
@@ -310,6 +332,15 @@ const RegistrationForm = (props) => {
             />
             <div style={errorTextStyle}>{state.commentError}</div>
           </div>
+          {/*CHECKBOX FOR THE CHAT*/}
+          <div className="form-check checkbox_chat">
+            <CheckBoxBase
+              className="form-check-label"
+              textValue="Chat with us"
+              currentValue={state.chatBoxChecked}
+              onChange={handleChatCheckbox}
+            />
+          </div>
           {/* CHECKBOX CONDITIONS AND TERMS */}
           <div className="form-check checkbox_terms text-center">
             <CheckBoxBase
@@ -319,6 +350,7 @@ const RegistrationForm = (props) => {
               onChange={handleAgreeCheckbox}
             />
           </div>
+          <div style={errorTextStyle}>{state.formSubmitError}</div>
           {/* SUBMIT BUTTON */}
           <div style={errorTextStyle}>{state.agreeTermsError}</div>
           <div className="submitButton d-flex justify-content-center">
@@ -331,7 +363,7 @@ const RegistrationForm = (props) => {
           </div>
         </form>
       </div>
-      <BallonBox title="You can register and talk with us!" />
+      <BallonBox title="Sign in and chat with us!" />
       <Footer />
     </div>
   );
