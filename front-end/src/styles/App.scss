@@ -23,6 +23,18 @@ body {
   }
 }
 
-footer {
-  position: bottom !important;
+.ballonBox {
+  border-radius: 5px;
+  position: relative;
+  width: 300px;
+  height: 100px;
+}
+
+.ballonBox-input :before {
+  text-align: center;
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-color: #34495e;
+  content: "";
 }
