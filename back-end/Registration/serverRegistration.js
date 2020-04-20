@@ -33,7 +33,6 @@ router.post("/registration", (req, res) => {
         registerFormFields.activeToken = buf.toString("hex");
         //expiration date for the activation code
         registerFormFields.activeExpires = Date.now() + 24 * 3600 * 1000;
-
         User.create(registerFormFields, (err, docs) => {
           if (err) {
             console.log(err);
@@ -50,8 +49,21 @@ router.post("/registration", (req, res) => {
   });
 
   //after registration confirm the new user
-  router.post("/confirm/:token", (req, res) => {});
-});
+//   router.post("/confirm/:token", (req, res, next) => {
+//     user.findOne({
+//       activeToken: req.body.activeToken,
+//       activeExpires: { $gt: Date.now() },
+//       function(err, user) {
+//         if (err) {
+//           return next(err);
+//         }
+//         if (!user) {
+//           res.send();
+//         }
+//       },
+//     });
+//   });
+// });
 
 // Find User and create the token
 // Route for the login form
