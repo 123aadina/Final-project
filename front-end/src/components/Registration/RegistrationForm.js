@@ -248,13 +248,12 @@ const RegistrationForm = (props) => {
             />
             <div style={errorTextStyle}>{state.emailError}</div>
 
-            <div className="form-check mt-1">
+            {/* <div className="form-check mt-1">
               <CheckBoxBase
                 textValue=" I don't have an email"
                 currentValue={state.emailChecked}
                 onChange={handleEmailCheckbox}
-              />
-            </div>
+              /> */}
           </div>
 
           {/* PASSWORD */}
