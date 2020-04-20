@@ -12,7 +12,7 @@ const User = mongoose.model(
     issues: { type: Number, required: true },
     languages: { type: [String], required: false },
     comment: { type: String, required: false },
-    emailChecked: { type: Boolean, required: false },
+    // emailChecked: { type: Boolean, required: false },
     agreeChecked: { type: Boolean, required: true },
     chatBoxChecked: { type: Boolean, required: false },
     //to distinguish if a user is an administrator or not for the chat
