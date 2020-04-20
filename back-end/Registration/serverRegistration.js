@@ -89,7 +89,7 @@ router.post("/login", (req, res, next) => {
           secret,
           { expiresIn: "2h" }
         );
-        res.json({ jwtToken: token });
+        res.json({ jwtToken: token, username: user.name });
       });
     })
     .catch((error) => next(err));
