@@ -1,7 +1,10 @@
 //form validators in backend too
 
 const validateForm = (formData) => {
-  if (formData.name.length < 2 || formData.name.length > 15) {
+  if (
+    formData.name.length < 2 ||
+    (formData.name.length > 15 && formData.name === "")
+  ) {
     console.log("Name validation failed.");
     return false;
   }
