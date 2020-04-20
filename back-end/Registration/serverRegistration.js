@@ -5,6 +5,7 @@ const bcrypt = require("bcrypt");
 const { validateForm } = require("./validationServer");
 const { sendEmailLink } = require("../SendEmailLink/sendEmail");
 const jtw = require("jsonwebtoken");
+const crypto = require("crypto");
 
 //Register user and Schema for email ,password, name, issues ...
 router.post("/registration", (req, res) => {
@@ -27,20 +28,42 @@ router.post("/registration", (req, res) => {
       // Convert password to hash
       let hashedPassword = bcrypt.hashSync(registerFormFields.password, 10);
       registerFormFields.password = hashedPassword;
-      User.create(registerFormFields, (err) => {
-        if (err) {
-          console.log(err);
-          res.send(400);
-        } else {
-          if (registerFormFields.email !== null) {
-            sendEmailLink(registerFormFields.email);
+      crypto.randomBytes(20, function (err, buf) {
+        //activation code
+        registerFormFields.activeToken = buf.toString("hex");
+        //expiration date for the activation code
+        registerFormFields.activeExpires = Date.now() + 24 * 3600 * 1000;
+        User.create(registerFormFields, (err, docs) => {
+          if (err) {
+            console.log(err);
+            res.send(400);
+          } else {
+            if (registerFormFields.email !== null) {
+              sendEmailLink(registerFormFields.email);
+            }
+            res.send(200);
           }
-          res.send(200);
-        }
+        });
       });
     }
   });
-});
+
+  //after registration confirm the new user
+//   router.post("/confirm/:token", (req, res, next) => {
+//     user.findOne({
+//       activeToken: req.body.activeToken,
+//       activeExpires: { $gt: Date.now() },
+//       function(err, user) {
+//         if (err) {
+//           return next(err);
+//         }
+//         if (!user) {
+//           res.send();
+//         }
+//       },
+//     });
+//   });
+// });
 
 //after registration confirm the new user
 router.post("/confirm/:token", (req, res, next) => {

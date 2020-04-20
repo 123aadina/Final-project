@@ -19,9 +19,11 @@ const User = mongoose.model(
     isAdministrator: { type: Boolean, required: true, default: false },
     chatRoom: { type: String, required: false },
     chat: { type: Boolean, default: false, required: true },
+    //define users activation state (for the email he is going to receive)
     active: { type: Boolean, default: false, required: true },
+    //the activation code user is going to receive to his email and expiration time
     activeToken: { type: String },
-    activeExpires: { Date },
+    activeExpires: { type: Date },
   })
 );
 
