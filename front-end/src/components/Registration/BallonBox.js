@@ -24,7 +24,7 @@ const BallonBox = (props) => {
         // }}
         className="ballonBox-input"
       >
-        <h3>{props.title}</h3>
+        <h6>{props.title}</h6>
       </div>
     </div>
   );
