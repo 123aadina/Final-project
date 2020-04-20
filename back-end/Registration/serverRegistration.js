@@ -48,22 +48,7 @@ router.post("/registration", (req, res) => {
     }
   });
 
-  //after registration confirm the new user
-//   router.post("/confirm/:token", (req, res, next) => {
-//     user.findOne({
-//       activeToken: req.body.activeToken,
-//       activeExpires: { $gt: Date.now() },
-//       function(err, user) {
-//         if (err) {
-//           return next(err);
-//         }
-//         if (!user) {
-//           res.send();
-//         }
-//       },
-//     });
-//   });
-// });
+
 
 //after registration confirm the new user
 router.post("/confirm/:token", (req, res, next) => {
