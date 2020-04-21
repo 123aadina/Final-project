@@ -24,7 +24,7 @@ const initErrorState = {
 const initialState = {
   name: "",
   email: "",
-  emailChecked: false,
+  // emailChecked: false,
   password: "",
   issues: 0,
   phone: "",
@@ -51,12 +51,12 @@ const RegistrationForm = (props) => {
     });
   };
 
-  const handleEmailCheckbox = (e) => {
-    setState({
-      ...state,
-      emailChecked: e.target.checked,
-    });
-  };
+  // const handleEmailCheckbox = (e) => {
+  //   setState({
+  //     ...state,
+  //     emailChecked: e.target.checked,
+  //   });
+  // };
 
   const handleChatCheckbox = (e) => {
     setState({
@@ -80,7 +80,10 @@ const RegistrationForm = (props) => {
       ...initErrorState,
     });
 
-    if (state.name.length < 2 || state.name.length > 70) {
+    if (
+      state.name.length < 2 ||
+      (state.name.length > 70 && state.name === "")
+    ) {
       setState({
         ...state,
         nameError: "Name should be more than 2 characters long",
@@ -89,7 +92,9 @@ const RegistrationForm = (props) => {
     }
     if (
       !state.email.includes("@") ||
-      (state.email === "" && !state.emailChecked === true)
+      state.email === ""
+      //this has to go for now since we are not going to use the email tickBox for now
+      // ( && !state.emailChecked === true)
     ) {
       setState({
         ...state,
@@ -151,7 +156,7 @@ const RegistrationForm = (props) => {
     let requestBody = JSON.stringify({
       name: state.name,
       email: state.email,
-      emailChecked: state.emailChecked,
+      // emailChecked: state.emailChecked,
       password: state.password,
       phone: state.phone,
       issues: state.issues,
@@ -245,13 +250,12 @@ const RegistrationForm = (props) => {
             />
             <div style={errorTextStyle}>{state.emailError}</div>
 
-            <div className="form-check mt-1">
+            {/* <div className="form-check mt-1">
               <CheckBoxBase
                 textValue=" I don't have an email"
                 currentValue={state.emailChecked}
                 onChange={handleEmailCheckbox}
-              />
-            </div>
+              /> */}
           </div>
 
           {/* PASSWORD */}
