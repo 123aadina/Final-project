@@ -69,14 +69,21 @@ const LogIn = (props) => {
       headers: { "Content-Type": "application/json" },
       body: requestBody,
     })
-      .then((resp) => resp.json())
-      .then((data) =>
-        setLogin({
-          token: data.jtwToken,
-          username: data.username,
-          chat: data.chat,
-        })
-      );
+      
+    then((resp) => resp.json())
+    .then((data)=> setLogin({token: data.jwtToken, username: data.username, chat: data.chat}))
+      /*if (resp.status != 200) {
+        setState({
+          //kai edw tha paei me to email i to pass?
+          ...state,
+          passwordError: "Password is not valid.",
+        });
+      } else {
+        console.log(resp.json());
+        setState(InitState);
+      }
+    });*/
+  };
     // if (resp.status != 200) {
     //   setState({
     //     ...state,
