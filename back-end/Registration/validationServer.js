@@ -1,15 +1,19 @@
 //form validators in backend too
 
 const validateForm = (formData) => {
-  if (formData.name.length < 2 || formData.name.length > 15) {
+  if (
+    formData.name.length < 2 ||
+    (formData.name.length > 70 && formData.name === "")
+  ) {
     console.log("Name validation failed.");
     return false;
   }
 
   if (
-    formData.email &&
-    (!formData.email.includes("@") ||
-      (formData.email === "" && !formData.emailChecked === true))
+    !formData.email.includes("@") ||
+    formData.email === ""
+    //removing from here too emailChecked field
+    //  && !formData.emailChecked === true))
   ) {
     console.log("Email validation failed.");
     return false;
@@ -29,7 +33,7 @@ const validateForm = (formData) => {
   }
 
   const reg = new RegExp("^([+]{0,1})([0-9]+)");
-  if (!formData.phone.match(reg) || formData.phone.length >= 13) {
+  if (!formData.phone.match(reg) || formData.phone.length > 14) {
     console.log("Phone validation failed.");
     return false;
   }

@@ -5,35 +5,35 @@ import Footer from "../Layout/Footer";
 
 
 const initErrorState = {
-  nameError: "",
-  passwordError: ""
+  emailError: "",
+  passwordError: "",
 };
 
 const InitState = {
-  name: "",
+  email: "",
   password: "",
-  ...initErrorState
+  ...initErrorState,
 };
 
 const errorTextStyle = {
   color: "red",
-  fontSize: "12px"
+  fontSize: "12px",
 };
 
-const LogIn = props => {
+const LogIn = (props) => {
   const [state, setState] = useState(InitState);
 
   //Validating the form
   const validateLogIn = () => {
     setState({
       ...state,
-      initErrorState
+      initErrorState,
     });
 
-    if (state.name === "" || state.name < 2 || state.name > 70) {
+    if (!state.email.includes("@") || state.email === "") {
       setState({
         ...state,
-        nameError: "Name is not correct"
+        emailError: "Email is not valid",
       });
       return false;
     }
@@ -44,7 +44,7 @@ const LogIn = props => {
     if (!state.password.match(strongRegex) || state.password === "") {
       setState({
         ...state,
-        passwordError: "Password is not valid "
+        passwordError: "Password is not valid ",
       });
       return false;
     }
@@ -52,22 +52,23 @@ const LogIn = props => {
   };
 
   //Sending the data to Backend
-  const postRequestToBackend = e => {
+  const postRequestToBackend = (e) => {
     let successful = true;
     let requestBody = JSON.stringify({
-      name: state.name,
-      password: state.password
+      email: state.email,
+      password: state.password,
     });
     console.log("Fetching ");
     fetch("http://localhost:3000/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: requestBody
-    }).then(resp => {
+      body: requestBody,
+    }).then((resp) => {
       if (resp.status != 200) {
         setState({
-          ...state,//res.json({ jwtToken: token, username: user.name })
-          passwordError: "Password is not valid."
+          //kai edw tha paei me to email i to pass?
+          ...state,
+          passwordError: "Password is not valid.",
         });
       } else {
         console.log(resp.json());
@@ -77,7 +78,7 @@ const LogIn = props => {
   };
 
   //handle Log In Button
-  const handleLogInButton = e => {
+  const handleLogInButton = (e) => {
     const isValid = validateLogIn();
     e.preventDefault();
 
@@ -87,8 +88,8 @@ const LogIn = props => {
     }
   };
 
-  const handleEvent = e => {
-    setState({ ...state, ...initErrorState, [e.target.name]: e.target.value });
+  const handleEvent = (e) => {
+    setState({ ...state, ...initErrorState, [e.target.email]: e.target.email });
   };
 
   return (
@@ -99,17 +100,17 @@ const LogIn = props => {
       {/* CONTAINER FOR THE FIELD */}
       <div className="container d-flex flex-column justify-content-center align-items-center p-3 bg bg-light border rounded col">
         <form noValidate onSubmit={handleLogInButton}>
-          {/* NAME FIELD */}
+          {/* EMAIL FIELD */}
           <div className="form-group">
-            <label htmlFor="name" className="font-weight-bolder">
+            <label htmlFor="EMAIL" className="font-weight-bolder">
               {" "}
-              Name{" "}
+              Email{" "}
             </label>
             <input
               className="form-control"
-              type="name"
-              name="name"
-              value={state.name}
+              type="email"
+              name="email"
+              value={state.email}
               required
               onChange={handleEvent}
             />

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import CheckBoxBase from "./Checkboxes";
 import DropdownList from "./DropdownList";
+import BallonBox from "./BallonBox";
 
 // Components
 import Navbar from "../Layout/Navbar";
@@ -16,50 +17,59 @@ const initErrorState = {
   phoneError: "",
   languagesError: "",
   commentError: "",
-  agreeTermsError: ""
+  agreeTermsError: "",
+  formSubmitError: "",
 };
 
 const initialState = {
   name: "",
   email: "",
-  emailChecked: false,
+  // emailChecked: false,
   password: "",
   issues: 0,
   phone: "",
   languages: "",
   comment: "",
   agreeChecked: false,
-  ...initErrorState
+  chatBoxChecked: false,
+  ...initErrorState,
 };
 
 const errorTextStyle = {
   color: "red",
-  fontSize: "12px"
+  fontSize: "12px",
 };
 
-const RegistrationForm = props => {
+const RegistrationForm = (props) => {
   const [state, setState] = useState(initialState);
 
-  const handleAgreeCheckbox = e => {
-    console.log("Agree checkbx " + e.target.checked);
+  const handleAgreeCheckbox = (e) => {
+    console.log("Agree checkbox " + e.target.checked);
     setState({
       ...state,
-      agreeChecked: e.target.checked
+      agreeChecked: e.target.checked,
     });
   };
 
-  const handleEmailCheckbox = e => {
+  // const handleEmailCheckbox = (e) => {
+  //   setState({
+  //     ...state,
+  //     emailChecked: e.target.checked,
+  //   });
+  // };
+
+  const handleChatCheckbox = (e) => {
     setState({
       ...state,
-      emailChecked: e.target.checked
+      chatBoxChecked: e.target.checked,
     });
   };
 
   //to change the state of the dropdown menu on the form
-  const handleIssueDropdown = e => {
+  const handleIssueDropdown = (e) => {
     setState({
       ...state,
-      issues: e.target.selectedIndex
+      issues: e.target.selectedIndex,
     });
   };
 
@@ -67,23 +77,28 @@ const RegistrationForm = props => {
   const validateForm = () => {
     setState({
       ...state,
-      ...initErrorState
+      ...initErrorState,
     });
 
-    if (state.name.length < 2 || state.name.length > 70) {
+    if (
+      state.name.length < 2 ||
+      (state.name.length > 70 && state.name === "")
+    ) {
       setState({
         ...state,
-        nameError: "Name should be more than 2 characters long"
+        nameError: "Name should be more than 2 characters long",
       });
       return false;
     }
     if (
       !state.email.includes("@") ||
-      (state.email === "" && !state.emailChecked === true)
+      state.email === ""
+      //this has to go for now since we are not going to use the email tickBox for now
+      // ( && !state.emailChecked === true)
     ) {
       setState({
         ...state,
-        emailError: "Please provide a valid email"
+        emailError: "Please provide a valid email",
       });
       return false;
     }
@@ -95,16 +110,16 @@ const RegistrationForm = props => {
       setState({
         ...state,
         passwordError:
-          "Password must contain at least 8 characters, an uppercase,and a special character "
+          "Password must contain at least 8 characters, an uppercase,and a special character ",
       });
       return false;
     }
 
     const reg = new RegExp("^([+]{0,1})([0-9]+)");
-    if (!state.phone.match(reg) || state.phone.length > 13) {
+    if (!state.phone.match(reg) || state.phone.length > 14) {
       setState({
         ...state,
-        phoneError: "Please fill in a correct phone number"
+        phoneError: "Please fill in a correct phone number",
       });
       return false;
     }
@@ -112,7 +127,7 @@ const RegistrationForm = props => {
     if (state.languages.length > 30) {
       setState({
         ...state,
-        languagesError: "Please choose a language"
+        languagesError: "Please choose a language",
       });
       return false;
     }
@@ -121,7 +136,7 @@ const RegistrationForm = props => {
       setState({
         ...state,
         commentError:
-          "You can fill in some information to let us know how can we help you"
+          "You can fill in some information to let us know how can we help you",
       });
       return false;
     }
@@ -129,7 +144,7 @@ const RegistrationForm = props => {
     if (!state.agreeChecked) {
       setState({
         ...state,
-        agreeTermsError: "Please accept the terms and conditions."
+        agreeTermsError: "Please accept the terms and conditions.",
       });
       return false;
     }
@@ -137,48 +152,61 @@ const RegistrationForm = props => {
     return true;
   };
 
-  const postRequestToBackend = () => {
+  const postRequestToBackend = (e) => {
     let requestBody = JSON.stringify({
       name: state.name,
       email: state.email,
-      emailChecked: state.emailChecked,
+      // emailChecked: state.emailChecked,
       password: state.password,
       phone: state.phone,
       issues: state.issues,
       languages: state.languages,
       comment: state.comment,
-      agreeChecked: state.agreeChecked
+      agreeChecked: state.agreeChecked,
+      chatBoxChecked: state.chatBoxChecked,
     });
     console.log(requestBody);
     // fetch to send the registration form back to backend as jason/
     fetch("http://localhost:3000/registration", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: requestBody
-    }).then(resp => {
-      console.log("Response: " + resp);
-      // TODO: Redirect to home page
+      body: requestBody,
+    }).then((resp) => {
+      if (resp.status !== 200) {
+        setState({ ...state, formSubmitError: "Registration not succeeded." });
+        return;
+      }
+      console.log("Success");
+      //to clear the form
+      setState(initialState);
+
+      //redirecting to chat page if chatBoxChecked is clicked
+      if (state.chatBoxChecked === true) {
+        //TODO00000 This has to change to chat page
+        return props.history.push("/problem");
+      } else {
+        props.history.push("/");
+      }
     });
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     const isValid = validateForm();
 
     if (!isValid) {
       //to discard default behaviors onSubmit event den svinei ta stoixeia tis formas kathe fora pou ta ipovallei o xristi
       e.preventDefault();
     } else {
-      postRequestToBackend();
-      //to clear the form
-      setState(initialState);
+      postRequestToBackend(e);
     }
   };
 
-  const handleEvent = e => {
+  const handleEvent = (e) => {
     setState({
       ...state,
       ...initErrorState,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -222,13 +250,12 @@ const RegistrationForm = props => {
             />
             <div style={errorTextStyle}>{state.emailError}</div>
 
-            <div className="form-check mt-1">
+            {/* <div className="form-check mt-1">
               <CheckBoxBase
                 textValue=" I don't have an email"
                 currentValue={state.emailChecked}
                 onChange={handleEmailCheckbox}
-              />
-            </div>
+              /> */}
           </div>
 
           {/* PASSWORD */}
@@ -309,6 +336,15 @@ const RegistrationForm = props => {
             />
             <div style={errorTextStyle}>{state.commentError}</div>
           </div>
+          {/*CHECKBOX FOR THE CHAT*/}
+          <div className="form-check checkbox_chat">
+            <CheckBoxBase
+              className="form-check-label"
+              textValue="Chat with us"
+              currentValue={state.chatBoxChecked}
+              onChange={handleChatCheckbox}
+            />
+          </div>
           {/* CHECKBOX CONDITIONS AND TERMS */}
           <div className="form-check checkbox_terms text-center">
             <CheckBoxBase
@@ -318,6 +354,7 @@ const RegistrationForm = props => {
               onChange={handleAgreeCheckbox}
             />
           </div>
+          <div style={errorTextStyle}>{state.formSubmitError}</div>
           {/* SUBMIT BUTTON */}
           <div style={errorTextStyle}>{state.agreeTermsError}</div>
           <div className="submitButton d-flex justify-content-center">
@@ -330,6 +367,7 @@ const RegistrationForm = props => {
           </div>
         </form>
       </div>
+      <BallonBox title="Sign in and chat with us!" />
       <Footer />
     </div>
   );

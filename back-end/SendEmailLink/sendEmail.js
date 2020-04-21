@@ -1,24 +1,32 @@
 const nodemailer = require("nodemailer");
-const MailgunTransport = require("mailgun-nodemailer-transport");
+// const MailgunTransport = require("mailgun-nodemailer-transport");
 
-const sendEmailLink = (toEmail, subject, body) => {
+const sendEmailLink = (toEmail, activationToken, username) => {
   // create transporter(the mail server) to send and deliver the messages
-  const transporter = nodemailer.createTransport({
-    service: "Mailgun",
+  var transporter = nodemailer.createTransport({
+    service: "gmail",
     auth: {
-      api_key: "aa4b0867-2cab9a2c",
-      domain: "sandbox3ebc2b3f524a48b39151f522f5439abe.mailgun.org	",
+      user: "womenorganization18@gmail.com",
+      pass: "hmc17@2020",
     },
   });
 
   transporter.sendMail({
-    from: "womenorganization17@gmail.com",
-    to: "toEmail",
-    subject: subject,
-    html: "<p></p>",
-  });
+    from: "womenorganization18@gmail.com",
+    to: toEmail,
+    subject: "Welcome to Women's organization.",
+    html: `<p>Hello ${username}, welcome to Women´ s organization. Click this link to activate your account http://localhost:3000/confirm/${activationToken}  </p>`,
+  }),
+    function (err, info) {
+      if (err) {
+        console.log("Error" + err);
+      } else {
+        console.log("Success!!!");
+      }
+    };
 };
 
+module.exports = { sendEmailLink };
 //From Mailgun
 //Key ID: aa4b0867-2cab9a2c
 //Description: API Key
