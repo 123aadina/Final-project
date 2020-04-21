@@ -62,9 +62,7 @@ const Home = () => {
           </button>
         </div>
         <Footer />
-        {/* <Store>
           <Dashboard />
-        </Store> */}
       </div>
     </div>
   );
