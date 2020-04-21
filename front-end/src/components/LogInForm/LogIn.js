@@ -81,21 +81,11 @@ const LogIn = (props) => {
           username: data.username,
           chat: data.chat,
         });
+        //if user is logged in it goes back to registration page
+        props.history.push("/");
       }
     });
   };
-  // if (resp.status != 200) {
-  //   setState({
-  //     ...state,
-  //     passwordError: "Credentials are not valid.",
-  //   });
-  // } else {
-  //   console.log(resp.json());
-  //   setState(InitState);
-  // }
-  // if (user) {
-  //   return props.history.push("/");
-  // }
 };
 
 //handle Log In Button
