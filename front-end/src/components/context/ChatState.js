@@ -4,7 +4,6 @@ import ChatReducer from './ChatReducer';
 
 
 
-const 
 
 const ChatState = props => {
     //const [username, setUsername] = useState()
