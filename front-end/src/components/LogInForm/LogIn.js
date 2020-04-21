@@ -65,13 +65,16 @@ const LogIn = (props) => {
     }).then((resp) => {
       if (resp.status != 200) {
         setState({
-          //kai edw tha paei me to email i to pass?
           ...state,
           passwordError: "Credentials are not valid.",
         });
       } else {
         console.log(resp.json());
         setState(InitState);
+      }
+
+      if (user) {
+        return props.history.push("/");
       }
     });
   };
