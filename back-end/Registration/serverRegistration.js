@@ -20,51 +20,56 @@ router.post("/registration", (req, res) => {
   //checking by email if the user exists in db
   User.find({ email: registerFormFields.email }, (error, docs) => {
     if (docs.length > 0) {
-      //user exists in db reject the request
+      // if user exists in db reject the request
       console.log("User is already registered");
       res.send(400);
     } else {
-      //user does not exist so it is created
+      //if user does not exist so it is created
       // Convert password to hash
       let hashedPassword = bcrypt.hashSync(registerFormFields.password, 10);
       registerFormFields.password = hashedPassword;
-      crypto.randomBytes(20, function (err, buf) {
-        //activation code
-        registerFormFields.activeToken = buf.toString("hex");
-        //expiration date for the activation code
-        registerFormFields.activeExpires = Date.now() + 24 * 3600 * 1000;
-        User.create(registerFormFields, (err, docs) => {
-          if (err) {
-            console.log(err);
-            res.send(400);
-          } else {
-            if (registerFormFields.email !== null) {
-              sendEmailLink(registerFormFields.email);
-            }
-            res.send(200);
-          }
-        });
-      });
+
+      // //activation token code for (the email link send to his email)
+      // crypto.randomBytes(20, function (err, buf) {
+      //   registerFormFields.activeToken = buf.toString("hex");
+      //   //expiration date for the activation code
+      //   registerFormFields.activeExpires = Date.now() + 24 * 3600 * 1000;
+      //   //create the user
+      //   User.create(registerFormFields, (err, docs) => {
+      //     if (err) {
+      //       console.log(err);
+      //       res.send(400);
+      //     } else {
+      //       if (registerFormFields.email !== null) {
+      //         sendEmailLink(
+      //           registerFormFields.email,
+      //           registerFormFields.activeToken,
+      //           registerFormFields.username
+      //         );
+      //       }
+      //       res.send(200);
+      //     }
+      //   });
+      // });
     }
   });
-
-
-
-//after registration confirm the new user
-router.post("/confirm/:token", (req, res, next) => {
-  user.findOne({
-    activeToken: req.body.activeToken,
-    activeExpires: { $gt: Date.now() },
-    function(err, user) {
-      if (err) {
-        return next(err);
-      }
-      if (!user) {
-        res.send();
-      }
-    },
-  });
 });
+
+// //after registration confirm the new user
+// router.post("/confirm/:activationToken", (req, res, next) => {
+//   user.findOne({
+//     activeToken: req.params.activationToken,
+//     activeExpires: { $gt: Date.now() },
+//     function(err, user) {
+//       if (err) {
+//         return next(err);
+//       }
+//       if (!user) {
+//         res.send();
+//       }
+//     },
+//   });
+// });
 
 // Find User and create the token
 // Route for the login form
