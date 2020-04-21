@@ -115,14 +115,17 @@ const RegistrationForm = (props) => {
       return false;
     }
 
-    // const reg = new RegExp("^([+]{0,1})([0-9]+)");
-    // if (!state.phone.match(reg) || state.phone.length > 14) {
-    //   setState({
-    //     ...state,
-    //     phoneError: "Please fill in a correct phone number",
-    //   });
-    //   return false;
-    // }
+    const reg = new RegExp("^([+]{0,1})([0-9]+)");
+    if (
+      (!state.phone.match(reg) || state.phone.length > 14) &&
+      state.phone.length > 0
+    ) {
+      setState({
+        ...state,
+        phoneError: "Please fill in a correct phone number",
+      });
+      return false;
+    }
 
     if (state.languages.length > 30) {
       setState({
