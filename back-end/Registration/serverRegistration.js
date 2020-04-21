@@ -29,28 +29,28 @@ router.post("/registration", (req, res) => {
       let hashedPassword = bcrypt.hashSync(registerFormFields.password, 10);
       registerFormFields.password = hashedPassword;
 
-      // //activation token code for (the email link send to his email)
-      // crypto.randomBytes(20, function (err, buf) {
-      //   registerFormFields.activeToken = buf.toString("hex");
-      //   //expiration date for the activation code
-      //   registerFormFields.activeExpires = Date.now() + 24 * 3600 * 1000;
-      //   //create the user
-      //   User.create(registerFormFields, (err, docs) => {
-      //     if (err) {
-      //       console.log(err);
-      //       res.send(400);
-      //     } else {
-      //       if (registerFormFields.email !== null) {
-      //         sendEmailLink(
-      //           registerFormFields.email,
-      //           registerFormFields.activeToken,
-      //           registerFormFields.username
-      //         );
-      //       }
-      //       res.send(200);
-      //     }
-      //   });
-      // });
+      //activation token code for (the email link send to his email)
+      crypto.randomBytes(20, function (err, buf) {
+        registerFormFields.activeToken = buf.toString("hex");
+        //expiration date for the activation code
+        registerFormFields.activeExpires = Date.now() + 24 * 3600 * 1000;
+        //create the user
+        User.create(registerFormFields, (err, docs) => {
+          if (err) {
+            console.log(err);
+            res.send(400);
+          } else {
+            if (registerFormFields.email !== null) {
+              sendEmailLink(
+                registerFormFields.email,
+                registerFormFields.activeToken,
+                registerFormFields.username
+              );
+            }
+            res.send(200);
+          }
+        });
+      });
     }
   });
 });
