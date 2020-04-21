@@ -19,8 +19,8 @@ const Home = () => {
         {/* Welcome message */}
         <h1 className="text-center my-3">{t("welcome.1")}</h1>
         <p className="font-italic text-center">
-          " Women Voice help you to find usefull informations in order to solve
-          the issues that you might have in Germany "
+          " Women Voice help you to find informations in order to solve the
+          issues that you might have in Germany "
         </p>
         <h5 className="text-center  ">{t("thanks.1")}</h5>
 
