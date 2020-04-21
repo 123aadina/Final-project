@@ -4,7 +4,7 @@ const BallonBox = (props) => {
   return (
     <div className="ballonBox">
       <div className="ballonBox-input">
-        <h3>{props.title}</h3>
+        <h6>{props.title}</h6>
       </div>
     </div>
   );
