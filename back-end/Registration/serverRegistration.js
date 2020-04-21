@@ -101,7 +101,7 @@ router.post("/login", (req, res, next) => {
           secret,
           { expiresIn: "2h" }
         );
-        res.json({ jwtToken: token, username: user.name });
+        res.json({ jwtToken: token, username: user.name, chat: user.chat });
       });
     })
     .catch((error) => next(err));
