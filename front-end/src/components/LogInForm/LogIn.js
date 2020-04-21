@@ -68,109 +68,108 @@ const LogIn = (props) => {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: requestBody,
-    })
-      
-    then((resp) => resp.json())
-    .then((data)=> setLogin({token: data.jwtToken, username: data.username, chat: data.chat}))
-      /*if (resp.status != 200) {
+    }).then((resp) => {
+      if (resp.status != 200) {
         setState({
-          //kai edw tha paei me to email i to pass?
           ...state,
-          passwordError: "Password is not valid.",
+          passwordError: "Credentials are not valid.",
         });
       } else {
-        console.log(resp.json());
-        setState(InitState);
+        data = resp.json();
+        setLogin({
+          token: data.jwtToken,
+          username: data.username,
+          chat: data.chat,
+        });
       }
-    });*/
+    });
   };
-    // if (resp.status != 200) {
-    //   setState({
-    //     ...state,
-    //     passwordError: "Credentials are not valid.",
-    //   });
-    // } else {
-    //   console.log(resp.json());
-    //   setState(InitState);
-    // }
-    // if (user) {
-    //   return props.history.push("/");
-    // }
-  };
-
-  //handle Log In Button
-  const handleLogInButton = (e) => {
-    const isValid = validateLogIn();
-    e.preventDefault();
-
-    if (isValid) {
-      //to clear the loginForm
-      postRequestToBackend(e);
-    }
-  };
-
-  const handleEvent = (e) => {
-    setState({ ...state, ...initErrorState, [e.target.name]: e.target.value });
-  };
-
-  return (
-    // MAIN CONTAINER
-    <div className="container d-flex flex-column justify-content-center rounded col-6 ">
-      <Navbar />
-      <h1 className="text-center"> Sign In </h1>
-      {/* CONTAINER FOR THE FIELD */}
-      <div className="container d-flex flex-column justify-content-center align-items-center p-3 bg bg-light border rounded col">
-        <form noValidate onSubmit={handleLogInButton}>
-          {/* EMAIL FIELD */}
-          <div className="form-group">
-            <label htmlFor="EMAIL" className="font-weight-bolder">
-              {" "}
-              Email{" "}
-            </label>
-            <input
-              className="form-control"
-              type="email"
-              name="email"
-              value={state.email}
-              required
-              onChange={handleEvent}
-            />
-          </div>
-          <div style={errorTextStyle}>{state.emailError}</div>
-          {/* PASSWORD FIELD */}
-          <div className="form-group">
-            <label htmlFor="password" className="font-weight-bolder ">
-              {" "}
-              Password{" "}
-            </label>
-            <input
-              className="form-control"
-              type="password"
-              name="password"
-              value={state.password}
-              required
-              onChange={handleEvent}
-            />
-          </div>
-          <div style={errorTextStyle}>{state.passwordError}</div>
-          <Link>
-            <h6> Forgot your password? </h6>
-          </Link>
-          {/* BUTTON LOGIN */}
-          <div className="loginButton text-center">
-            <button
-              type="submit"
-              className="btn btn-success font-weight-bolder m-1"
-            >
-              {" "}
-              Sign In{" "}
-            </button>
-          </div>
-        </form>
-      </div>
-      <Footer />
-    </div>
-  );
+  // if (resp.status != 200) {
+  //   setState({
+  //     ...state,
+  //     passwordError: "Credentials are not valid.",
+  //   });
+  // } else {
+  //   console.log(resp.json());
+  //   setState(InitState);
+  // }
+  // if (user) {
+  //   return props.history.push("/");
+  // }
 };
+
+//handle Log In Button
+const handleLogInButton = (e) => {
+  const isValid = validateLogIn();
+  e.preventDefault();
+
+  if (isValid) {
+    //to clear the loginForm
+    postRequestToBackend(e);
+  }
+};
+
+const handleEvent = (e) => {
+  setState({ ...state, ...initErrorState, [e.target.name]: e.target.value });
+};
+
+return (
+  // MAIN CONTAINER
+  <div className="container d-flex flex-column justify-content-center rounded col-6 ">
+    <Navbar />
+    <h1 className="text-center"> Sign In </h1>
+    {/* CONTAINER FOR THE FIELD */}
+    <div className="container d-flex flex-column justify-content-center align-items-center p-3 bg bg-light border rounded col">
+      <form noValidate onSubmit={handleLogInButton}>
+        {/* EMAIL FIELD */}
+        <div className="form-group">
+          <label htmlFor="EMAIL" className="font-weight-bolder">
+            {" "}
+            Email{" "}
+          </label>
+          <input
+            className="form-control"
+            type="email"
+            name="email"
+            value={state.email}
+            required
+            onChange={handleEvent}
+          />
+        </div>
+        <div style={errorTextStyle}>{state.emailError}</div>
+        {/* PASSWORD FIELD */}
+        <div className="form-group">
+          <label htmlFor="password" className="font-weight-bolder ">
+            {" "}
+            Password{" "}
+          </label>
+          <input
+            className="form-control"
+            type="password"
+            name="password"
+            value={state.password}
+            required
+            onChange={handleEvent}
+          />
+        </div>
+        <div style={errorTextStyle}>{state.passwordError}</div>
+        <Link>
+          <h6> Forgot your password? </h6>
+        </Link>
+        {/* BUTTON LOGIN */}
+        <div className="loginButton text-center">
+          <button
+            type="submit"
+            className="btn btn-success font-weight-bolder m-1"
+          >
+            {" "}
+            Sign In{" "}
+          </button>
+        </div>
+      </form>
+    </div>
+    <Footer />
+  </div>
+);
 
 export default LogIn;
