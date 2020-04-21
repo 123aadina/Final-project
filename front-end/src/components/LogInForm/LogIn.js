@@ -22,6 +22,12 @@ const errorTextStyle = {
 const LogIn = (props) => {
   const [state, setState] = useState(InitState);
 
+  const [login, setLogin] = useState({
+    token: "",
+    username: "",
+    chat: false,
+  });
+
   //Validating the form
   const validateLogIn = () => {
     setState({
@@ -62,21 +68,27 @@ const LogIn = (props) => {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: requestBody,
-    }).then((resp) => {
-      if (resp.status != 200) {
-        setState({
-          ...state,
-          passwordError: "Credentials are not valid.",
-        });
-      } else {
-        console.log(resp.json());
-        setState(InitState);
-      }
-
-      if (user) {
-        return props.history.push("/");
-      }
-    });
+    })
+      .then((resp) => resp.json())
+      .then((data) =>
+        setLogin({
+          token: data.jtwToken,
+          username: data.username,
+          chat: data.chat,
+        })
+      );
+    // if (resp.status != 200) {
+    //   setState({
+    //     ...state,
+    //     passwordError: "Credentials are not valid.",
+    //   });
+    // } else {
+    //   console.log(resp.json());
+    //   setState(InitState);
+    // }
+    // if (user) {
+    //   return props.history.push("/");
+    // }
   };
 
   //handle Log In Button
