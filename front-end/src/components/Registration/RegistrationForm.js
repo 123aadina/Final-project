@@ -367,7 +367,10 @@ const RegistrationForm = (props) => {
           </div>
         </form>
       </div>
-      <BallonBox title="Sign in and chat with us!" />
+
+      <div class="alert alert-danger" role="alert">
+        <BallonBox title="You need to sign in, if you want to chat with us" />
+      </div>
       <Footer />
     </div>
   );
