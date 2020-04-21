@@ -42,7 +42,7 @@ const Home = () => {
               Get Help{" "}
             </Link>
           </button>
-          <button className="btn btn-light border-bottom ">
+          <button className="btn btn-light border-bottom mr-3 ">
             <Link
               to="/info"
               className="text-dark font-weight-bold text-decoration-none"
@@ -51,9 +51,20 @@ const Home = () => {
               Get more <br></br> informations{" "}
             </Link>
           </button>
+          <button className="btn btn-light border-bottom ">
+            <Link
+              to="/chat"
+              className="text-dark font-weight-bold text-decoration-none"
+            >
+              {" "}
+              Chat with us
+            </Link>
+          </button>
         </div>
         <Footer />
-            <Dashboard />
+        {/* <Store>
+          <Dashboard />
+        </Store> */}
       </div>
     </div>
   );
