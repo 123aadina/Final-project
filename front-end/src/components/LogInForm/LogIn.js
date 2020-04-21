@@ -67,7 +67,7 @@ const LogIn = (props) => {
         setState({
           //kai edw tha paei me to email i to pass?
           ...state,
-          passwordError: "Password is not valid.",
+          passwordError: "Credentials are not valid.",
         });
       } else {
         console.log(resp.json());
@@ -88,7 +88,7 @@ const LogIn = (props) => {
   };
 
   const handleEvent = (e) => {
-    setState({ ...state, ...initErrorState, [e.target.email]: e.target.email });
+    setState({ ...state, ...initErrorState, [e.target.name]: e.target.value });
   };
 
   return (
@@ -114,7 +114,7 @@ const LogIn = (props) => {
               onChange={handleEvent}
             />
           </div>
-
+          <div style={errorTextStyle}>{state.emailError}</div>
           {/* PASSWORD FIELD */}
           <div className="form-group">
             <label htmlFor="password" className="font-weight-bolder ">
@@ -130,6 +130,7 @@ const LogIn = (props) => {
               onChange={handleEvent}
             />
           </div>
+          <div style={errorTextStyle}>{state.passwordError}</div>
           <Link>
             <h6> Forgot your password? </h6>
           </Link>
