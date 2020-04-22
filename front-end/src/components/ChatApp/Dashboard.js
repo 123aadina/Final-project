@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 //@material-ui/paper
 import Paper from "@material-ui/core/Paper";
 //@material-ui/Typography
@@ -15,10 +15,14 @@ import Chip from "@material-ui/core/Chip";
 import Button from "@material-ui/core/Button";
 //@material-ui/core/TextField
 import TextField from "@material-ui/core/TextField";
-//CTX
-import { CTX } from "./Store";
-
+//socket.io-client
+import io from "socket.io-client";
 import Footer from "../Layout/Footer";
+
+const socket = io(":3000");
+
+//const user = 'hamida' + Math.random(100).toFixed(2)
+//const user = 'christophe'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -47,15 +51,103 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Dashboard = () => {
-  //CTX store
-  const { allChats, sendChatAction, user } = React.useContext(CTX);
-  const topics = Object.keys(allChats);
+const Dashboard = (props) => {
+  let username;
+  if (props.location && props.location.state) {
+    username = props.location.state.username;
+  }
 
+  // i did it
+  //const {username} = useContext(ChatContext)
   //local state
-  const [activeTopic, changeActiveTopic] = React.useState(topics[0]);
-  const [textValue, changeTextValue] = React.useState("");
+  let [rooms, setRooms] = useState([
+    {
+      name: "Public",
+      history: [
+        { msg: "Hello Irina", user: "Rob" },
+        { msg: "Hey Rob", user: "Irina" },
+      ],
+      users: ["Rob", "Irina"],
+    },
+    {
+      name: "Issues",
+      history: [{ msg: "Hello to issue channel", user: "Admin" }],
+      users: ["Admin"],
+    },
+  ]);
+
+  const [activeRoom, changeActiveRoom] = useState();
+  const [error, setError] = useState("");
+  const [textValue, changeTextValue] = useState("");
+  const [userValue, changeUserValue] = useState(username); // must be comment. instead context userName
   const classes = useStyles();
+
+  const switchRoom = (room) => {
+    console.log(room, "switchroom");
+    changeActiveRoom(room);
+    socket.emit("joinRoom", { username: userValue, room: room.name });
+  };
+
+  // this useEffect updates the room list
+  // normal users will receive "themselves"
+  // admin users will receive a list of all users
+  useEffect(() => {
+    socket.on("rooms", (users) => {
+      console.log(users);
+      let newRooms = users.map((user) => {
+        user.history = [];
+        return user;
+      });
+      console.log(newRooms);
+      setRooms(newRooms);
+    });
+    socket.emit("rooms", userValue);
+  }, []);
+  // listen for incoming messages
+  useEffect(() => {
+    console.log("Rooms reset: ", rooms);
+    // redeclare the message listeners each time the rooms were updated
+    if (socket.hasListeners("message")) {
+      socket.removeEventListener("message");
+    }
+    socket.on("message", ({ username, msg }) => {
+      console.log("Received message: ", username, msg);
+      addMessageToHistory({ msg, user: username });
+    });
+  }, [rooms, activeRoom]);
+
+  const sendChatAction = (e) => {
+    e.preventDefault();
+    if (activeRoom) {
+      socket.emit("message", {
+        room: activeRoom.name,
+        msg: textValue,
+        username: userValue,
+      });
+    } else {
+      console.log("[ERROR] Please choose a room before sending a message!");
+    }
+  };
+
+  const addMessageToHistory = ({ msg, user }) => {
+    let room = activeRoom.name;
+    console.log("Attaching message to room: ", room);
+    console.log(rooms, "rooms");
+    console.log(activeRoom, "activeRoom");
+
+    // update chat history by creating a copy of state, updating it & re-assign it
+    let roomsCopy = [...rooms];
+
+    // find room
+    let roomFound = roomsCopy.find((currentRoom) => currentRoom.name == room);
+
+    // add message to chat history array of given room
+    if (roomFound) {
+      roomFound.history.push({ msg, user, room });
+      setRooms(roomsCopy);
+      //setRooms(roomsCopy);
+    }
+  };
 
   return (
     <div>
@@ -64,32 +156,33 @@ const Dashboard = () => {
           Chat App
         </Typography>
         <Typography variant="h5" component="h5">
-          {activeTopic}
+          {activeRoom && activeRoom.name}
         </Typography>
         <div className={classes.flex}>
           <div className={classes.topicsWindow}>
             <List>
-              {topics.map((topic) => (
+              {rooms.map((room) => (
                 <ListItem
-                  onClick={(e) => changeActiveTopic(e.target.innerText)}
-                  key={topic}
+                  onClick={(e) => switchRoom(room)}
+                  key={room.name}
                   button
                 >
-                  <ListItemText primary={topic} />
+                  <ListItemText primary={room.name} />
                 </ListItem>
               ))}
             </List>
           </div>
           {/*according to the topic the chat changed*/}
           <div className={classes.chatWindow}>
-            {allChats[activeTopic].map((chat, i) => (
-              <div className={classes.flex} key={i}>
-                <Chip label={chat.from} className={classes.chip} />
-                <Typography variant="body1" gutterBottom>
-                  {chat.msg}
-                </Typography>
-              </div>
-            ))}
+            {activeRoom &&
+              activeRoom.history.map((chat, i) => (
+                <div className={classes.flex} key={i}>
+                  <Chip label={chat.user} className={classes.chip} />
+                  <Typography variant="body1" gutterBottom>
+                    {chat.msg}
+                  </Typography>
+                </div>
+              ))}
           </div>
         </div>
         <div className={classes.flex}>
@@ -99,15 +192,18 @@ const Dashboard = () => {
             value={textValue}
             onChange={(e) => changeTextValue(e.target.value)}
           />
+          <TextField
+            label="user"
+            className={classes.chatBox}
+            value={userValue}
+            onChange={(e) => changeUserValue(e.target.value)}
+          />
+
           <Button
             variant="contained"
             color="primary"
-            onClick={() => {
-              sendChatAction({
-                from: user,
-                msg: textValue,
-                topic: activeTopic,
-              });
+            onClick={(e) => {
+              sendChatAction(e);
             }}
           >
             send

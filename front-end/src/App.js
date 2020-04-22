@@ -1,6 +1,5 @@
 // Styles
 import "./styles/App.scss";
-
 // Components
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
@@ -12,7 +11,8 @@ import LogIn from "./components/LogInForm/LogIn";
 import Topic from "./components/Pages/Topic";
 import Association from "./components/Pages/Association";
 import Dashboard from "./components/ChatApp/Dashboard";
-import Store from "./components/ChatApp/Store";
+
+
 
 function App() {
   return (
@@ -26,10 +26,7 @@ function App() {
           <Route exact path="/login" component={LogIn} />
           <Route exact path="/topic" component={Topic} />
           <Route exact path="/association" component={Association} />
-          <Store>
-            {" "}
-            <Route exact path="/chat" component={Dashboard} />
-          </Store>
+          <Route exact path="/chat" component={Dashboard} />       
         </Switch>
       </div>
     </Router>

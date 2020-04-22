@@ -1,7 +1,8 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useContext } from "react";
+import { Link, Redirect } from "react-router-dom";
 import Navbar from "../Layout/Navbar";
 import Footer from "../Layout/Footer";
+
 
 const initErrorState = {
   emailError: "",
@@ -14,13 +15,22 @@ const InitState = {
   ...initErrorState,
 };
 
+
+
 const errorTextStyle = {
   color: "red",
   fontSize: "12px",
 };
 
 const LogIn = (props) => {
+  console.log('login')
   const [state, setState] = useState(InitState);
+
+  const [login, setLogin] = useState({
+    token: '',
+    username: '',
+    chat: false
+  })
 
   //Validating the form
   const validateLogIn = () => {
@@ -55,40 +65,68 @@ const LogIn = (props) => {
     let successful = true;
     let requestBody = JSON.stringify({
       email: state.email,
-      password: state.password,
+      password: state.password
     });
     console.log("Fetching ");
     fetch("http://localhost:3000/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: requestBody,
-    }).then((resp) => {
-      if (resp.status != 200) {
-        setState({
-          //kai edw tha paei me to email i to pass?
-          ...state,
-          passwordError: "Password is not valid.",
-        });
-      } else {
-        console.log(resp.json());
-        setState(InitState);
-      }
-    });
+    }).then((resp) => resp.json())
+      .then((data) => { 
+        console.log(data)
+        setLogin({ token: data.jwtToken, username: data.username, chat: data.chatBoxChecked })
+      })
+    /*if (resp.status != 200) {
+      
+      setState({
+        //kai edw tha paei me to email i to pass?
+        ...state,
+        passwordError: "Password is not valid.",
+      });
+    } else {
+      console.log(resp.json());
+
+      setState(InitState);
+    }
+  });*/
   };
+
+
+  //redirecting to chat page if chat is clicked
+  if (login.chat) {
+    //TODO00000 This has to change to chat page
+    console.log('logged in')
+    return (
+      <Redirect
+        to={{
+          pathname: '/chat',
+          state: {
+            username: login.username
+          }
+        }}
+      />
+    );
+  } else {
+   // props.history.push("/");
+  }
+
 
   //handle Log In Button
   const handleLogInButton = (e) => {
     const isValid = validateLogIn();
     e.preventDefault();
+    postRequestToBackend(e);
 
-    if (isValid) {
+    /*if (isValid) {
       //to clear the loginForm
-      postRequestToBackend(e);
-    }
+      
+    }*/
+
   };
 
   const handleEvent = (e) => {
-    setState({ ...state, ...initErrorState, [e.target.email]: e.target.email });
+    setState({ ...state, ...initErrorState, [e.target.name]: e.target.value });
   };
 
   return (
@@ -102,8 +140,8 @@ const LogIn = (props) => {
           {/* EMAIL FIELD */}
           <div className="form-group">
             <label htmlFor="EMAIL" className="font-weight-bolder">
-              {" "}
-              Email{" "}
+
+              Email
             </label>
             <input
               className="form-control"
@@ -118,8 +156,8 @@ const LogIn = (props) => {
           {/* PASSWORD FIELD */}
           <div className="form-group">
             <label htmlFor="password" className="font-weight-bolder ">
-              {" "}
-              Password{" "}
+
+              Password
             </label>
             <input
               className="form-control"
@@ -139,8 +177,8 @@ const LogIn = (props) => {
               type="submit"
               className="btn btn-success font-weight-bolder m-1"
             >
-              {" "}
-              Sign In{" "}
+
+              Sign In
             </button>
           </div>
         </form>
