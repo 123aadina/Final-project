@@ -50,7 +50,15 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-const Dashboard = () => {
+const Dashboard = (props) => {
+    let username 
+    if(props.location &&  props.location.state){
+        
+        username = props.location.state.username;
+    }
+    
+
+
     // i did it
     //const {username} = useContext(ChatContext)
     //local state
@@ -70,7 +78,7 @@ const Dashboard = () => {
     const [activeRoom, changeActiveRoom] = useState()
     const [error, setError] = useState('');
     const [textValue, changeTextValue] = useState('')
-    const [userValue, changeUserValue] = useState('hamida')// must be comment. instead context userName
+    const [userValue, changeUserValue] = useState(username)// must be comment. instead context userName
     const classes = useStyles()
 
 
