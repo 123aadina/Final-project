@@ -27,10 +27,10 @@ const LogIn = (props) => {
   const [state, setState] = useState(InitState);
 
   const [login, setLogin] = useState({
-    token: '',
-    username: '',
-    chat: false
-  })
+    token: "",
+    username: "",
+    chat: false,
+  });
 
   //Validating the form
   const validateLogIn = () => {
@@ -91,6 +91,7 @@ const LogIn = (props) => {
     }
   });*/
   };
+};
 
 
   //redirecting to chat page if chat is clicked
@@ -185,7 +186,8 @@ const LogIn = (props) => {
       </div>
       <Footer />
     </div>
-  );
-};
+    <Footer />
+  </div>
+);
 
 export default LogIn;
