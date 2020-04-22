@@ -19,8 +19,8 @@ import TextField from "@material-ui/core/TextField";
 import io from "socket.io-client";
 import Footer from "../Layout/Footer";
 
-const port = (process.env.NODE_ENV === 'production' ? '' : ':3000')
-const socket = io(port);
+const apiUrl = (process.env.REACT_APP_API_URL || 'http://localhost:3000')
+const socket = io(apiUrl);
 
 //const user = 'hamida' + Math.random(100).toFixed(2)
 //const user = 'christophe'
