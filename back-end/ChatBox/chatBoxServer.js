@@ -6,9 +6,10 @@ module.exports = (server) => {
   io.on("connection", (socket) => {
     console.log("Connection established");
 
-    socket.on("joinRoom", ({ username }) => {
+    socket.on("joinRoom", ({ username, room }) => {
       socket.join(room);
-      User.findOneAndUpdate({ name: username }, { chatRoom: username }).catch(
+      console.log(`${username} join the chat ${room}`)
+      User.findOneAndUpdate({ name: username }, { chatRoom: room }).catch(
         (error) => {
           console.log(error);
         }
@@ -25,19 +26,19 @@ module.exports = (server) => {
           User.find()
             .select("name")
             .then((users) => {
-              io.emit("rooms", [user]);
+              io.emit("rooms", users);
             });
         } else {
-          io.emit("rooms", [username]);
+          io.emit("rooms", [{name:username}]);
         }
       });
     });
 
     // listen to incoming messages
-    socket.on("message", ({ username, msg }) => {
-      console.log(`Room ${username}: ${msg}`);
+    socket.on("message", ({ username, msg ,room}) => {
+      console.log(`Room ${room}: ${msg} ,${username}`);
       // broadcast ALL - send message to everybody INCLUDING me
-      io.to(username).emit("message", msg);
+      io.to(room).emit("message",{msg, username} );
       // broadcast - send message to everybody EXCLUDING me
       // socket.broadcast.to(room).emit("message", `Room ${room}: ${msg}`)
     });
