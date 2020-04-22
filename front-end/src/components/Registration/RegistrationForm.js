@@ -185,6 +185,7 @@ const RegistrationForm = (props) => {
 
       //redirecting to chat page if chatBoxChecked is clicked
       if (state.chatBoxChecked === true) {
+        //TODO00000 This has to change to chat page
         return props.history.push("/chat");
       } else {
         //redirects to home page
