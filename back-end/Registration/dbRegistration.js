@@ -8,7 +8,7 @@ const User = mongoose.model(
     name: { type: String, required: true },
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
-    phone: { type: String, required: true },
+    phone: { type: String, required: false },
     issues: { type: Number, required: true },
     languages: { type: [String], required: false },
     comment: { type: String, required: false },

@@ -116,7 +116,10 @@ const RegistrationForm = (props) => {
     }
 
     const reg = new RegExp("^([+]{0,1})([0-9]+)");
-    if (!state.phone.match(reg) || state.phone.length > 14) {
+    if (
+      (!state.phone.match(reg) || state.phone.length > 14) &&
+      state.phone.length > 0
+    ) {
       setState({
         ...state,
         phoneError: "Please fill in a correct phone number",
@@ -185,6 +188,7 @@ const RegistrationForm = (props) => {
         //TODO00000 This has to change to chat page
         return props.history.push("/chat");
       } else {
+        //redirects to home page
         props.history.push("/");
       }
     });
