@@ -54,7 +54,7 @@ const Home = () => {
           </button>
           <button className="btn btn-light border-bottom ">
             <Link
-              to="/chat"
+              to="/login"
               className="text-dark font-weight-bold text-decoration-none"
             >
               {" "}
