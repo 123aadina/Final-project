@@ -340,7 +340,7 @@ const RegistrationForm = (props) => {
           <div className="form-check checkbox_chat">
             <CheckBoxBase
               className="form-check-label"
-              textValue="Chat with us"
+              textValue=" Chat with us"
               currentValue={state.chatBoxChecked}
               onChange={handleChatCheckbox}
             />
@@ -368,8 +368,11 @@ const RegistrationForm = (props) => {
         </form>
       </div>
 
-      <div class="alert alert-danger" role="alert">
-        <BallonBox title="You need to sign in, if you want to chat with us" />
+      <div
+        className="alert alert-danger m-2 justify-content-center "
+        role="alert"
+      >
+        <BallonBox title="You need to sign in, if you want to chat with us." />
       </div>
       <Footer />
     </div>
