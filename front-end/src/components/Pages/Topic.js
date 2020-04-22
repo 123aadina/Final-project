@@ -9,7 +9,8 @@ export default function Topic() {
   const [problems, changeProblems] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/problem")
+    const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:3000'
+    fetch(`${apiUrl}/problem`)
       .then((res) => res.json())
       .then((data) => changeProblems(data))
       .catch((error) => console.log(error));

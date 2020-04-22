@@ -170,7 +170,8 @@ const RegistrationForm = (props) => {
     });
     console.log(requestBody);
     // fetch to send the registration form back to backend as jason/
-    fetch("http://localhost:3000/registration", {
+    const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:3000'
+    fetch(`${apiUrl}/registration`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: requestBody,

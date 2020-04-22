@@ -15,7 +15,8 @@ export default function Association(props) {
     if (!props.location.state) {
       return;
     }
-    fetch(`http://localhost:3000/problem/${problem._id}/organisations`)
+    const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:3000'
+    fetch(`${apiUrl}/${problem._id}/organisations`)
       .then((res) => res.json())
       .then((data) => setCards(data))
       .catch((error) => console.log(error));

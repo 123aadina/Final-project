@@ -65,7 +65,8 @@ const LogIn = (props) => {
       password: state.password,
     });
     console.log("Fetching ");
-    fetch("http://localhost:3000/login", {
+    const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:3000'
+    fetch(`${apiUrl}/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: requestBody,
