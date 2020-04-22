@@ -8,9 +8,9 @@ export default function Card(props) {
         <h5 className="card-title text-center "> {props.name}</h5>
         <p className="card-text"> {props.description}</p>
         <button className="btn btn-default btn-primary text-center">
-          <Link to={props.link} className="text-light text-decoration-none">
+          <a href={props.link} className="text-light text-decoration-none">
             Visit the page
-          </Link>
+          </a>
         </button>
       </div>
     </div>

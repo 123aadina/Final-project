@@ -3,7 +3,6 @@ import { Link, Redirect } from "react-router-dom";
 import Navbar from "../Layout/Navbar";
 import Footer from "../Layout/Footer";
 
-
 const initErrorState = {
   emailError: "",
   passwordError: "",
@@ -15,15 +14,13 @@ const InitState = {
   ...initErrorState,
 };
 
-
-
 const errorTextStyle = {
   color: "red",
   fontSize: "12px",
 };
 
 const LogIn = (props) => {
-  console.log('login')
+  console.log("login");
   const [state, setState] = useState(InitState);
 
   const [login, setLogin] = useState({
@@ -65,18 +62,23 @@ const LogIn = (props) => {
     let successful = true;
     let requestBody = JSON.stringify({
       email: state.email,
-      password: state.password
+      password: state.password,
     });
     console.log("Fetching ");
     fetch("http://localhost:3000/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: requestBody,
-    }).then((resp) => resp.json())
-      .then((data) => { 
-        console.log(data)
-        setLogin({ token: data.jwtToken, username: data.username, chat: data.chatBoxChecked })
-      })
+    })
+      .then((resp) => resp.json())
+      .then((data) => {
+        console.log(data);
+        setLogin({
+          token: data.jwtToken,
+          username: data.username,
+          chat: data.chatBoxChecked,
+        });
+      });
     /*if (resp.status != 200) {
       
       setState({
@@ -91,27 +93,23 @@ const LogIn = (props) => {
     }
   });*/
   };
-};
-
-
   //redirecting to chat page if chat is clicked
   if (login.chat) {
     //TODO00000 This has to change to chat page
-    console.log('logged in')
+    console.log("logged in");
     return (
       <Redirect
         to={{
-          pathname: '/chat',
+          pathname: "/chat",
           state: {
-            username: login.username
-          }
+            username: login.username,
+          },
         }}
       />
     );
   } else {
-   // props.history.push("/");
+    // props.history.push("/");
   }
-
 
   //handle Log In Button
   const handleLogInButton = (e) => {
@@ -120,10 +118,9 @@ const LogIn = (props) => {
     postRequestToBackend(e);
 
     /*if (isValid) {
-      //to clear the loginForm
-      
-    }*/
-
+        //to clear the loginForm
+        
+      }*/
   };
 
   const handleEvent = (e) => {
@@ -141,7 +138,6 @@ const LogIn = (props) => {
           {/* EMAIL FIELD */}
           <div className="form-group">
             <label htmlFor="EMAIL" className="font-weight-bolder">
-
               Email
             </label>
             <input
@@ -157,7 +153,6 @@ const LogIn = (props) => {
           {/* PASSWORD FIELD */}
           <div className="form-group">
             <label htmlFor="password" className="font-weight-bolder ">
-
               Password
             </label>
             <input
@@ -178,7 +173,6 @@ const LogIn = (props) => {
               type="submit"
               className="btn btn-success font-weight-bolder m-1"
             >
-
               Sign In
             </button>
           </div>
@@ -186,8 +180,7 @@ const LogIn = (props) => {
       </div>
       <Footer />
     </div>
-    <Footer />
-  </div>
-);
+  );
+};
 
 export default LogIn;
