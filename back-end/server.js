@@ -7,25 +7,27 @@ const mongoose = require("mongoose");
 const api = express();
 
 /** REQUEST PARSERS */
+// api.use()
 api.use(express.json());
 api.use(express.urlencoded({ extended: false }));
 
 /** START SERVER*/
+// const port = process.env.PORT || 3000;
 const server = api.listen(3000, () => console.log("Started on 3000"));
 
-api.get("/", (req, res, next) => {
-  res.send(`Hello world`);
-});
+// api.get("/", (req, res, next) => {
+//   res.send(`Hello world`);
+// });
 
 /** STATIC FILES*/
-api.use(express.static(path.join(__dirname, "pages")));
+// api.use(express.static(path.join(__dirname, "pages")));
 
 /** CONNECT TO DATABASE */
 const mongoString =
   "mongodb+srv://hamida:hamida@cluster0-idevj.mongodb.net/final-project?retryWrites=true&w=majority";
-
+// const db = process.env.MONGO_URI || mongoString;
 mongoose
-  .connect(mongoString, {
+  .connect(db, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
