@@ -12,14 +12,9 @@ body {
   height: 100vh;
 }
 
-// INFO
-#info_button {
-  display: flex;
-
-  button a {
-    text-decoration: none;
-    color: black;
-  }
+button a {
+  text-decoration: none;
+  color: black;
 }
 
 // .ballonBox {
