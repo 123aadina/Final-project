@@ -41,9 +41,8 @@ const useStyles = makeStyles((theme) => ({
   },
   chatWindow: {
     width: "70%",
-    height: "300px",
-    minheight: "300px",
-    
+    //height: "300px",
+    minHeight:'300px',
     padding: "20px",
   },
   chatBox: {
@@ -126,7 +125,7 @@ const Dashboard = (props) => {
         username: userValue,
        
       });
-   changeTextValue('')
+   //changeTextValue('')
     } else {
       console.log("[ERROR] Please choose a room before sending a message!");
     }
