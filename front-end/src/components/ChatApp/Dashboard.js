@@ -33,6 +33,7 @@ const useStyles = makeStyles((theme) => ({
   flex: {
     display: "flex",
     alignItems: "center",
+    
   },
   topicsWindow: {
     width: "30%",
@@ -42,6 +43,8 @@ const useStyles = makeStyles((theme) => ({
   chatWindow: {
     width: "70%",
     height: "300px",
+    minheight: "300px",
+    
     padding: "20px",
   },
   chatBox: {
@@ -124,7 +127,9 @@ const Dashboard = (props) => {
         room: activeRoom.name,
         msg: textValue,
         username: userValue,
+       
       });
+   changeTextValue('')
     } else {
       console.log("[ERROR] Please choose a room before sending a message!");
     }
@@ -135,6 +140,7 @@ const Dashboard = (props) => {
     console.log("Attaching message to room: ", room);
     console.log(rooms, "rooms");
     console.log(activeRoom, "activeRoom");
+
 
     // update chat history by creating a copy of state, updating it & re-assign it
     let roomsCopy = [...rooms];
@@ -149,6 +155,9 @@ const Dashboard = (props) => {
       //setRooms(roomsCopy);
     }
   };
+
+  
+    
 
   return (
     <div>
@@ -188,10 +197,13 @@ const Dashboard = (props) => {
         </div>
         <div className={classes.flex}>
           <TextField
+          id='chatText'
             label="send a chat"
             className={classes.chatBox}
             value={textValue}
             onChange={(e) => changeTextValue(e.target.value)}
+            
+            //msg=''
           />
           <TextField
             label="user"
@@ -205,6 +217,7 @@ const Dashboard = (props) => {
             color="primary"
             onClick={(e) => {
               sendChatAction(e);
+              //changeTextValue= ""
             }}
           >
             send

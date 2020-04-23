@@ -17,10 +17,7 @@ const Home = () => {
       <div className="col m-auto">
         {/* Welcome message */}
         <h1 className="text-center my-3">{t("welcome.1")}</h1>
-        <p className="font-italic text-center">
-          " Women Voice help you to find informations in order to solve the
-          issues that you might have in Germany "
-        </p>
+        <p className="font-italic text-center">{t("voice.1")}</p>
         <h5 className="text-center  ">{t("thanks.1")}</h5>
 
         {/* Welcome Pictures */}
@@ -48,7 +45,7 @@ const Home = () => {
               className="text-dark font-weight-bold text-decoration-none"
             >
               {" "}
-              Get more <br></br> informations{" "}
+              Get more <br></br> information{" "}
             </Link>
           </button>
           <button className="btn btn-light border-bottom ">
