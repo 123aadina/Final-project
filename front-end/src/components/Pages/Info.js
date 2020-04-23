@@ -4,7 +4,6 @@ import { useTranslation } from "react-i18next";
 
 // Components
 import Navbar from "../Layout/Navbar";
-import Footer from "../Layout/Footer";
 import Topic from "./Topic";
 
 const Info = () => {
@@ -74,7 +73,6 @@ const Info = () => {
           </Link>
         </button>
       </div>
-      <Footer />
     </div>
   );
 };

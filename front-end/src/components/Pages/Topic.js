@@ -4,7 +4,6 @@ import { useTranslation } from "react-i18next";
 
 // Components
 import Navbar from "../Layout/Navbar";
-import Footer from "../Layout/Footer";
 
 export default function Topic() {
   const { t, i18n } = useTranslation();
@@ -52,7 +51,6 @@ export default function Topic() {
           })}
         </div>
       </div>
-      <Footer />
     </div>
   );
 }

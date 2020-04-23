@@ -6,7 +6,7 @@ import { useTranslation } from "react-i18next";
 const Navbar = ({ icon, title }) => {
   const { t, i18n } = useTranslation();
 
-  const handleOnClick = lang => {
+  const handleOnClick = (lang) => {
     i18n.changeLanguage(lang);
   };
 
@@ -16,7 +16,7 @@ const Navbar = ({ icon, title }) => {
         
         <i className={icon}></i>
       </Link> */}
-      <ul className="navbar-nav mt-2 row text-center d-flex flex-row justify-content-center">
+      <ul className="navbar-nav row text-center d-flex flex-row justify-content-center">
         <li className=" col ">
           <button
             onClick={() => handleOnClick("ar")}
@@ -79,12 +79,12 @@ const Navbar = ({ icon, title }) => {
 
 Navbar.defaultProps = {
   icon: "fas fa-bars",
-  title: "hello"
+  title: "hello",
 };
 
 Navbar.propTypes = {
   icon: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired
+  title: PropTypes.string.isRequired,
 };
 export default Navbar;
 
