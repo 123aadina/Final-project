@@ -16,7 +16,7 @@ const Navbar = ({ icon, title }) => {
         
         <i className={icon}></i>
       </Link> */}
-      <ul className="navbar-nav mt-2 row text-center d-flex flex-row justify-content-center">
+      <ul className="navbar-nav row text-center d-flex flex-row justify-content-center">
         <li className=" col ">
           <button
             onClick={() => handleOnClick("ar")}
