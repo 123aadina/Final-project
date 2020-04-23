@@ -22,8 +22,7 @@ import Footer from "../Layout/Footer";
 const apiUrl = (process.env.REACT_APP_API_URL || 'http://localhost:3000')
 const socket = io(apiUrl);
 
-//const user = 'hamida' + Math.random(100).toFixed(2)
-//const user = 'christophe'
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -61,8 +60,6 @@ const Dashboard = (props) => {
     username = props.location.state.username;
   }
 
-  // i did it
-  //const {username} = useContext(ChatContext)
   //local state
   let [rooms, setRooms] = useState([
     {
@@ -156,8 +153,6 @@ const Dashboard = (props) => {
     }
   };
 
-  
-    
 
   return (
     <div>
@@ -202,8 +197,6 @@ const Dashboard = (props) => {
             className={classes.chatBox}
             value={textValue}
             onChange={(e) => changeTextValue(e.target.value)}
-            
-            //msg=''
           />
           <TextField
             label="user"
@@ -211,13 +204,11 @@ const Dashboard = (props) => {
             value={userValue}
             onChange={(e) => changeUserValue(e.target.value)}
           />
-
           <Button
             variant="contained"
             color="primary"
             onClick={(e) => {
               sendChatAction(e);
-              //changeTextValue= ""
             }}
           >
             send
