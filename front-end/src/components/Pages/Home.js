@@ -6,7 +6,6 @@ import Navbar from "../Layout/Navbar";
 import Footer from "../Layout/Footer";
 import Dashboard from "../ChatApp/Dashboard";
 
-
 const Home = () => {
   const { t, i18n } = useTranslation();
   let photo = "https://unsplash.it/750/250";
@@ -62,7 +61,7 @@ const Home = () => {
           </button>
         </div>
         <Footer />
-          <Dashboard />
+        {/* <Dashboard /> */}
       </div>
     </div>
   );

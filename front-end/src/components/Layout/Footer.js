@@ -43,9 +43,12 @@ const Footer = () => {
             Association{" "}
           </Link>
         </li>
-
-        <li className="mx-2 pt-3 text-secondary"> Copyright @ Women Voice </li>
       </ul>
+
+      <div className="text-secondary text-center">
+        {" "}
+        Copyright @ Women Voice{" "}
+      </div>
     </footer>
   );
 };
