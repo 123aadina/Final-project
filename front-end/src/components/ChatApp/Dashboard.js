@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 //@material-ui/paper
 import Paper from "@material-ui/core/Paper";
 //@material-ui/Typography
@@ -55,6 +56,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Dashboard = (props) => {
+  const { t, i18n } = useTranslation();
   let username;
   if (props.location && props.location.state) {
     username = props.location.state.username;

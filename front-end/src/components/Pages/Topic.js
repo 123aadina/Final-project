@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 // Components
 import Navbar from "../Layout/Navbar";
 import Footer from "../Layout/Footer";
 
 export default function Topic() {
+  const { t, i18n } = useTranslation();
   const [problems, changeProblems] = useState([]);
 
   useEffect(() => {

@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 // Components
 import Navbar from "../Layout/Navbar";
@@ -7,6 +8,7 @@ import Footer from "../Layout/Footer";
 import Topic from "./Topic";
 
 const Info = () => {
+  const { t, i18n } = useTranslation();
   return (
     <div
       className="container d-flex justify-content-center flex-wrap flex-column "

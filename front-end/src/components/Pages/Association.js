@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 // COMPONENT
 import Navbar from "../Layout/Navbar";
@@ -7,6 +8,7 @@ import Footer from "../Layout/Footer";
 import Card from "../Pages/Card";
 
 export default function Association(props) {
+  const { t, i18n } = useTranslation();
   let problem = props.location.state ? props.location.state.problem : {};
 
   const [cards, setCards] = useState([]);
