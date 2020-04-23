@@ -36,7 +36,7 @@ const Home = () => {
               className="text-dark font-weight-bold text-decoration-none"
             >
               {" "}
-              Get Help{" "}
+              {t("help.1")}{" "}
             </Link>
           </button>
           <button className="btn btn-light border-bottom mr-3 ">
@@ -45,7 +45,8 @@ const Home = () => {
               className="text-dark font-weight-bold text-decoration-none"
             >
               {" "}
-              Get more <br></br> information{" "}
+              {t("information.1")}
+              {/*Get more <br></br> information{" "}*/}
             </Link>
           </button>
           <button className="btn btn-light border-bottom ">
@@ -54,7 +55,7 @@ const Home = () => {
               className="text-dark font-weight-bold text-decoration-none"
             >
               {" "}
-              Chat with us
+              {t("Chat.1")}
             </Link>
           </button>
         </div>

@@ -12,18 +12,27 @@
     "1": " Get Help"
     },
     "home": {
-    "1": " Get Help"
+    "1": " Home"
     },
-    "login": {
-    "1": " Get Help"
+    "information": {
+    "1": " Get more information"
     },
-    "help": {
-    "1": " Get Help"
+    "Chat": {
+    "1": " Chat with us"
     },
-    "help": {
-    "1": " Get Help"
+    "Login": {
+    "1": " Login"
     },
-    "help": {
-    "1": " Get Help"
+    "Info": {
+    "1": " Info"
+    },
+    "Register": {
+    "1": " Register"
+    },
+    "Topics": {
+    "1": " Topics"
+    },
+    "Copyright": {
+    "1": " Copyright @ Women Voice"
     }
 }

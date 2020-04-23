@@ -8,5 +8,32 @@
     "voice": {
     "1": 
     "Women Voice, Almanya'da karşılaşabileceğiniz sorunları çözmek için bilgi bulmanıza yardımcı olur"
+    },
+    "help": {
+    "1": " Get Help"
+    },
+    "home": {
+    "1": " Home"
+    },
+    "information": {
+    "1": " Get more information"
+    },
+    "Chat": {
+    "1": " Chat with us"
+    },
+    "Login": {
+    "1": " Login"
+    },
+    "Info": {
+    "1": " Info"
+    },
+    "Register": {
+    "1": " Register"
+    },
+    "Topics": {
+    "1": " Topics"
+    },
+    "Copyright": {
+    "1": " Copyright @ Women Voice"
     }
 }
