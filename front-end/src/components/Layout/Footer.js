@@ -10,38 +10,39 @@ const Footer = () => {
         <li className="mx-2 pt-3 pl-3">
           <Link to="/" className="text-secondary">
             {" "}
+            {t("home.1")}{" "}
           </Link>
         </li>
         <li className="mx-2 pt-3 ">
           <Link to="/login" className="text-secondary">
             {" "}
-            Login{" "}
+            {t("Login.1")}{" "}
           </Link>
         </li>
         <li className="mx-2 pt-3">
           <Link to="/info" className="text-secondary">
             {" "}
-            Info{" "}
+            {t("Info.1")}{" "}
           </Link>
         </li>
         <li className="mx-2 pt-3 ">
           <Link to="/registration" className="text-secondary">
             {" "}
-            Register{" "}
+            {t("Register.1")}{" "}
           </Link>
         </li>
 
         <li className="mx-2 pt-3 ">
           <Link to="/topic" className="text-secondary">
             {" "}
-            Topics{" "}
+            {t("Topics.1")}{" "}
           </Link>
         </li>
 
         <li className="mx-2 pt-3 ">
           <Link to="/association" className="text-secondary">
             {" "}
-            Association{" "}
+            {t("home.1")}{" "}
           </Link>
         </li>
 
