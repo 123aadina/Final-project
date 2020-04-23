@@ -64,7 +64,7 @@ const Info = () => {
         <button className="btn btn-light mr-3 border-bottom">
           <Link to="/" className="text-dark font-weight-bold ">
             {" "}
-            Homepage{" "}
+            {t("home.1")}{" "}
           </Link>
         </button>
         <button className="btn btn-light mr-3 border-bottom">
