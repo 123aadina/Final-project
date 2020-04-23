@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 
 // COMPONENT
 import Navbar from "../Layout/Navbar";
-import Footer from "../Layout/Footer";
 import Card from "../Pages/Card";
 
 export default function Association(props) {
@@ -53,14 +52,14 @@ export default function Association(props) {
             })}
           </div>
           <div className="row">
-            <div className="col text-center">
+            {/* <div className="col text-center">
               {" "}
               <button className="btn btn-success m-2 font-weight-bolder">
                 Get in touch with these organisations
               </button>
-            </div>
+            </div> */}
           </div>
-          <div className="row ">
+          <div className="row mt-2">
             <div className="col text-center">
               <button
                 className="btn bg bg-light text-center"
@@ -72,7 +71,6 @@ export default function Association(props) {
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 }

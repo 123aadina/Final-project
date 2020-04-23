@@ -9,7 +9,7 @@
 
 body {
   font-family: "Montserrat", sans-serif;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 button a {
@@ -17,42 +17,14 @@ button a {
   color: black;
 }
 
-// .ballonBox {
-//   position: relative;
-//   left: 530px;
-//   bottom: 25px;
-//   width: 200px;
-//   height: 100px;
-//   text-align: center;
-//   line-height: 100px;
-//   background-color: #fff;
-//   border: 2px solid #f8f9fa;
-//   -webkit-border-radius: 30px;
-//   -moz-border-radius: 30px;
-//   border-radius: 30px;
-//   -webkit-box-shadow: 4px 4px 4px #888;
-//   -moz-box-shadow: 5px 5px 5px #888;
-//   box-shadow: 5px 5px 5px #888;
-// }
+main {
+  min-height: 80vh;
+}
 
-// .ballonBox-input:before {
-//   content: " ";
-//   position: absolute;
-//   width: 0;
-//   height: 0;
-//   left: 30px;
-//   top: 100px;
-//   border: 25px solid;
-//   border-color: #e8e8f1 transparent transparent #e8e8f1;
-// }
+header {
+  min-height: 3vh;
+}
 
-// .ballonBox-input:after {
-//   content: " ";
-//   position: absolute;
-//   width: 0;
-//   height: 0;
-//   left: 38px;
-//   top: 100px;
-//   border: 15px solid;
-//   border-color: #fff transparent transparent #fff;
-// }
+footer {
+  min-height: 10vh;
+}
