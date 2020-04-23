@@ -1,7 +1,6 @@
 import React, { useState, useContext } from "react";
 import { Link, Redirect } from "react-router-dom";
 import Navbar from "../Layout/Navbar";
-import Footer from "../Layout/Footer";
 
 const initErrorState = {
   emailError: "",
@@ -178,7 +177,6 @@ const LogIn = (props) => {
           </div>
         </form>
       </div>
-      <Footer />
     </div>
   );
 };

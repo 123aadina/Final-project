@@ -5,7 +5,6 @@ import BallonBox from "./BallonBox";
 
 // Components
 import Navbar from "../Layout/Navbar";
-import Footer from "../../components/Layout/Footer";
 
 // Styling
 import "../../styles/App.scss";
@@ -378,7 +377,6 @@ const RegistrationForm = (props) => {
       >
         <BallonBox title="You need to sign in, if you want to chat with us." />
       </div>
-      <Footer />
     </div>
   );
 };

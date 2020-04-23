@@ -60,8 +60,6 @@ const Home = () => {
             </Link>
           </button>
         </div>
-        <Footer />
-        {/* <Dashboard /> */}
       </div>
     </div>
   );

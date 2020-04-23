@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 
 // Components
 import Navbar from "../Layout/Navbar";
-import Footer from "../Layout/Footer";
 
 export default function Topic() {
   const [problems, changeProblems] = useState([]);
@@ -49,7 +48,6 @@ export default function Topic() {
           })}
         </div>
       </div>
-      <Footer />
     </div>
   );
 }

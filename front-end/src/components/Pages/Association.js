@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 
 // COMPONENT
 import Navbar from "../Layout/Navbar";
-import Footer from "../Layout/Footer";
 import Card from "../Pages/Card";
 
 export default function Association(props) {
@@ -70,7 +69,6 @@ export default function Association(props) {
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 }

@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 
 // Components
 import Navbar from "../Layout/Navbar";
-import Footer from "../Layout/Footer";
 import Topic from "./Topic";
 
 const Info = () => {
@@ -72,7 +71,6 @@ const Info = () => {
           </Link>
         </button>
       </div>
-      <Footer />
     </div>
   );
 };
