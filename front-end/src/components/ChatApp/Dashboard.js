@@ -18,9 +18,12 @@ import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 //socket.io-client
 import io from "socket.io-client";
+import Footer from "../Layout/Footer";
 
-const apiUrl = process.env.REACT_APP_API_URL || "http://localhost:3000";
+const apiUrl = (process.env.REACT_APP_API_URL || 'http://localhost:3000')
 const socket = io(apiUrl);
+
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -30,6 +33,7 @@ const useStyles = makeStyles((theme) => ({
   flex: {
     display: "flex",
     alignItems: "center",
+    
   },
   topicsWindow: {
     width: "30%",
@@ -41,7 +45,7 @@ const useStyles = makeStyles((theme) => ({
     height: "300px",
     //minHeight:'300px',
     padding: "20px",
-    overflowY: "scroll",
+    overflowY: "scroll"
   },
   chatBox: {
     width: "85%",
@@ -122,8 +126,9 @@ const Dashboard = (props) => {
         room: activeRoom.name,
         msg: textValue,
         username: userValue,
+       
       });
-      changeTextValue("");
+   changeTextValue('')
     } else {
       console.log("[ERROR] Please choose a room before sending a message!");
     }
@@ -134,6 +139,7 @@ const Dashboard = (props) => {
     console.log("Attaching message to room: ", room);
     console.log(rooms, "rooms");
     console.log(activeRoom, "activeRoom");
+
 
     // update chat history by creating a copy of state, updating it & re-assign it
     let roomsCopy = [...rooms];
@@ -148,6 +154,7 @@ const Dashboard = (props) => {
       //setRooms(roomsCopy);
     }
   };
+
 
   return (
     <div>
@@ -187,18 +194,18 @@ const Dashboard = (props) => {
         </div>
         <div className={classes.flex}>
           <TextField
-            id="chatText"
+          id='chatText'
             label="send a chat"
             className={classes.chatBox}
             value={textValue}
             onChange={(e) => changeTextValue(e.target.value)}
           />
-          <TextField
+          {/*<TextField
             label="user"
             className={classes.chatBox}
             value={userValue}
             onChange={(e) => changeUserValue(e.target.value)}
-          />
+          />*/}
           <Button
             variant="contained"
             color="primary"
@@ -210,6 +217,7 @@ const Dashboard = (props) => {
           </Button>
         </div>
       </Paper>
+      <Footer />
     </div>
   );
 };
