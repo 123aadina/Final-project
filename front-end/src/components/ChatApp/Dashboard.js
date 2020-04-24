@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
   topicsWindow: {
     width: "30%",
     height: "300px",
-    borderRight: "1px solid red",
+    borderRight: "1px solid gray",
   },
   chatWindow: {
     width: "70%",
