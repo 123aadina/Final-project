@@ -40,10 +40,7 @@ const Footer = () => {
         </li>
       </ul>
 
-      <div className="text-secondary text-center">
-        {" "}
-        Copyright @ Women Voice{" "}
-      </div>
+      <div className="text-secondary text-center"> Copyright @ Women Help </div>
     </footer>
   );
 };
