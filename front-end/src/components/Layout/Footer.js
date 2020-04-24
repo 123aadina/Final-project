@@ -38,13 +38,6 @@ const Footer = () => {
             {t("Topics.1")}{" "}
           </Link>
         </li>
-
-        <li className="mx-2 pt-3 ">
-          <Link to="/association" className="text-secondary">
-            {" "}
-            {t("home.1")}{" "}
-          </Link>
-        </li>
       </ul>
 
       <div className="text-secondary text-center">
