@@ -28,10 +28,6 @@ export default function Association(props) {
   return (
     <div className="container d-flex justify-content-center flex-wrap flex-column">
       <Navbar />
-      <h1 className="text-center" id="association_heading">
-        {" "}
-        They can help you!{" "}
-      </h1>
 
       <div className="container d-flex flex-column justify-content-center ">
         <h3
