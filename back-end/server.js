@@ -6,8 +6,8 @@ const mongoose = require("mongoose");
 /** INIT */
 const api = express();
 
-const reactPath = path.join(__dirname , '../front-end/build')
-console.log(reactPath)
+const reactPath = path.join(__dirname, "../front-end/build");
+console.log(reactPath);
 
 /** REQUEST PARSERS */
 api.use(express.static(reactPath));
@@ -15,7 +15,7 @@ api.use(express.json());
 api.use(express.urlencoded({ extended: false }));
 
 /** START SERVER*/
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 3000;
 const server = api.listen(port, () => console.log("Started on 3000"));
 
 /*api.get("/", (req, res, next) => {
@@ -28,7 +28,7 @@ const server = api.listen(port, () => console.log("Started on 3000"));
 /** CONNECT TO DATABASE */
 const mongoString =
   "mongodb+srv://hamida:hamida@cluster0-idevj.mongodb.net/final-project?retryWrites=true&w=majority";
-const db = process.env.MONGO_URI || mongoString 
+const db = process.env.MONGO_URI || mongoString;
 
 mongoose
   .connect(db, {
