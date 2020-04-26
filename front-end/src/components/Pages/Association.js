@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 // COMPONENT
 import Navbar from "../Layout/Navbar";
-import Footer from "../Layout/Footer";
 import Card from "../Pages/Card";
 
 export default function Association(props) {
+  const { t, i18n } = useTranslation();
   let problem = props.location.state ? props.location.state.problem : {};
 
   const [cards, setCards] = useState([]);
@@ -15,7 +16,9 @@ export default function Association(props) {
     if (!props.location.state) {
       return;
     }
-    fetch(`http://localhost:3000/problem/${problem._id}/organisations`)
+    const apiUrl = process.env.REACT_APP_API_URL || "http://localhost:3000";
+    console.log(apiUrl);
+    fetch(`${apiUrl}/problem/${problem._id}/organisations`)
       .then((res) => res.json())
       .then((data) => setCards(data))
       .catch((error) => console.log(error));
@@ -51,14 +54,14 @@ export default function Association(props) {
             })}
           </div>
           <div className="row">
-            <div className="col text-center">
+            {/* <div className="col text-center">
               {" "}
               <button className="btn btn-success m-2 font-weight-bolder">
                 Get in touch with these organisations
               </button>
-            </div>
+            </div> */}
           </div>
-          <div className="row ">
+          <div className="row mt-2">
             <div className="col text-center">
               <button
                 className="btn bg bg-light text-center"
@@ -70,7 +73,6 @@ export default function Association(props) {
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 }

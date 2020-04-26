@@ -20,16 +20,22 @@ module.exports = (server) => {
       // socket.emit("message", `User ${username} joined room ${room}`);
     });
     socket.on("rooms", (username) => {
-      console.log("listOfRooms");
+      console.log("listOfRooms", username);
+
+      if(!username) {
+        return
+      }
       User.findOne({ isAdministrator: true, name: username }).then((user) => {
-        if (user) {
-          User.find()
+        if(user) {
+          User.find({chatBoxChecked:true})
             .select("name")
             .then((users) => {
-              io.emit("rooms", users);
+              //io.emit("rooms", users);
+              socket.emit("rooms", users)
             });
         } else {
-          io.emit("rooms", [{name:username}]);
+          //io.emit("rooms", [{name:username}]);
+          socket.emit("rooms",[{name:username}])
         }
       });
     });

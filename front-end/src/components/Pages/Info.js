@@ -1,13 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import ShowMoreText from "react-show-more-text";
+import { useTranslation } from "react-i18next";
 
 // Components
 import Navbar from "../Layout/Navbar";
-import Footer from "../Layout/Footer";
 import Topic from "./Topic";
 
 const Info = () => {
+  const { t, i18n } = useTranslation();
   return (
     <div
       className="container d-flex justify-content-center flex-wrap flex-column "
@@ -73,7 +74,7 @@ const Info = () => {
         <button className="btn btn-light mr-3 border-bottom">
           <Link to="/" className="text-dark font-weight-bold ">
             {" "}
-            Homepage{" "}
+            {t("home.1")}{" "}
           </Link>
         </button>
         <button className="btn btn-light mr-3 border-bottom">
@@ -83,7 +84,6 @@ const Info = () => {
           </Link>
         </button>
       </div>
-      <Footer />
     </div>
   );
 };

@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 // Components
 import Navbar from "../Layout/Navbar";
-import Footer from "../Layout/Footer";
 
 export default function Topic() {
+  const { t, i18n } = useTranslation();
   const [problems, changeProblems] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/problem")
+    const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:3000'
+    fetch(`${apiUrl}/problem`)
       .then((res) => res.json())
       .then((data) => changeProblems(data))
       .catch((error) => console.log(error));
@@ -49,7 +51,6 @@ export default function Topic() {
           })}
         </div>
       </div>
-      <Footer />
     </div>
   );
 }

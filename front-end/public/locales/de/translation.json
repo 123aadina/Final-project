@@ -4,5 +4,35 @@
     },
     "thanks": { 
     "1": "Danke für den Beitritt zu uns"
+    },
+    "voice": {
+        "1": "Women Voice hilft Ihnen, Informationen zu finden, um die Probleme zu lösen, die Sie möglicherweise in Deutschland haben"
+    },
+    "help": {
+    "1": " Hilfe bekommen"
+    },
+    "home": {
+    "1": " Home"
+    },
+    "information": {
+    "1": "Mehr Informationen bekommen"
+    },
+    "Chat": {
+    "1": " sprech mit uns"
+    },
+    "Login": {
+    "1": " Login"
+    },
+    "Info": {
+    "1": " Informationen"
+    },
+    "Register": {
+    "1": " Registrieren"
+    },
+    "Topics": {
+    "1": " Themen"
+    },
+    "Copyright": {
+    "1": " Copyright @ Women Voice"
     }
 }

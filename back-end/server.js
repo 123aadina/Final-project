@@ -6,25 +6,29 @@ const mongoose = require("mongoose");
 /** INIT */
 const api = express();
 
-/** REQUEST PARSERS */
+const reactPath = path.join(__dirname, "../front-end/build");
+console.log(reactPath);
 
+/** REQUEST PARSERS */
+api.use(express.static(reactPath));
 api.use(express.json());
 api.use(express.urlencoded({ extended: false }));
 
 /** START SERVER*/
+const port = process.env.PORT || 3000;
+const server = api.listen(port, () => console.log("Started on 3000"));
 
-const server = api.listen(3000, () => console.log("Started on 3000"));
-
-api.get("/", (req, res, next) => {
+/*api.get("/", (req, res, next) => {
   res.send(`Hello world`);
-});
+});*/
 
 /** STATIC FILES*/
-api.use(express.static(path.join(__dirname, "pages")));
+//api.use(express.static(path.join(__dirname, "../")));
 
 /** CONNECT TO DATABASE */
 const mongoString =
   "mongodb+srv://hamida:hamida@cluster0-idevj.mongodb.net/final-project?retryWrites=true&w=majority";
+const db = process.env.MONGO_URI || mongoString;
 
 mongoose
   .connect(db, {

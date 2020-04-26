@@ -6,7 +6,6 @@ import Navbar from "../Layout/Navbar";
 import Footer from "../Layout/Footer";
 import Dashboard from "../ChatApp/Dashboard";
 
-
 const Home = () => {
   const { t, i18n } = useTranslation();
   let photo = "https://unsplash.it/750/250";
@@ -17,10 +16,7 @@ const Home = () => {
       <div className="col m-auto">
         {/* Welcome message */}
         <h1 className="text-center my-3">{t("welcome.1")}</h1>
-        <p className="font-italic text-center">
-          " Women Voice help you to find informations in order to solve the
-          issues that you might have in Germany "
-        </p>
+        <p className="font-italic text-center">{t("voice.1")}</p>
         <h5 className="text-center  ">{t("thanks.1")}</h5>
 
         {/* Welcome Pictures */}
@@ -39,7 +35,7 @@ const Home = () => {
               className="text-dark font-weight-bold text-decoration-none"
             >
               {" "}
-              Get Help{" "}
+              {t("help.1")}{" "}
             </Link>
           </button>
           <button className="btn btn-light border-bottom mr-3 ">
@@ -48,7 +44,8 @@ const Home = () => {
               className="text-dark font-weight-bold text-decoration-none"
             >
               {" "}
-              Get more <br></br> informations{" "}
+              {t("information.1")}
+              {/*Get more <br></br> information{" "}*/}
             </Link>
           </button>
           <button className="btn btn-light border-bottom ">
@@ -57,12 +54,10 @@ const Home = () => {
               className="text-dark font-weight-bold text-decoration-none"
             >
               {" "}
-              Chat with us
+              {t("Chat.1")}
             </Link>
           </button>
         </div>
-        <Footer />
-          <Dashboard />
       </div>
     </div>
   );

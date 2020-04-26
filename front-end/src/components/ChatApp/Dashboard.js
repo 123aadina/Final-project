@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 //@material-ui/paper
 import Paper from "@material-ui/core/Paper";
 //@material-ui/Typography
@@ -19,10 +20,10 @@ import TextField from "@material-ui/core/TextField";
 import io from "socket.io-client";
 import Footer from "../Layout/Footer";
 
-const socket = io(":3000");
+const apiUrl = (process.env.REACT_APP_API_URL || 'http://localhost:3000')
+const socket = io(apiUrl);
 
-//const user = 'hamida' + Math.random(100).toFixed(2)
-//const user = 'christophe'
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -32,16 +33,19 @@ const useStyles = makeStyles((theme) => ({
   flex: {
     display: "flex",
     alignItems: "center",
+    
   },
   topicsWindow: {
     width: "30%",
     height: "300px",
-    borderRight: "1px solid red",
+    borderRight: "1px solid gray",
   },
   chatWindow: {
     width: "70%",
     height: "300px",
+    //minHeight:'300px',
     padding: "20px",
+    overflowY: "scroll"
   },
   chatBox: {
     width: "85%",
@@ -52,13 +56,12 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Dashboard = (props) => {
+  const { t, i18n } = useTranslation();
   let username;
   if (props.location && props.location.state) {
     username = props.location.state.username;
   }
 
-  // i did it
-  //const {username} = useContext(ChatContext)
   //local state
   let [rooms, setRooms] = useState([
     {
@@ -123,7 +126,9 @@ const Dashboard = (props) => {
         room: activeRoom.name,
         msg: textValue,
         username: userValue,
+       
       });
+   changeTextValue('')
     } else {
       console.log("[ERROR] Please choose a room before sending a message!");
     }
@@ -134,6 +139,7 @@ const Dashboard = (props) => {
     console.log("Attaching message to room: ", room);
     console.log(rooms, "rooms");
     console.log(activeRoom, "activeRoom");
+
 
     // update chat history by creating a copy of state, updating it & re-assign it
     let roomsCopy = [...rooms];
@@ -148,6 +154,7 @@ const Dashboard = (props) => {
       //setRooms(roomsCopy);
     }
   };
+
 
   return (
     <div>
@@ -187,18 +194,18 @@ const Dashboard = (props) => {
         </div>
         <div className={classes.flex}>
           <TextField
+          id='chatText'
             label="send a chat"
             className={classes.chatBox}
             value={textValue}
             onChange={(e) => changeTextValue(e.target.value)}
           />
-          <TextField
+          {/*<TextField
             label="user"
             className={classes.chatBox}
             value={userValue}
             onChange={(e) => changeUserValue(e.target.value)}
-          />
-
+          />*/}
           <Button
             variant="contained"
             color="primary"
