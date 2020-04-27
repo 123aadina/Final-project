@@ -1,9 +1,9 @@
+// Module
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
-// COMPONENT
-import Navbar from "../Layout/Navbar";
+// Component
 import Card from "../Pages/Card";
 
 export default function Association(props) {
@@ -27,8 +27,6 @@ export default function Association(props) {
 
   return (
     <div className="container d-flex justify-content-center flex-wrap flex-column">
-      <Navbar />
-
       <div className="container d-flex flex-column justify-content-center ">
         <h3
           className="mx-auto m-3 p-3 bg bg-light rounded border-bottom"
@@ -50,14 +48,7 @@ export default function Association(props) {
               );
             })}
           </div>
-          <div className="row">
-            {/* <div className="col text-center">
-              {" "}
-              <button className="btn btn-success m-2 font-weight-bolder">
-                Get in touch with these organisations
-              </button>
-            </div> */}
-          </div>
+
           {/* <div className="row mt-2">
             <div className="col text-center">
               <button

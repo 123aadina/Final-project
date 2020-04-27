@@ -1,30 +1,26 @@
+// Module
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-// Components
-import Navbar from "../Layout/Navbar";
-import Footer from "../Layout/Footer";
-import Dashboard from "../ChatApp/Dashboard";
 
 const Home = () => {
   const { t, i18n } = useTranslation();
   let photo = "https://unsplash.it/750/250";
   return (
-    //  Homepage_container -->  Main container
+    //  Homepage
     <div className="container d-flex flex-column justify-content-center align-items-center flex-wrap">
-      <Navbar />
       <div className="col m-auto">
         {/* Welcome message */}
         <h1 className="text-center my-3">{t("welcome.1")}</h1>
         <p className="font-italic text-center">{t("voice.1")}</p>
         <h5 className="text-center  ">{t("thanks.1")}</h5>
 
-        {/* Welcome Pictures */}
+        {/* Homepage Big Picture */}
         <div className=" my-2 text-center">
           <img className="img-fluid m-3 rounded" src={photo} alt="" />
         </div>
 
-        {/* Call to action buttons */}
+        {/* Button Get Help - More info */}
         <div
           className="container d-flex justify-content-center my-3 col"
           id="homepage_button"
@@ -45,7 +41,6 @@ const Home = () => {
             >
               {" "}
               {t("information.1")}
-              {/*Get more <br></br> information{" "}*/}
             </Link>
           </button>
           <button className="btn btn-light border-bottom ">

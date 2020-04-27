@@ -12,12 +12,16 @@ import Topic from "./components/Pages/Topic";
 import Association from "./components/Pages/Association";
 import Dashboard from "./components/ChatApp/Dashboard";
 import Footer from "./components/Layout/Footer";
+import Navbar from "./components/Layout/Navbar";
 
 function App() {
   return (
     <HashRouter>
       <div className="App">
-        <header className="App-header">{/*  <Navbar />*/}</header>
+        <header className="App-header">
+          {" "}
+          <Navbar />
+        </header>
         <main>
           <Switch>
             <Route exact path="/" component={Home} />

@@ -1,6 +1,6 @@
+// Module
 import React, { useState, useContext } from "react";
 import { Link, Redirect } from "react-router-dom";
-import Navbar from "../Layout/Navbar";
 
 const initErrorState = {
   emailError: "",
@@ -28,7 +28,7 @@ const LogIn = (props) => {
     chat: false,
   });
 
-  //Validating the form
+  //Form validating
   const validateLogIn = () => {
     setState({
       ...state,
@@ -38,7 +38,7 @@ const LogIn = (props) => {
     if (!state.email.includes("@") || state.email === "") {
       setState({
         ...state,
-        emailError: "Email is not valid",
+        emailError: "This is an invalid email",
       });
       return false;
     }
@@ -64,7 +64,7 @@ const LogIn = (props) => {
       password: state.password,
     });
     console.log("Fetching ");
-    const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:3000'
+    const apiUrl = process.env.REACT_APP_API_URL || "http://localhost:3000";
     fetch(`${apiUrl}/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -79,19 +79,6 @@ const LogIn = (props) => {
           chat: data.chatBoxChecked,
         });
       });
-    /*if (resp.status != 200) {
-      
-      setState({
-        //kai edw tha paei me to email i to pass?
-        ...state,
-        passwordError: "Password is not valid.",
-      });
-    } else {
-      console.log(resp.json());
-
-      setState(InitState);
-    }
-  });*/
   };
   //redirecting to chat page if chat is clicked
   if (login.chat) {
@@ -130,7 +117,6 @@ const LogIn = (props) => {
   return (
     // MAIN CONTAINER
     <div className="container d-flex flex-column justify-content-center rounded col-6 ">
-      <Navbar />
       <h1 className="text-center"> Sign In </h1>
       {/* CONTAINER FOR THE FIELD */}
       <div className="container d-flex flex-column justify-content-center align-items-center p-3 bg bg-light border rounded col">
@@ -167,7 +153,7 @@ const LogIn = (props) => {
           <Link>
             <h6> Forgot your password? </h6>
           </Link>
-          {/* BUTTON LOGIN */}
+          {/* SIGN IN BUTTONS */}
           <div className="loginButton text-center">
             <button
               type="submit"

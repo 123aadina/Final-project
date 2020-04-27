@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 const Footer = () => {
   const { t, i18n } = useTranslation();
   return (
-    <footer className="container mb-2">
+    <footer className="container mb-1">
       <ul className="d-flex justify-content-center align-items-center list-unstyled flex-wrap">
         <li className="mx-2 pt-3 pl-3">
           <Link to="/" className="text-secondary">
@@ -40,7 +40,10 @@ const Footer = () => {
         </li>
       </ul>
 
-      <div className="text-secondary text-center"> Copyright @ Women Help </div>
+      <div className="text-secondary text-center">
+        {" "}
+        All right reserved @ Women's Help{" "}
+      </div>
     </footer>
   );
 };
