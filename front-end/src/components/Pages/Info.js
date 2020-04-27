@@ -1,10 +1,8 @@
+// Module
 import React from "react";
 import { Link } from "react-router-dom";
 import ShowMoreText from "react-show-more-text";
 import { useTranslation } from "react-i18next";
-
-// Components
-import Topic from "./Topic";
 
 const Info = () => {
   const { t, i18n } = useTranslation();
@@ -21,7 +19,7 @@ const Info = () => {
         <p className="justify-content-center bg bg-light text-center  align-items-center p-5">
           <ShowMoreText
             /* Default options */
-            lines={10}
+            lines={7}
             more="Show more"
             less="Show less"
             anchorClass=""
