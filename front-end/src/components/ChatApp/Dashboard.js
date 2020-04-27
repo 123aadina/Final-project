@@ -58,6 +58,7 @@ const useStyles = makeStyles((theme) => ({
 const Dashboard = (props) => {
   const { t, i18n } = useTranslation();
   let username;
+  let chatWindowRef = useRef()
   if (props.location && props.location.state) {
     username = props.location.state.username;
   }
@@ -153,10 +154,18 @@ const Dashboard = (props) => {
       setRooms(roomsCopy);
       //setRooms(roomsCopy);
     }
+    
   };
 
-  //parent.scrollTop = parent.scrollHeight` (in your case parent is "chatWindow
-  //chatWindowRef.current.scrollTop = chatWindowRef.current.scrollHeight
+  useEffect(()=>{
+    if(chatWindowRef.current)
+     {
+      chatWindowRef.current.scrollTop = chatWindowRef.current.scrollHeight
+      console.log('ref')
+      }
+   
+  }, [rooms])
+
 
   return (
     <div>
@@ -185,7 +194,7 @@ const Dashboard = (props) => {
           <div className={classes.chatWindow}>
             {activeRoom &&
               activeRoom.history.map((chat, i) => (
-                <div className={classes.flex} key={i}>
+                <div className={classes.flex}  ref={chatWindowRef} key={i}>
                   <Chip label={chat.user} className={classes.chip} />
                   <Typography variant="body1" gutterBottom>
                     {chat.msg}
