@@ -1,6 +1,6 @@
+// Module
 import React, { useState, useContext } from "react";
 import { Link, Redirect } from "react-router-dom";
-import Navbar from "../Layout/Navbar";
 
 const initErrorState = {
   emailError: "",
@@ -167,7 +167,7 @@ const LogIn = (props) => {
           <Link>
             <h6> Forgot your password? </h6>
           </Link>
-          {/* BUTTON LOGIN */}
+          {/* SIGN IN BUTTONS */}
           <div className="loginButton text-center">
             <button
               type="submit"
