@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 //@material-ui/paper
 import Paper from "@material-ui/core/Paper";
@@ -155,6 +155,8 @@ const Dashboard = (props) => {
     }
   };
 
+  //parent.scrollTop = parent.scrollHeight` (in your case parent is "chatWindow
+  //chatWindowRef.current.scrollTop = chatWindowRef.current.scrollHeight
 
   return (
     <div>
