@@ -11,7 +11,7 @@ const Navbar = ({ icon, title }) => {
   };
 
   return (
-    <nav className="navbar navbar-expand-xs col justify-content-center d-flex flex-row ">
+    <nav className="navbar navbar-expand-xs col justify-content-center d-flex flex-row m-2">
       {/* <Link to="/">
         
         <i className={icon}></i>
