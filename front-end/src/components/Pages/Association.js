@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 // COMPONENT
-import Navbar from "../Layout/Navbar";
 import Card from "../Pages/Card";
 
 export default function Association(props) {
@@ -27,8 +26,6 @@ export default function Association(props) {
 
   return (
     <div className="container d-flex justify-content-center flex-wrap flex-column">
-      <Navbar />
-
       <div className="container d-flex flex-column justify-content-center ">
         <h3
           className="mx-auto m-3 p-3 bg bg-light rounded border-bottom"
