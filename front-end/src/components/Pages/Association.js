@@ -28,10 +28,6 @@ export default function Association(props) {
   return (
     <div className="container d-flex justify-content-center flex-wrap flex-column">
       <Navbar />
-      <h1 className="text-center" id="association_heading">
-        {" "}
-        They can help you!{" "}
-      </h1>
 
       <div className="container d-flex flex-column justify-content-center ">
         <h3
@@ -61,7 +57,7 @@ export default function Association(props) {
               </button>
             </div> */}
           </div>
-          <div className="row mt-2">
+          {/* <div className="row mt-2">
             <div className="col text-center">
               <button
                 className="btn bg bg-light text-center"
@@ -70,7 +66,7 @@ export default function Association(props) {
                 <Link className="text-decoration-none text-center bg">Top</Link>
               </button>
             </div>{" "}
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
