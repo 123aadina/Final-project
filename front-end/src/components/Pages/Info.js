@@ -4,7 +4,6 @@ import ShowMoreText from "react-show-more-text";
 import { useTranslation } from "react-i18next";
 
 // Components
-import Navbar from "../Layout/Navbar";
 import Topic from "./Topic";
 
 const Info = () => {
@@ -14,7 +13,6 @@ const Info = () => {
       className="container d-flex justify-content-center flex-wrap flex-column "
       id="info_container"
     >
-      <Navbar />
       <h1 className="text-center "> Women's rights in Germany </h1>
       <div
         className="container d-flex justify-content-center align-items-center col mx-auto col-xs"
