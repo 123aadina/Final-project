@@ -373,7 +373,7 @@ const RegistrationForm = (props) => {
         className="alert alert-danger m-2 justify-content-center "
         role="alert"
       >
-        <BallonBox title="You need to sign in, if you want to chat with us." />
+        <BallonBox title="You need to sign in order to chat with us." />
       </div>
     </div>
   );
