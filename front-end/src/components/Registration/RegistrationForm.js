@@ -1,10 +1,8 @@
+// Module
 import React, { useState } from "react";
 import CheckBoxBase from "./Checkboxes";
 import DropdownList from "./DropdownList";
 import BallonBox from "./BallonBox";
-
-// Components
-import Navbar from "../Layout/Navbar";
 
 // Styling
 import "../../styles/App.scss";
@@ -169,7 +167,7 @@ const RegistrationForm = (props) => {
     });
     console.log(requestBody);
     // fetch to send the registration form back to backend as jason/
-    const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:3000'
+    const apiUrl = process.env.REACT_APP_API_URL || "http://localhost:3000";
     fetch(`${apiUrl}/registration`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -216,7 +214,6 @@ const RegistrationForm = (props) => {
 
   return (
     <div className="container d-flex flex-column justify-content-center align-items-center flex-wrap col ">
-      <Navbar className="navbar navbar-expand-xs col justify-content-center " />
       <h1 className=" text-center"> Registration Form </h1>
       <div className="row bg bg-light p-3">
         {/* Form start here */}
