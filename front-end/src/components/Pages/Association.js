@@ -57,7 +57,7 @@ export default function Association(props) {
               </button>
             </div> */}
           </div>
-          <div className="row mt-2">
+          {/* <div className="row mt-2">
             <div className="col text-center">
               <button
                 className="btn bg bg-light text-center"
@@ -66,7 +66,7 @@ export default function Association(props) {
                 <Link className="text-decoration-none text-center bg">Top</Link>
               </button>
             </div>{" "}
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
