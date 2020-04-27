@@ -28,7 +28,7 @@ const LogIn = (props) => {
     chat: false,
   });
 
-  //Validating the form
+  //Form validating
   const validateLogIn = () => {
     setState({
       ...state,
@@ -38,7 +38,7 @@ const LogIn = (props) => {
     if (!state.email.includes("@") || state.email === "") {
       setState({
         ...state,
-        emailError: "Email is not valid",
+        emailError: "This is an invalid email",
       });
       return false;
     }
@@ -79,19 +79,6 @@ const LogIn = (props) => {
           chat: data.chatBoxChecked,
         });
       });
-    /*if (resp.status != 200) {
-      
-      setState({
-        //kai edw tha paei me to email i to pass?
-        ...state,
-        passwordError: "Password is not valid.",
-      });
-    } else {
-      console.log(resp.json());
-
-      setState(InitState);
-    }
-  });*/
   };
   //redirecting to chat page if chat is clicked
   if (login.chat) {
@@ -130,7 +117,6 @@ const LogIn = (props) => {
   return (
     // MAIN CONTAINER
     <div className="container d-flex flex-column justify-content-center rounded col-6 ">
-      {/* <Navbar /> */}
       <h1 className="text-center"> Sign In </h1>
       {/* CONTAINER FOR THE FIELD */}
       <div className="container d-flex flex-column justify-content-center align-items-center p-3 bg bg-light border rounded col">
