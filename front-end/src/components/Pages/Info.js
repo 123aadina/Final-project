@@ -69,12 +69,6 @@ const Info = () => {
         id="info_button"
       >
         <button className="btn btn-light mr-3 border-bottom">
-          <Link to="/" className="text-dark font-weight-bold ">
-            {" "}
-            {t("home.1")}{" "}
-          </Link>
-        </button>
-        <button className="btn btn-light mr-3 border-bottom">
           <Link to="/topic" className="text-dark font-weight-bold ">
             {" "}
             Move to <br></br>the Issues Topic{" "}
