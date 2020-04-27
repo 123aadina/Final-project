@@ -16,10 +16,10 @@ const Info = () => {
         className="container d-flex justify-content-center align-items-center col mx-auto col-xs"
         id="info_container_description"
       >
-        <p className="justify-content-center bg bg-light text-center  align-items-center p-5">
+        <p className="bg bg-light justify-content-center align-items-center p-5 rounded">
           <ShowMoreText
             /* Default options */
-            lines={7}
+            lines={10}
             more="Show more"
             less="Show less"
             anchorClass=""
@@ -30,15 +30,16 @@ const Info = () => {
             asylum seekers in the first half of 2016.One third of those
             currently seeking refuge in Germany are women. Children, women and
             men have equal rights and opportunities in Germany.This means that
-            protection is equally available to all. Sexual abuse, trafficking in
-            women, domestic violence, forced marriage are human rights
-            violations unfortunately affect women and children almost
-            exclusively. In Germany, victims of violence have the right to a
-            range of protective measures. Every person has the right to live a
-            life free of violence.When a partner is becoming acutely violent,
-            call the police by dialling 110 or go to a police station. The
-            police are obliged to attend immediately in order to protect the
-            person. Women affected by violence can get assistance, support and
+            protection is equally available to all.<br></br>
+            <br></br> Sexual abuse, trafficking in women, domestic violence,
+            forced marriage are human rights violations unfortunately affect
+            women and children almost exclusively. In Germany, victims of
+            violence have the right to a range of protective measures. Every
+            person has the right to live a life free of violence.When a partner
+            is becoming acutely violent, call the police by dialling 110 or go
+            to a police station. The police are obliged to attend immediately in
+            order to protect the person.<br></br>
+            <br></br> Women affected by violence can get assistance, support and
             advice regarding further protection options from counselling
             centres, women’s refuges, victim support services and violence
             prevention hotlines (see also the section on referrals).Specialist
