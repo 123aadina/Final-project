@@ -15,7 +15,7 @@ export default function Topic() {
       .then((res) => res.json())
       .then((data) => changeProblems(data))
       .catch((error) => console.log(error));
-  });
+  }, []);
 
   return (
     <div
@@ -30,9 +30,9 @@ export default function Topic() {
         id="topic_container_box"
       >
         <div className="row">
-          {problems.map((problem) => {
+          {problems.map((problem, id) => {
             return (
-              <div className="col-6 mx-auto text-center text-uppercase  ">
+              <div key={id} className="col-6 mx-auto text-center text-uppercase  ">
                 <div className="card m-2 bg-white rounded shadow p-3">
                   <Link
                     className="text-decoration-none text-darker justify-content-center text-dark"
