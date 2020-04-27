@@ -38,10 +38,11 @@ export default function Association(props) {
         </h3>
 
         <div className="container ">
-          <div className="row">
-            {cards.map((card) => {
+          <div className="row problem-grid">
+            {cards.map((card, id) => {
               return (
                 <Card
+                  key={id}
                   name={card.name}
                   description={card.description}
                   link={card.link}
