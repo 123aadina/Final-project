@@ -64,7 +64,7 @@ const LogIn = (props) => {
       password: state.password,
     });
     console.log("Fetching ");
-    const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:3000'
+    const apiUrl = process.env.REACT_APP_API_URL || "http://localhost:3000";
     fetch(`${apiUrl}/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -130,7 +130,7 @@ const LogIn = (props) => {
   return (
     // MAIN CONTAINER
     <div className="container d-flex flex-column justify-content-center rounded col-6 ">
-      <Navbar />
+      {/* <Navbar /> */}
       <h1 className="text-center"> Sign In </h1>
       {/* CONTAINER FOR THE FIELD */}
       <div className="container d-flex flex-column justify-content-center align-items-center p-3 bg bg-light border rounded col">
