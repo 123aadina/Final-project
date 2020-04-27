@@ -45,15 +45,16 @@ const Info = () => {
             prevention hotlines (see also the section on referrals).Specialist
             counselling centres provide information about next steps –
             independent of a crime being reported. Such a report can still be
-            made later. Anonymous counselling is available on request.If you
-            plan to report a crime, always get legal advice.In principle, staff
-            at specialist counselling centres, (female) doctors and lawyers are
-            subject to professional confidentiality. Germany has taken a number
-            of initiatives aimed at early intervention, for example by opening
-            the so-called Integration Courses. Language training is the
-            cornerstone of integration policy in Germany and the number of
-            available places in the Integration Course has been
-            increased.Integration and German language courses are improving
+            made later. Anonymous counselling is available on request.<br></br>
+            <br></br>If you plan to report a crime, always get legal advice.In
+            principle, staff at specialist counselling centres, (female) doctors
+            and lawyers are subject to professional confidentiality. Germany has
+            taken a number of initiatives aimed at early intervention, for
+            example by opening the so-called Integration Courses. Language
+            training is the cornerstone of integration policy in Germany and the
+            number of available places in the Integration Course has been
+            increased.<br></br>
+            <br></br>Integration and German language courses are improving
             refugees' chances of finding work European laws guarantee the rights
             of divorced women, with the state securing the children’s education,
             house expenses and costs of living, if they are unable to work.
