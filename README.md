@@ -1,8 +1,4 @@
-# Final Project --> Help Woman to find ressources
-
-## Main repo for the final project
-
-Everybody should create a proto-[name] branch before starting working.
+# Women Help 
 
 # Ressources - Final Project
 
