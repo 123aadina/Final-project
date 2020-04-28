@@ -129,7 +129,7 @@ const Dashboard = (props) => {
         msg: textValue,
         username: userValue,
       });
-      //changeTextValue("");
+      changeTextValue("");
     } else {
       console.log("[ERROR] Please choose a room before sending a message!");
     }
