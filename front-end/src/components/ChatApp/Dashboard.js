@@ -26,6 +26,10 @@ const useStyles = makeStyles((theme) => ({
   root: {
     margin: "50px",
     padding: theme.spacing(3, 2),
+    
+  },
+  title: {
+    textAlign: "center"
   },
   flex: {
     display: "flex",
@@ -35,13 +39,14 @@ const useStyles = makeStyles((theme) => ({
     width: "30%",
     height: "300px",
     borderRight: "1px solid gray",
+    overflowY: "auto"
   },
   chatWindow: {
     width: "70%",
     height: "300px",
     //minHeight:'300px',
     padding: "20px",
-    overflowY: "scroll",
+    overflowY: "auto",
   },
   chatBox: {
     width: "85%",
@@ -124,7 +129,7 @@ const Dashboard = (props) => {
         msg: textValue,
         username: userValue,
       });
-      changeTextValue("");
+      //changeTextValue("");
     } else {
       console.log("[ERROR] Please choose a room before sending a message!");
     }
@@ -155,7 +160,8 @@ const Dashboard = (props) => {
     if(chatWindowRef.current)
      {
       chatWindowRef.current.scrollTop = chatWindowRef.current.scrollHeight
-      console.log('ref')
+      console.log('ref', chatWindowRef.current.scrollTop ,chatWindowRef.current.scrollHeight, chatWindowRef.current.clientHeight)
+
       }
    
   }, [rooms])
@@ -164,8 +170,8 @@ const Dashboard = (props) => {
   return (
     <div>
       <Paper className={classes.root}>
-        <Typography variant="h4" component="h4">
-          Chat App
+        <Typography className = {classes.title} variant="h4" component="h4">
+          Chat with us
         </Typography>
         <Typography variant="h5" component="h5">
           {activeRoom && activeRoom.name}
@@ -185,10 +191,10 @@ const Dashboard = (props) => {
             </List>
           </div>
           {/*according to the topic the chat changed*/}
-          <div className={classes.chatWindow}>
+          <div className={classes.chatWindow} ref={chatWindowRef}>
             {activeRoom &&
               activeRoom.history.map((chat, i) => (
-                <div className={classes.flex}  ref={chatWindowRef} key={i}>
+                <div className={classes.flex}  key={i}>
                   <Chip label={chat.user} className={classes.chip} />
                   <Typography variant="body1" gutterBottom>
                     {chat.msg}

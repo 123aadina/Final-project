@@ -6,7 +6,7 @@
     "1": "Danke für den Beitritt zu uns"
     },
     "voice": {
-        "1": "Women Voice hilft Ihnen, Informationen zu finden, um die Probleme zu lösen, die Sie möglicherweise in Deutschland haben"
+        "1": "Frauenhilfe hilft Ihnen, Informationen zu finden, um die Probleme zu lösen, die Sie möglicherweise in Deutschland haben"
     },
     "help": {
     "1": " Hilfe bekommen"
@@ -15,10 +15,10 @@
     "1": " Home"
     },
     "information": {
-    "1": "Mehr Informationen bekommen"
+    "1": "Mehr Informationen"
     },
     "Chat": {
-    "1": " sprech mit uns"
+    "1": " sprich mit uns"
     },
     "Login": {
     "1": " Login"
@@ -33,6 +33,6 @@
     "1": " Themen"
     },
     "Copyright": {
-    "1": " Copyright @ Women Voice"
+    "1": " Copyright @ Frauenhilfe"
     }
 }
