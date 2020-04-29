@@ -11,7 +11,7 @@ const Info = () => {
       className="container d-flex justify-content-center flex-wrap flex-column "
       id="info_container"
     >
-      <h1 className="text-center "> Women's rights in Germany </h1>
+      <h1 className="text-center mb-4"> Women's rights in Germany </h1>
       <div
         className="container d-flex justify-content-center align-items-center col mx-auto col-xs"
         id="info_container_description"

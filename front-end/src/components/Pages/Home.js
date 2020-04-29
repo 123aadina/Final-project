@@ -13,7 +13,7 @@ const Home = () => {
         {/* Welcome message */}
         <h1 className="text-center my-3">{t("welcome.1")}</h1>
         <p className="font-italic text-center">{t("voice.1")}</p>
-        <h5 className="text-center  ">{t("thanks.1")}</h5>
+        {/*<h5 className="text-center  ">{t("thanks.1")}</h5>*/}
 
         {/* Homepage Big Picture */}
         <div className=" my-2 text-center">

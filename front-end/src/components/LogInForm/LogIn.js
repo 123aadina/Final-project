@@ -117,7 +117,7 @@ const LogIn = (props) => {
   return (
     // MAIN CONTAINER
     <div className="container d-flex flex-column justify-content-center rounded col-6 ">
-      <h1 className="text-center"> Sign In </h1>
+      <h1 className="text-center mb-3"> Sign In </h1>
       {/* CONTAINER FOR THE FIELD */}
       <div className="container d-flex flex-column justify-content-center align-items-center p-3 bg bg-light border rounded col">
         <form noValidate onSubmit={handleLogInButton}>

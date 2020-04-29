@@ -29,11 +29,15 @@ const useStyles = makeStyles((theme) => ({
     
   },
   title: {
-    textAlign: "center"
+    textAlign: "center",
+    fontFamily: "Arial",
+    color: "rgb(124, 122, 105)",
   },
   flex: {
     display: "flex",
     alignItems: "center",
+    marginBottom: "10px",
+    color: "rgb(124, 122, 105)"
   },
   topicsWindow: {
     width: "30%",
@@ -44,7 +48,6 @@ const useStyles = makeStyles((theme) => ({
   chatWindow: {
     width: "70%",
     height: "300px",
-    //minHeight:'300px',
     padding: "20px",
     overflowY: "auto",
   },
@@ -53,6 +56,7 @@ const useStyles = makeStyles((theme) => ({
   },
   button: {
     width: "15%",
+    color: "rgb(241, 235, 222)"
   },
 }));
 
@@ -219,7 +223,7 @@ const Dashboard = (props) => {
           />*/}
           <Button
             variant="contained"
-            color="primary"
+            color="rgb(232, 95, 53)"
             onClick={(e) => {
               sendChatAction(e);
             }}
