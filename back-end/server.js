@@ -36,6 +36,9 @@ mongoose
     useUnifiedTopology: true,
     useCreateIndex: true,
   })
+  .then(() => {
+    console.log("connecd to mongodb")
+  }) 
   .catch((err) => {
     console.log(err);
   });
