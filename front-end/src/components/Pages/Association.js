@@ -16,7 +16,8 @@ export default function Association(props) {
     if (!props.location.state) {
       return;
     }
-    const apiUrl = process.env.REACT_APP_API_URL || "http://localhost:3000";
+    const apiUrl = process.env.NODE_ENV === "development" ? "http://localhost:3000" : process.env.REACT_APP_API_URL 
+   /*  const apiUrl = process.env.REACT_APP_API_URL || "http://localhost:3000"; */
     console.log(apiUrl);
     fetch(`${apiUrl}/problem/${problem._id}/organisations`)
       .then((res) => res.json())
