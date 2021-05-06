@@ -74,6 +74,7 @@ router.post("/registration", (req, res) => {
 // Find User and create the token
 // Route for the login form
 router.post("/login", (req, res, next) => {
+  console.log(req.body)
   User.findOne({ email: req.body.email })
     .then((user) => {
       if (!user) {
